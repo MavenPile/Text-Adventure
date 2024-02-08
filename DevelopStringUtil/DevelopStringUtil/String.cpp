@@ -1,5 +1,6 @@
 #include "String.h"
 #include <iostream>
+#include <cctype>
 
 String::String()
 {
@@ -148,15 +149,21 @@ const char* String::CStr() const
 
 }	//	functionality confirmed
 
-//String& String::ToLower()
-//{
-//	// TODO: insert return statement here
-//}
+void String::ToLower()
+{
+	for (int i = 0; i < strlen(m_string); i++)
+	{
+		if (islower(m_string[i]))
+		{
+			toupper(m_string[i]);
+		}
+	}
+}
 
-//String& String::ToUpper()
-//{
-//	// TODO: insert return statement here
-//}
+void String::ToUpper()
+{
+	// TODO: insert return statement here
+}
 
 //int String::Find(const String& findString)
 //{
@@ -179,12 +186,17 @@ const char* String::CStr() const
 //	//TODO
 //}
 
-void String::ReadFromConsole(const String& input)
+void String::ReadFromConsole()
 {
 	//	reads the console to replace m_string with the input
 
+	std::cout << "Waiting for input." << std::endl;		
+		//	prompts the user for input
 
-}
+	std::cin >> m_string;		
+		//	recieves console input and writes it to m_string
+
+}	//	functionality confirmed
 
 void String::WriteToConsole()
 {

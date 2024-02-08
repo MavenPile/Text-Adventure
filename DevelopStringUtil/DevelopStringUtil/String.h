@@ -35,9 +35,9 @@ public:
 
 	const char* CStr() const;		//outputs m_string for other objects to use
 
-	String& ToLower();		//converts the characters of the string to lower case
+	void ToLower();		//converts the characters of the string to lower case
 
-	String& ToUpper();		//converts the characters of the string to upper case
+	void ToUpper();		//converts the characters of the string to upper case
 
 	int Find(const String& findString);		//finds the address of findString, return -1 if not found
 
@@ -45,7 +45,7 @@ public:
 
 	String& Replace(const String& findString, const String& replaceString);		//replaces instances of a string with another
 
-	void ReadFromConsole(const String& input);		//reads a string from the console
+	void ReadFromConsole();		//reads a string from the console
 
 	void WriteToConsole();		//writes a string to the console
 };
