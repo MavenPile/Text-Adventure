@@ -1,6 +1,6 @@
 #include "String.h"
 #include <iostream>
-#include <cctype>
+#include <CString>
 
 String::String()
 {
@@ -153,9 +153,13 @@ void String::ToLower()
 {
 	for (int i = 0; i < strlen(m_string); i++)
 	{
-		if (islower(m_string[i]))
+		if (isupper(m_string[i]))
 		{
-			toupper(m_string[i]);
+			tolower(m_string[i]);
+		}
+		else
+		{
+			continue;
 		}
 	}
 }
