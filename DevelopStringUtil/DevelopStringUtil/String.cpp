@@ -179,9 +179,11 @@ const char* String::CStr() const
 //	//TODO
 //}
 
-void String::ReadFromConsole()
+void String::ReadFromConsole(const String& input)
 {
-	
+	//	reads the console to replace m_string with the input
+
+
 }
 
 void String::WriteToConsole()
@@ -191,4 +193,4 @@ void String::WriteToConsole()
 	std::cout << m_string << std::endl;
 		//	outputs m_string to the console
 
-}	//	
+}	//	functionality confirmed

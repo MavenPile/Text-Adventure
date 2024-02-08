@@ -45,7 +45,7 @@ public:
 
 	String& Replace(const String& findString, const String& replaceString);		//replaces instances of a string with another
 
-	void ReadFromConsole();		//reads a string from the console
+	void ReadFromConsole(const String& input);		//reads a string from the console
 
 	void WriteToConsole();		//writes a string to the console
 };
