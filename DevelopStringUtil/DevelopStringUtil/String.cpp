@@ -283,10 +283,47 @@ int String::Find(const String& findString)
 
 }	//	functionality confirmed
 
-//int String::Find(int startIndex, const String& findString)
-//{
-//	//	a function to find a string within a string array, starting from an indicated index
-//}
+int String::Find(int startIndex, const String& findString)
+{
+	//	a function to find a string within a string array, starting from an indicated index
+
+	bool isMatch;	//	declare a variable to hold a boolean
+
+	int length = strlen(m_string) - findString.Length();
+
+	if (findString.Length() <= strlen(m_string))
+			//	if the length of the input is less than or equal to m_string
+	{
+		for (int i = 0; i <= length; i++)
+				//	
+		{
+			isMatch = CompareAt(i + startIndex, findString);
+				//	checks for findString in m_string starting from the given index + i
+
+			if (isMatch == true)
+					//	if CompareAt finds findString in parameters
+			{
+				return i;	//	output the index number
+			}
+			else if (i != length)
+					//	checks if function is not on last iteration
+			{
+				continue;
+			}
+			else
+					//	if on last iteration and string not found
+			{
+				return -1;
+			}
+		}
+	}
+	else
+			//	if the length of the input is greater than m_string
+	{
+		return -1;	//	input cannot exist in m_string
+	}
+
+}	//	
 
 //String& String::Replace(const String& findString, const String& replaceString)
 //{
