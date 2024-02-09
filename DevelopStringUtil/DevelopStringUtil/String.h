@@ -8,6 +8,8 @@ private:
 
 	char* m_string;
 
+	bool CompareAt(int index, const String& input);
+
 public:
 
 	//constructors and destructors
@@ -58,5 +60,11 @@ public:
 	char operator [] (const int index);
 
 	void operator = (const String& input);
+
+		//	Optional functionality
+
+	String& operator + (const String& input);
+
+	String& operator += (const String& input);
 };
 

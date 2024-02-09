@@ -63,9 +63,20 @@ char& String::CharacterAt(int index)
 {
 	//uses C-String functionality of String Access to index the string
 
-	return m_string[index];
-		//	returns the char at the input index
-		//	just a single char, not an array
+	//if (index > strlen(m_string))
+	//{
+	//	return '/0';
+	//}
+	//else if (index < 0)
+	//{
+
+	//}
+	//else
+	//{
+		return m_string[index];
+			//	returns the char at the input index
+			//	just a single char, not an array
+	/*}*/
 
 }	//	functionality confirmed
 
@@ -183,16 +194,80 @@ void String::ToUpper()
 
 }	//	functionality confirmed
 
-//int String::Find(const String& findString)
-//{
-//	//	finds a string in a char array
-//	//	this likely uses String Access from C-String functionality
-//	//	a for loop can potentially be used to loop through the array to search
-//	//	I can only think of a way to find specific characters, not strings
-//
-//	for
-//
-//}
+bool String::CompareAt(int index, const String& input)
+{
+	//	a helper function that compares for the presence of a string in this string
+	//	starts from an index, checking for matches in m_string for the input
+
+	int length = strlen(m_string) - input.Length() + 1;
+		//	finds the length of the array that could contain the input
+	
+	int inputIndex = 0;
+		//	to save the index of the input
+
+	for (int i = index; i < length; i++)
+			//	isolates the area which will be searched for matching chars
+	{
+		if (m_string[i] != input.m_string[inputIndex])
+				//	checks if the char of the input at the index matches the indexed char of m_string
+		{
+			return false;	//	returns a false boolean if doesn't match
+		}
+		else if (i == input.Length() - 1)
+				//	checks if the loop is at it's final iteration
+		{
+			return true;	//	returns a true boolean because it found the string
+		}
+		else
+		{
+			inputIndex++;	//	increments the index for the input
+			continue;	//	continues the loop
+		}
+	}
+}
+
+int String::Find(const String& findString)
+{
+	//	finds a string in a char array
+	//	this likely uses String Access from C-String functionality
+	//	a for loop can potentially be used to loop through the array to search
+	//	I can only think of a way to find specific characters, not strings
+
+	bool isMatch;
+
+	if (findString.Length() < strlen(m_string))
+			//	determines if the input string is length is greater than m_string's length
+			//	can't find the input if there isn't enough space in m_string for it to exist
+	{
+		for (int i = 0; i < strlen(m_string) - findString.Length() + 1; i++)
+				//	for loop limit set to the latest point that the input could be found in m_string
+				//	if there isn't enough remaining space for the input, the rest is ignored
+		{			
+			isMatch = CompareAt(i, findString);
+				//	calls CompareAt to determine if findString is in m_string starting from index i
+			
+			if (isMatch == true)
+					//	checks if CompareAt helper function has found the input string
+			{
+				return i;
+			}
+			else if (/*isMatch == false &&*/ (i != (strlen(m_string) - findString.Length())))
+					//	checks for last iteration
+			{
+				continue;
+			}
+			else
+			{
+				return -1;
+			}
+		}
+	}
+	else
+	{
+		return -1;
+	}
+
+}	//	
 
 //int String::Find(int startIndex, const String& findString)
 //{
@@ -225,7 +300,7 @@ void String::WriteToConsole()
 
 }	//	functionality confirmed
 
-bool String::operator==(const String& input)
+bool String::operator == (const String& input)
 {
 	//	a member function that allows the use of the '==' operator with string classes
 	
@@ -240,7 +315,7 @@ bool String::operator==(const String& input)
 
 }	//	functionality confirmed!
 
-bool String::operator<(const String& input)
+bool String::operator < (const String& input)
 {
 	//	a member function to allow '<' (less than) functionality
 	
@@ -253,7 +328,7 @@ bool String::operator<(const String& input)
 
 }	//	functionality confirmed!
 
-char String::operator[](const int index)
+char String::operator [] (const int index)
 {
 	//	a member function to allow '[]' (indexing/subscript) functionality
 	//	has the same functionality as CharacterAt()
@@ -271,7 +346,7 @@ char String::operator[](const int index)
 
 }	//	functionality confirmed!
 
-void String::operator=(const String& input)
+void String::operator = (const String& input)
 {
 	//	a member function to allow '=' (assignment/replacement) functionality
 	//	replaces m_string with the input
@@ -292,3 +367,13 @@ void String::operator=(const String& input)
 		//	points m_string to the new pointer, which points to the new array
 
 }	//	
+
+//String& String::operator + (const String& input)
+//{
+//
+//}
+//
+//String& String::operator += (const String& input)
+//{
+//
+//}

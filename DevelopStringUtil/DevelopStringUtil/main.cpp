@@ -3,13 +3,19 @@
 
 int main()
 {
-	String string1;
+	String string1("Hello, World!");
 
-	String string2("HelloA");
+	String string2("World");
 
-	string1.ToUpper();
+	int index;
 
-	string1.WriteToConsole();
+	index = string1.Find(string2);
+
+	std::cout << index << std::endl;
+
+	/*string1.ToUpper();
+
+	string1.WriteToConsole();*/
 
 	//if (string1 < string2)
 	//{
