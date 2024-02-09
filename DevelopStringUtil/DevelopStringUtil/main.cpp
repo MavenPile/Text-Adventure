@@ -5,7 +5,7 @@ int main()
 {
 	String string1("Hello, World!");
 
-	String string2("World");
+	String string2("Hello, World!!");
 
 	int index;
 

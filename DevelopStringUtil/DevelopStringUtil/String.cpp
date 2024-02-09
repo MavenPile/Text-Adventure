@@ -199,32 +199,45 @@ bool String::CompareAt(int index, const String& input)
 	//	a helper function that compares for the presence of a string in this string
 	//	starts from an index, checking for matches in m_string for the input
 
-	int length = strlen(m_string) - input.Length() + 1;
-		//	finds the length of the array that could contain the input
+	//int length = strlen(m_string) - input.Length();
+	//	//	finds the length of the array that could contain the input
 	
-	int inputIndex = 0;
-		//	to save the index of the input
+	//int inputIndex = 0;
+	//	//	to save the index of the input
 
-	for (int i = index; i < length; i++)
-			//	isolates the area which will be searched for matching chars
+	//for (int i = index; i < strlen(m_string); i++)
+	//		//	isolates the area which will be searched for matching chars
+	//{
+	//	if (m_string[i] != input.m_string[inputIndex])
+	//			//	checks if the char of the input at the index matches the indexed char of m_string
+	//	{
+	//		return false;	//	returns a false boolean if doesn't match
+	//	}
+	//	else if (i == input.Length())
+	//			//	checks if the loop is at it's final iteration
+	//	{
+	//		return true;	//	returns a true boolean because it found the string
+	//	}
+	//	else
+	//	{
+	//		inputIndex++;	//	increments the index for the input
+	//		continue;	//	continues the loop
+	//	}
+	//}		//TOO COMPLICATED, needed a proper step back
+
+	for (int i = 0; i < input.Length(); i++)
+			//	loops a number of times equal to the length of the string
 	{
-		if (m_string[i] != input.m_string[inputIndex])
-				//	checks if the char of the input at the index matches the indexed char of m_string
+		if (m_string[index + i] != input.m_string[i])
+				//	checks if the indexes do not match
 		{
-			return false;	//	returns a false boolean if doesn't match
-		}
-		else if (i == input.Length() - 1)
-				//	checks if the loop is at it's final iteration
-		{
-			return true;	//	returns a true boolean because it found the string
-		}
-		else
-		{
-			inputIndex++;	//	increments the index for the input
-			continue;	//	continues the loop
+			return false;	//	returns false bool if indexes don't match/string not found
 		}
 	}
-}
+
+	return true;	//	returns true bool if if statement completes with only matches
+
+}	//	functionality confirmed
 
 int String::Find(const String& findString)
 {
@@ -235,11 +248,11 @@ int String::Find(const String& findString)
 
 	bool isMatch;
 
-	if (findString.Length() < strlen(m_string))
+	if (findString.Length() <= strlen(m_string))
 			//	determines if the input string is length is greater than m_string's length
 			//	can't find the input if there isn't enough space in m_string for it to exist
 	{
-		for (int i = 0; i < strlen(m_string) - findString.Length() + 1; i++)
+		for (int i = 0; i <= strlen(m_string) - findString.Length(); i++)
 				//	for loop limit set to the latest point that the input could be found in m_string
 				//	if there isn't enough remaining space for the input, the rest is ignored
 		{			
@@ -249,25 +262,26 @@ int String::Find(const String& findString)
 			if (isMatch == true)
 					//	checks if CompareAt helper function has found the input string
 			{
-				return i;
+				return i;	//	returns the index value if the string was found
 			}
 			else if (/*isMatch == false &&*/ (i != (strlen(m_string) - findString.Length())))
 					//	checks for last iteration
 			{
-				continue;
+				continue;	//	continues if string was not found but not at last iteration
 			}
 			else
 			{
-				return -1;
+				return -1;	//	returns -1 if string was not found by last iteration
 			}
 		}
 	}
 	else
+			//	if the input length is greater than the length of m_string
 	{
-		return -1;
+		return -1;	//	returns -1, because input cannot exist in m_string
 	}
 
-}	//	
+}	//	functionality confirmed
 
 //int String::Find(int startIndex, const String& findString)
 //{
