@@ -1,18 +1,17 @@
 #include "String.h"
 #include <iostream>
-#include <CString>
+#include <cctype>
+#include <ctype.h>
 
 String::String()
 {
 	//function dynamically allocates space for new char
 	//default constructor, so no inputs
 
-	m_string = new char[14];
-		//	because there is no input, a hard value is used
+	m_string = new char[14] {"Hello, World!"};
+		//	because there is no input, a hard value is used for array length
 		//	"Hello, World!" is 13 characters long. 14 is the length for null terminator
-
-	strcpy_s(m_string, 14, "Hello, World!");
-		//	copies "Hello, World!" into m_string
+		//	then "Hello, World!" is used as the string input for the array
 
 }	//function properly defines m_string
 
@@ -151,23 +150,38 @@ const char* String::CStr() const
 
 void String::ToLower()
 {
-	for (int i = 0; i < strlen(m_string); i++)
+	//	Step through every value in m_string
+	//	call tolower function on every char
+
+	char thisChar;	//	declares a variable to hold a char
+
+	for (int i = 0; i < strlen(m_string); i++)	//	for loop to loop through full array
 	{
-		if (isupper(m_string[i]))
-		{
-			tolower(m_string[i]);
-		}
-		else
-		{
-			continue;
-		}
+		thisChar = tolower(m_string[i]);
+			//	defines thisChar to equal to the lower case of the current index of m_string
+
+		m_string[i] = thisChar;
+			//	sets m_string at indexed point to thisChar, making it lower case if possible
 	}
-}
+
+}	//	functionality confirmed
 
 void String::ToUpper()
 {
-	// TODO: insert return statement here
-}
+	//	step through each char in m_string and call toupper
+
+	char thisChar;	//	declaring a variable which will hold a char
+
+	for (int i = 0; i < strlen(m_string); i++)	//	to loop through m_string
+	{
+		thisChar = toupper(m_string[i]);
+			//	thisChar becomes upper case of m_string at current index
+
+		m_string[i] = thisChar;
+			//	m_string at current index becomes thisChar, making it upper case if possible
+	}
+
+}	//	functionality confirmed
 
 //int String::Find(const String& findString)
 //{
@@ -210,3 +224,71 @@ void String::WriteToConsole()
 		//	outputs m_string to the console
 
 }	//	functionality confirmed
+
+bool String::operator==(const String& input)
+{
+	//	a member function that allows the use of the '==' operator with string classes
+	
+	if (strcmp(m_string,input.CStr()) != 0)	//	checks if the inputs are different
+	{
+		return false;	//	returns false boolean
+	}
+	
+		//	if conditional was not met
+
+	return true;	//	returns true boolean
+
+}	//	functionality confirmed!
+
+bool String::operator<(const String& input)
+{
+	//	a member function to allow '<' (less than) functionality
+	
+	if (strcmp(m_string, input.CStr()) == -1)	//	checks if input comes before m_string alphabetically
+	{
+		return true;	//	if the if statement is true, returns true boolean
+	}
+	
+	return false;	//	otherwise, returns false boolean
+
+}	//	functionality confirmed!
+
+char String::operator[](const int index)
+{
+	//	a member function to allow '[]' (indexing/subscript) functionality
+	//	has the same functionality as CharacterAt()
+	
+	if (index > strlen(m_string) || index < 0)	//	checks if input is outside array
+	{
+		return m_string[strlen(m_string)];	//	returns final char of m_string
+	}
+	else if (index < 0)	//	checks if input is outside array
+	{
+		return m_string[0];	//	returns first char of m_string
+	}
+
+	return m_string[index];	//	returns the value of m_string at the index
+
+}	//	functionality confirmed!
+
+void String::operator=(const String& input)
+{
+	//	a member function to allow '=' (assignment/replacement) functionality
+	//	replaces m_string with the input
+
+	char* newArray;
+		//	define a new pointer to store information
+
+	newArray = new char[strlen(input.CStr()) + 1];
+		//	the pointer now points to a set of allocated memory for an array
+
+	delete[] m_string;
+		//	deallocates memory for m_string
+
+	strcpy_s(newArray, strlen(input.CStr()) + 1, input.CStr());
+		//	copies the input into the new array at the new pointer
+
+	m_string = newArray;
+		//	points m_string to the new pointer, which points to the new array
+
+}	//	

@@ -48,5 +48,15 @@ public:
 	void ReadFromConsole();		//reads a string from the console
 
 	void WriteToConsole();		//writes a string to the console
+
+		//	Operator overload functions
+
+	bool operator == (const String& input);
+
+	bool operator < (const String& input);
+
+	char operator [] (const int index);
+
+	void operator = (const String& input);
 };
 
