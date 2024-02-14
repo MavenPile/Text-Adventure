@@ -102,14 +102,16 @@ void String::Append(const String& input)
 
 	char* newArray;		//	new pointer to save information
 
-	newArray = new char[strlen(m_string) + strlen(input.CStr()) + 1];
+	int length = strlen(m_string) + strlen(input.CStr()) + 1;
+
+	newArray = new char[length];
 		//	sets newArray to an array with appropriate length
 		//	manually allocates memory
 
-	strcpy_s(newArray, (strlen(m_string) + strlen(input.CStr()) + 1), m_string);
+	strcpy_s(newArray, length, m_string);
 		//	newArray copies the string of m_string to its allocated memory
 
-	strcat_s(newArray, strlen(m_string) + strlen(input.CStr()) + 1, input.CStr());
+	strcat_s(newArray, length, input.CStr());
 		//	newArray appends the string of the input to its allocated memory
 
 	delete[] m_string;
@@ -355,12 +357,17 @@ void String::ReplaceAt(int index, const String& findString, const String& replac
 	strcat_s(newString, length, replaceString.CStr());
 		//	concatenates replaceString to newString, at appropriate index
 
-	for (int i = index + replaceString.Length(); i < strlen(m_string); i++)
-			//	continues copying m_string into newString from after replaceString concatenation
+	if (index + replaceString.Length() != length)
 	{
-		newChar = m_string[i];
-		newString[i] = newChar;
+		for (int i = 0; i <= strlen(m_string); i++)
+				//	continues copying m_string into newString from after replaceString concatenation
+		{
+			newChar = m_string[i + findString.Length() + 1];
+			newString[i + replaceString.Length() + 1] = newChar;
+		}
 	}
+
+	
 
 	//newString[strlen(m_string)] = '/0';
 
@@ -385,7 +392,7 @@ void String::Replace(const String& findString, const String& replaceString)
 	int length = strlen(m_string) - findString.Length();
 		//	the length of m_string that might contain findString's first char
 
-	if (findString.Length() < strlen(m_string))
+	if (findString.Length() <= strlen(m_string))
 		//	if the length of input is less than m_string, function continues
 	{
 		for (int i = 0; i <= length; i++)

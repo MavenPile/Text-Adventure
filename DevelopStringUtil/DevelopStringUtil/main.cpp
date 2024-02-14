@@ -3,7 +3,7 @@
 
 int main()
 {
-	String string1("string a super");
+	String string1("a string called");
 
 	String string2("string");
 
