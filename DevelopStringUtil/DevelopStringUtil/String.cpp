@@ -341,8 +341,10 @@ void String::ReplaceAt(int index, const String& findString, const String& replac
 
 	char* newString;
 	newString = new char[length];
+		//	a new char array with allocated memory to store the new string with replacements
 
 	char newChar;
+		//	declares a helper variable
 
 	for (int i = 0; i < index; i++)
 			//	for loop until index
@@ -353,48 +355,47 @@ void String::ReplaceAt(int index, const String& findString, const String& replac
 
 	newString[index] = '\0';
 		//	inputs a null terminator so strcat_s can work
+		//	I don't know why visual studio is underlining this
 
 	strcat_s(newString, length, replaceString.CStr());
 		//	concatenates replaceString to newString, at appropriate index
 
-	if (index + replaceString.Length() != length)
+	char anotherChar;
+		//	declares another helper variable
+
+	for (int i = index; i <= strlen(newString); i++)
+			//	a loop that repeats until the end of newString's allocated length
 	{
-		for (int i = 0; i <= strlen(m_string); i++)
-				//	continues copying m_string into newString from after replaceString concatenation
-		{
-			newChar = m_string[i + findString.Length() + 1];
-			newString[i + replaceString.Length() + 1] = newChar;
-		}
+		anotherChar = m_string[findString.Length() + i];	//	defines helper variable
+		newString[replaceString.Length() + i] = anotherChar;	//	copies new information into newString
 	}
 
-	
-
-	//newString[strlen(m_string)] = '/0';
-
 	delete[] m_string;
+		//	deallocates memory from m_string
 
 	m_string = newString;
+		//	sets m_string pointer location to newString
 
-}
+}	//	functionality confirmed
 
 void String::Replace(const String& findString, const String& replaceString)
 {
 	//	another copy of Find(), but with additional functionality
-	//	I'll rewrite and not copy paste here for practice sake
+	//	I'll rewrite and not copy paste here for practice and refining sake
 
 	//	must find location of findString within m_string, and replace with replaceString
 	//	This means reallocating memory
 	//	because findString may not exist within m_string, a bool return type outputs if successful
 
-	bool isMatch;
-		//	a holder variable declaration
-
-	int length = strlen(m_string) - findString.Length();
-		//	the length of m_string that might contain findString's first char
-
 	if (findString.Length() <= strlen(m_string))
 		//	if the length of input is less than m_string, function continues
 	{
+		bool isMatch;
+			//	a holder variable declaration
+
+		int length = strlen(m_string) - findString.Length();
+			//	the length of m_string that might contain findString's first char
+
 		for (int i = 0; i <= length; i++)
 			//	loop from 0 to findString[0]'s final possible location in m_string
 		{
@@ -405,24 +406,28 @@ void String::Replace(const String& findString, const String& replaceString)
 				//	if CompareAt outputs true, continue on to replace
 			{
 				ReplaceAt(i, findString, replaceString);
+					//	uses ReplaceAt helper function to replace findString with replaceString at i
 
 				if (i != length)
+						//	checks if m_string has been entirely searched for findString
 				{
-					continue;
+					length = strlen(m_string);	//	updates length with new length of m_string
+					i += replaceString.Length() - 1;	//	skips replaced section
+					continue;	//	if m_string has not been fully searched, continues for loop
 				}
 				else
 				{
-					break;
+					break;	//	all occurances of findString replaced
 				}
 			}
 			else if (i != length)
 				//	if i isn't at the final char
 			{
-				continue;
+				continue;	//	continue searching for findString
 			}
 			else
 			{
-				break;
+				break;	//	findString not found
 			}
 		}
 	}
@@ -524,7 +529,7 @@ void String::Replace(const String& findString, const String& replaceString)
 	//	}
 	//}
 
-}	//	functionality
+}	//	functionality confirmed, replaces all findString with replaceString
 
 void String::ReadFromConsole()
 {

@@ -3,11 +3,11 @@
 
 int main()
 {
-	String string1("a string called");
+	String string1("a stringstring with string in it twice");
 
 	String string2("string");
 
-	String string3("sentance");
+	String string3("sentence");
 
 	int index;
 
