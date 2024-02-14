@@ -9,7 +9,7 @@ int main()
 
 	string3 = (string1 + string2);
 
-	std::cout << string3.CStr() << std::endl;
+	string3.WriteToConsole();
 	
 	
 	//String string1("one");
