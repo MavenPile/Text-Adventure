@@ -281,15 +281,17 @@ int String::Find(const String& findString)
 		return -1;	//	returns -1, because input cannot exist in m_string
 	}
 
-}	//	functionality confirmed
+}	//	functionality confirmed, only outputs location of first found string
 
-int String::Find(int startIndex, const String& findString)
+int String::FindFrom(int startIndex, const String& findString)
 {
 	//	a function to find a string within a string array, starting from an indicated index
+	//	basically a copy of Find(), but with an index input
 
 	bool isMatch;	//	declare a variable to hold a boolean
 
 	int length = strlen(m_string) - findString.Length();
+			//	The length of m_string that could contain the beginning of findString
 
 	if (findString.Length() <= strlen(m_string))
 			//	if the length of the input is less than or equal to m_string
@@ -303,7 +305,7 @@ int String::Find(int startIndex, const String& findString)
 			if (isMatch == true)
 					//	if CompareAt finds findString in parameters
 			{
-				return i;	//	output the index number
+				return i + startIndex;	//	output the index number
 			}
 			else if (i != length)
 					//	checks if function is not on last iteration
@@ -323,12 +325,199 @@ int String::Find(int startIndex, const String& findString)
 		return -1;	//	input cannot exist in m_string
 	}
 
-}	//	
+}	//	functionality confirmed, only outputs location of first found string, only one location
 
-//String& String::Replace(const String& findString, const String& replaceString)
-//{
-//	//TODO
-//}
+void String::ReplaceAt(int index, const String& findString, const String& replaceString)
+{
+	//	a private helper function that replaces a portion of a string with another string
+
+	float diff = replaceString.Length() - findString.Length();
+		//	the size difference to determine how much more or less memory must be allocated
+
+	float length = strlen(m_string) + diff + 1;
+		//	the length of the new string that would contain replaceString instead of findString
+
+	char* newString;
+	newString = new char[length];
+
+	char newChar;
+
+	for (int i = 0; i < index; i++)
+			//	for loop until index
+	{
+		newChar = m_string[i];	//	define newChar with m_string at index
+		newString[i] = newChar;	//	define newString at index with newChar
+	}
+
+	newString[index] = '\0';
+		//	inputs a null terminator so strcat_s can work
+
+	strcat_s(newString, length, replaceString.CStr());
+		//	concatenates replaceString to newString, at appropriate index
+
+	for (int i = index + replaceString.Length(); i < strlen(m_string); i++)
+			//	continues copying m_string into newString from after replaceString concatenation
+	{
+		newChar = m_string[i];
+		newString[i] = newChar;
+	}
+
+	//newString[strlen(m_string)] = '/0';
+
+	delete[] m_string;
+
+	m_string = newString;
+
+}
+
+void String::Replace(const String& findString, const String& replaceString)
+{
+	//	another copy of Find(), but with additional functionality
+	//	I'll rewrite and not copy paste here for practice sake
+
+	//	must find location of findString within m_string, and replace with replaceString
+	//	This means reallocating memory
+	//	because findString may not exist within m_string, a bool return type outputs if successful
+
+	bool isMatch;
+		//	a holder variable declaration
+
+	int length = strlen(m_string) - findString.Length();
+		//	the length of m_string that might contain findString's first char
+
+	if (findString.Length() < strlen(m_string))
+		//	if the length of input is less than m_string, function continues
+	{
+		for (int i = 0; i <= length; i++)
+			//	loop from 0 to findString[0]'s final possible location in m_string
+		{
+			isMatch = CompareAt(i, findString);
+			//	compare findString to m_string starting from i
+
+			if (isMatch == true)
+				//	if CompareAt outputs true, continue on to replace
+			{
+				ReplaceAt(i, findString, replaceString);
+
+				if (i != length)
+				{
+					continue;
+				}
+				else
+				{
+					break;
+				}
+			}
+			else if (i != length)
+				//	if i isn't at the final char
+			{
+				continue;
+			}
+			else
+			{
+				break;
+			}
+		}
+	}
+		
+		
+		//		//	if the input length is larger than m_string
+	//{
+	//	return false;
+	//		//	impossible to find input, function outputs false
+	//}
+	//else
+	//		//	if the length of input is less than m_string, function continues
+	//{
+	//	for (int i = 0; i <= length; i++)
+	//			//	loop from 0 to findString[0]'s final possible location in m_string
+	//	{
+	//		isMatch = CompareAt(i, findString);
+	//			//	compare findString to m_string starting from i
+
+	//		if (isMatch == true)
+	//				//	if CompareAt outputs true, continue on to replace
+	//		{
+	//			ReplaceAt(i, findString, replaceString);
+	//			
+	//			if (i != length)
+	//			{
+	//				continue;
+	//			}
+	//			else
+	//			{
+	//				return true;
+	//			}
+	//			
+	//			
+	//			
+	//			//float diff = findString.Length() - replaceString.Length();
+	//			//	//	the length difference between findString and replaceString
+	//			//
+	//			//char* newArray;
+	//			//	//	declare new pointer
+
+	//			//newArray = new char[strlen(m_string) + diff + 1];
+	//			//	//	allocate memory from new pointer location
+
+	//			//char thisChar;
+	//			//	//	holder variable
+
+	//			//int endIndex;
+	//			//	//	holder variable for where first string copy ends
+
+	//			//for (int index = 0; index < i; index++)
+	//			//	//	for loop to copy into newArray from m_string until findString location
+	//			//{
+	//			//	thisChar = m_string[index];
+	//			//		//	defines holder variable
+
+	//			//	newArray[index] = thisChar;
+	//			//		//	inputs holder variable into newArray
+
+	//			//	endIndex = index;
+	//			//}
+
+	//			//strcat_s(newArray, strlen(m_string) + diff + 1, replaceString.CStr());
+	//			//	//	concatenate replaceString into newArray at appropriate location
+
+	//			//for (int index = endIndex + replaceString.Length(); index < strlen(m_string); index++)
+	//			//		//	loop to copy in remainder of m_string to newArray
+	//			//		//	index starts from where the last for loop ended plus length of input
+	//			//{
+	//			//	thisChar = m_string[index];
+	//			//		//
+
+	//			//	newArray[index] = thisChar;
+	//			//		//
+	//			//}
+
+
+	//			////strcpy_s(newArray, replaceString.Length() + 1, replaceString.CStr());
+	//			////	//	copy replaceString into new array
+
+	//			//delete[] m_string;
+	//			//	//	deallocate previous m_string memory
+
+	//			//m_string = newArray;
+	//			//	//	set m_string pointer location to newArray
+
+	//			//return true;
+	//		}
+	//		else if (i != length)
+	//				//	if i isn't at the final char
+	//		{
+	//			continue;
+	//		}
+	//		else
+	//				//	otherwise, findString was not found in m_string
+	//		{
+	//			return false;
+	//		}
+	//	}
+	//}
+
+}	//	functionality
 
 void String::ReadFromConsole()
 {

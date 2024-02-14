@@ -3,15 +3,17 @@
 
 int main()
 {
-	String string1("Hello, World!");
+	String string1("string a super");
 
-	String string2("Hello, World!!");
+	String string2("string");
+
+	String string3("sentance");
 
 	int index;
 
-	index = string1.Find(string2);
+	string1.Replace(string2, string3);
 
-	std::cout << index << std::endl;
+	std::cout << string1.CStr() << std::endl;
 
 	/*string1.ToUpper();
 
