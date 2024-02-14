@@ -3,13 +3,18 @@
 
 int main()
 {
-	String string1("one");
-	String string2(" plus two");
-	String string3(" equals three!");
+	String string1("a sentence with 'sentence' at index 2 and 17");
+	String string2("sentence");
 
-	string3 = (string1 + string2);
+	std::cout << "string2 is found in string 1 at index " << string1.FindFrom(0, string2) << std::endl;
+	
+	//String string1("one");
+	//String string2(" plus two");
+	//String string3(" equals three!");
 
-	string3.WriteToConsole();
+	//string3 = (string1 + string2);
+
+	//string3.WriteToConsole();
 	
 	
 	//String string1("one");

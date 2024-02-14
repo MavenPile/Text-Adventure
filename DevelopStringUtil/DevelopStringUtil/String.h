@@ -45,7 +45,7 @@ public:
 
 	int Find(const String& findString);		//finds the address of findString, return -1 if not found
 
-	int FindFrom(int startIndex, const String& findString);		//returns the address of findString, starting from startIndex			
+	int FindFrom(int index, const String& findString);		//returns the address of findString, starting from startIndex			
 
 	void Replace(const String& findString, const String& replaceString);		//replaces instances of a string with another
 

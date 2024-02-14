@@ -227,11 +227,9 @@ bool String::CompareAt(int index, const String& input)
 	//	}
 	//}		//TOO COMPLICATED, needed a proper step back
 
-	for (int i = 0; i < input.Length(); i++)
-			//	loops a number of times equal to the length of the string
+	for (int i = 0; i < input.Length(); i++)	//	loops for the length of the input
 	{
-		if (m_string[index + i] != input.m_string[i])
-				//	checks if the indexes do not match
+		if (m_string[index + i] != input.m_string[i])	//	checks if the indexes do not match
 		{
 			return false;	//	returns false bool if indexes don't match/string not found
 		}
@@ -241,93 +239,168 @@ bool String::CompareAt(int index, const String& input)
 
 }	//	functionality confirmed
 
-int String::Find(const String& findString)
+//int String::Find(const String& findString)
+//{
+//	//	finds a string in a char array
+//	//	this likely uses String Access from C-String functionality
+//	//	a for loop can potentially be used to loop through the array to search
+//	//	I can only think of a way to find specific characters, not strings
+//
+//	bool isMatch;
+//
+//	if (findString.Length() <= strlen(m_string))
+//			//	determines if the input string is length is greater than m_string's length
+//			//	can't find the input if there isn't enough space in m_string for it to exist
+//	{
+//		for (int i = 0; i <= strlen(m_string) - findString.Length(); i++)
+//				//	for loop limit set to the latest point that the input could be found in m_string
+//				//	if there isn't enough remaining space for the input, the rest is ignored
+//		{			
+//			isMatch = CompareAt(i, findString);
+//				//	calls CompareAt to determine if findString is in m_string starting from index i
+//			
+//			if (isMatch == true)
+//					//	checks if CompareAt helper function has found the input string
+//			{
+//				return i;	//	returns the index value if the string was found
+//			}
+//			else if (/*isMatch == false &&*/ (i != (strlen(m_string) - findString.Length())))
+//					//	checks for last iteration
+//			{
+//				continue;	//	continues if string was not found but not at last iteration
+//			}
+//			else
+//			{
+//				return -1;	//	returns -1 if string was not found by last iteration
+//			}
+//		}
+//	}
+//	else
+//			//	if the input length is greater than the length of m_string
+//	{
+//		return -1;	//	returns -1, because input cannot exist in m_string
+//	}
+//
+//}	//	functionality confirmed, only outputs location of first found string
+
+int String::Find(const String& findString)	
 {
-	//	finds a string in a char array
-	//	this likely uses String Access from C-String functionality
-	//	a for loop can potentially be used to loop through the array to search
-	//	I can only think of a way to find specific characters, not strings
+	//	Find() rewrite to make more readable and streamlined code
 
-	bool isMatch;
+	//	finds the index of an input string in m_string
 
-	if (findString.Length() <= strlen(m_string))
-			//	determines if the input string is length is greater than m_string's length
-			//	can't find the input if there isn't enough space in m_string for it to exist
+	if (findString.Length() > strlen(m_string))	//	checks if the input string is longer than m_string
 	{
-		for (int i = 0; i <= strlen(m_string) - findString.Length(); i++)
-				//	for loop limit set to the latest point that the input could be found in m_string
-				//	if there isn't enough remaining space for the input, the rest is ignored
-		{			
-			isMatch = CompareAt(i, findString);
-				//	calls CompareAt to determine if findString is in m_string starting from index i
-			
-			if (isMatch == true)
-					//	checks if CompareAt helper function has found the input string
-			{
-				return i;	//	returns the index value if the string was found
-			}
-			else if (/*isMatch == false &&*/ (i != (strlen(m_string) - findString.Length())))
-					//	checks for last iteration
-			{
-				continue;	//	continues if string was not found but not at last iteration
-			}
-			else
-			{
-				return -1;	//	returns -1 if string was not found by last iteration
-			}
-		}
+		return -1;	//	findString can't be found in m_string
 	}
 	else
-			//	if the input length is greater than the length of m_string
 	{
-		return -1;	//	returns -1, because input cannot exist in m_string
-	}
+		bool isMatch;	//	declares a variable to hold CompareAt output
 
-}	//	functionality confirmed, only outputs location of first found string
+		int length = strlen(m_string) - findString.Length();	//	variable for length
 
-int String::FindFrom(int startIndex, const String& findString)
-{
-	//	a function to find a string within a string array, starting from an indicated index
-	//	basically a copy of Find(), but with an index input
-
-	bool isMatch;	//	declare a variable to hold a boolean
-
-	int length = strlen(m_string) - findString.Length();
-			//	The length of m_string that could contain the beginning of findString
-
-	if (findString.Length() <= strlen(m_string))
-			//	if the length of the input is less than or equal to m_string
-	{
-		for (int i = 0; i <= length; i++)
-				//	
+		for (int i = 0; i <= length; i++)	//	repeats for searchable length of m_string
 		{
-			isMatch = CompareAt(i + startIndex, findString);
-				//	checks for findString in m_string starting from the given index + i
+			isMatch = CompareAt(i, findString);	//	compares with helper function
 
-			if (isMatch == true)
-					//	if CompareAt finds findString in parameters
+			if (isMatch == true)	//	if helper function outputs true
 			{
-				return i + startIndex;	//	output the index number
+				return i;	//	return index as location of findString
 			}
-			else if (i != length)
-					//	checks if function is not on last iteration
+			else if (i != length)	//	if helper function outputs false, and not on last iteration
 			{
-				continue;
+				continue;	//	continue for loop
 			}
-			else
-					//	if on last iteration and string not found
+			else	//	if helper function false, and searched m_string fully
 			{
-				return -1;
+				return -1;	//	findString not found in m_string
 			}
 		}
 	}
-	else
-			//	if the length of the input is greater than m_string
-	{
-		return -1;	//	input cannot exist in m_string
-	}
 
-}	//	functionality confirmed, only outputs location of first found string, only one location
+}	//	functionality confirmed! Only finds first occurance of findString
+
+//int String::FindFrom(int startIndex, const String& findString)
+//{
+//	//	a function to find a string within a string array, starting from an indicated index
+//	//	basically a copy of Find(), but with an index input
+//
+//	bool isMatch;	//	declare a variable to hold a boolean
+//
+//	int length = strlen(m_string) - findString.Length();
+//			//	The length of m_string that could contain the beginning of findString
+//
+//	if (findString.Length() <= strlen(m_string))
+//			//	if the length of the input is less than or equal to m_string
+//	{
+//		for (int i = 0; i <= length; i++)
+//				//	
+//		{
+//			isMatch = CompareAt(i + startIndex, findString);
+//				//	checks for findString in m_string starting from the given index + i
+//
+//			if (isMatch == true)
+//					//	if CompareAt finds findString in parameters
+//			{
+//				return i + startIndex;	//	output the index number
+//			}
+//			else if (i != length)
+//					//	checks if function is not on last iteration
+//			{
+//				continue;
+//			}
+//			else
+//					//	if on last iteration and string not found
+//			{
+//				return -1;
+//			}
+//		}
+//	}
+//	else
+//			//	if the length of the input is greater than m_string
+//	{
+//		return -1;	//	input cannot exist in m_string
+//	}
+//
+//}	//	functionality confirmed, only outputs location of first found string, only one location
+
+int String::FindFrom(int index, const String& findString)
+{
+	//	FindFrom() rewrite so code is more readable and streamlined
+
+	//	a copy of Find() that takes an input for index to start search from
+
+	if (findString.Length() > strlen(m_string))	//	determines if input is too large
+	{
+		return -1;	//	findString cannot be found in m_string
+	}
+	else
+	{
+		bool isMatch;	//	declares a variable to hold CompareAt output
+
+		int length = strlen(m_string) + findString.Length();	//	holds searchable length of m_string
+
+		for (int i = index; i <= length; i++)	//	loops through entire searchable length
+		{
+			isMatch = CompareAt(i, findString);	//	uses helper function
+
+			if (isMatch == true)	//	if helper function output is true
+			{
+				return i;	//	return i as indexed location of findString
+			}
+			else if (i != length)	//	if helper outputs false, and before final for loop iteration
+			{
+				continue;	//	continue for loop
+			}
+			else	//	if helper outputs false, and on final iteration
+			{
+				return -1;	//	findString not found
+			}
+		}
+	}
+	
+}	//	functionality confirmed! Only finds first occurance of of findString from index
+
 
 void String::ReplaceAt(int index, const String& findString, const String& replaceString)
 {
