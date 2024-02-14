@@ -3,17 +3,33 @@
 
 int main()
 {
-	String string1("a stringstring with string in it twice");
+	String string1("one");
+	String string2(" plus two");
+	String string3(" equals three!");
 
-	String string2("string");
+	string3 = (string1 + string2);
 
-	String string3("sentence");
+	std::cout << string3.CStr() << std::endl;
+	
+	
+	//String string1("one");
+	//String string3;
 
-	int index;
+	//string3 = string1;
 
-	string1.Replace(string2, string3);
+	//std::cout << string3.CStr() << std::endl;
+	
+	//String string1("a stringstring with string in it twice");
 
-	std::cout << string1.CStr() << std::endl;
+	//String string2("string");
+
+	//String string3("sentence");
+
+	//int index;
+
+	//string1.Replace(string2, string3);
+
+	//std::cout << string1.CStr() << std::endl;
 
 	/*string1.ToUpper();
 

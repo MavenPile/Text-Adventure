@@ -618,13 +618,34 @@ void String::operator = (const String& input)
 	m_string = newArray;
 		//	points m_string to the new pointer, which points to the new array
 
+}	//	functionality confirmed!
+
+String& String::operator + (const String& input)
+{
+	//	a member function that provides '+' operator functionality
+
+	int length = strlen(m_string) + input.Length() + 1;
+
+	char* newArray;
+	newArray = new char[length];
+		//	allocates memory for new char array
+
+	strcpy_s(newArray, length, m_string);
+
+	strcat_s(newArray, length, input.CStr());
+
+	//delete[] m_string;
+
+	//m_string = newArray;]
+
+	String tempString(newArray);
+
+	delete[] newArray;
+
+	return tempString;
+
 }	//	
 
-//String& String::operator + (const String& input)
-//{
-//
-//}
-//
 //String& String::operator += (const String& input)
 //{
 //
