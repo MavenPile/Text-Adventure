@@ -59,24 +59,18 @@ int String::Length() const
 
 }	//after testing, function works properly!
 
-char& String::CharacterAt(int index)
+char String::CharacterAt(int index)
 {
-	//uses C-String functionality of String Access to index the string
-
-	//if (index > strlen(m_string))
-	//{
-	//	return '/0';
-	//}
-	//else if (index < 0)
-	//{
-
-	//}
-	//else
-	//{
-		return m_string[index];
-			//	returns the char at the input index
-			//	just a single char, not an array
-	/*}*/
+	//	uses C-String functionality of String Access to index the string
+		
+	if (index < 0 || index > strlen(m_string))	//	checks if input is invalid
+	{
+		return '\0';	//	outputs null terminator
+	}
+	else
+	{
+		return m_string[index];	//	returns a char at index
+	}
 
 }	//	functionality confirmed
 
@@ -406,14 +400,13 @@ void String::ReplaceAt(int index, const String& findString, const String& replac
 {
 	//	a private helper function that replaces a portion of a string with another string
 
-	float diff = replaceString.Length() - findString.Length();
+	int diff = replaceString.Length() - findString.Length();
 		//	the size difference to determine how much more or less memory must be allocated
 
-	float length = strlen(m_string) + diff + 1;
+	int length = strlen(m_string) + diff + 1;
 		//	the length of the new string that would contain replaceString instead of findString
 
-	char* newString;
-	newString = new char[length];
+	char* newString = new char[length];
 		//	a new char array with allocated memory to store the new string with replacements
 
 	char newChar;
@@ -433,14 +426,11 @@ void String::ReplaceAt(int index, const String& findString, const String& replac
 	strcat_s(newString, length, replaceString.CStr());
 		//	concatenates replaceString to newString, at appropriate index
 
-	char anotherChar;
-		//	declares another helper variable
-
 	for (int i = index; i <= strlen(newString); i++)
 			//	a loop that repeats until the end of newString's allocated length
 	{
-		anotherChar = m_string[findString.Length() + i];	//	defines helper variable
-		newString[replaceString.Length() + i] = anotherChar;	//	copies new information into newString
+		newChar = m_string[findString.Length() + i];	//	defines helper variable
+		newString[replaceString.Length() + i] = newChar;	//	copies new information into newString
 	}
 
 	delete[] m_string;

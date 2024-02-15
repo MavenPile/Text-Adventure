@@ -32,7 +32,7 @@ public:
 
 	int Length() const;	//	returns length of m_string, without null terminator
 
-	char& CharacterAt(int index);	//	returns the char at an index of m_string, returns '\0' if not found
+	char CharacterAt(int index);	//	returns the char at an index of m_string, returns '\0' if not found
 
 	bool EqualTo(const String& input) const;	//	returns true if input matches m_string, false otherwise
 
