@@ -3,51 +3,287 @@
 
 int main()
 {
-	String string1("a sentence with 'sentence' at index 2 and 17");
-	String string2("sentence");
-
-	std::cout << "string2 is found in string 1 at index " << string1.FindFrom(0, string2) << std::endl;
+	std::cout << "DEFAULT CONSTRUCTOR" << std::endl;
 	
-	//String string1("one");
-	//String string2(" plus two");
-	//String string3(" equals three!");
+	String stringDefault;
 
-	//string3 = (string1 + string2);
+	stringDefault.WriteToConsole();
 
-	//string3.WriteToConsole();
+
+	std::cout << std::endl;
+
+	std::cout << "CUSTOM CONSTRUCTOR" << std::endl;
+
+	String stringCustom(" I am a string!");
+
+	stringCustom.WriteToConsole();
+
+
+	std::cout << std::endl;
+
+	std::cout << "COPY CONSTRUCTOR" << std::endl;
+
+	String stringCopy(stringCustom);
+
+	stringCopy.WriteToConsole();
+
+
+	std::cout << std::endl;
+
+	std::cout << "Length() FUNCTION" << std::endl;
+
+	stringCopy.WriteToConsole();
+
+	int stringCopyLength = stringCopy.Length();
+
+	std::cout << "Length() output: " << stringCopyLength << std::endl;
+
+
+	std::cout << std::endl;
+
+	std::cout << "CharacterAt() FUNCTION" << std::endl;
+
+	stringCopy.WriteToConsole();
+
+	int stringCopyCharAt = stringCopy.CharacterAt(3);
+
+	std::cout << "CharacterAt(3) output: " << stringCopyCharAt << std::endl;
+
+
+	std::cout << std::endl;
+
+	std::cout << "EqualTo() FUNCTION" << std::endl;
+
+	stringCopy.WriteToConsole();
+
+	stringCustom.WriteToConsole();
+
+	bool copyMatchCustom = stringCopy.EqualTo(stringCustom);
+
+	std::cout << "stringCopy equals stringCustom = " << copyMatchCustom << std::endl;
+
+
+	std::cout << std::endl;
+
+	std::cout << "Append() FUNCTION" << std::endl;
+
+	stringDefault.WriteToConsole();
+
+	stringCopy.WriteToConsole();
+
+	stringDefault.Append(stringCopy);
+
+	std::cout << "stringDefault.Append(stringCopy): " << stringDefault.CStr() << std::endl;
+
+
+	std::cout << std::endl;
+
+	std::cout << "Prepend() FUNCTION" << std::endl;
+
+	stringDefault.WriteToConsole();
+
+	String stringPrepend("Is anyone there? ");
+
+	stringPrepend.WriteToConsole();
+
+	stringDefault.Prepend(stringPrepend);
+
+	std::cout << "stringDefault.Append(stringPrepend): " << stringDefault.CStr() << std::endl;
+
+
+	std::cout << std::endl;
+
+	std::cout << "CStr() FUNCTION" << std::endl;
+
+	std::cout << "Returns member array, not directly to console: " << stringDefault.CStr() << std::endl;
+
+
+	std::cout << std::endl;
+
+	std::cout << "ToLower() FUNCTION" << std::endl;
+
+	stringDefault.WriteToConsole();
+
+	stringDefault.ToLower();
+
+	stringDefault.WriteToConsole();
+
+
+	std::cout << std::endl;
+
+	std::cout << "ToUpper() FUNCTION" << std::endl;
+
+	stringDefault.WriteToConsole();
 	
-	
-	//String string1("one");
-	//String string3;
+	stringDefault.ToUpper();
 
-	//string3 = string1;
+	stringDefault.WriteToConsole();
 
-	//std::cout << string3.CStr() << std::endl;
-	
-	//String string1("a stringstring with string in it twice");
 
-	//String string2("string");
+	std::cout << std::endl;
 
-	//String string3("sentence");
+	std::cout << "Find() FUNCTION" << std::endl;
 
-	//int index;
+	stringDefault.WriteToConsole();
 
-	//string1.Replace(string2, string3);
+	String findString1("WORLD");
+	String findString2("world");
 
-	//std::cout << string1.CStr() << std::endl;
+	findString1.WriteToConsole();
+	findString2.WriteToConsole();
 
-	/*string1.ToUpper();
+	std::cout << "Index of 'WORLD': " << stringDefault.Find(findString1) << std::endl;
+	std::cout << "Index of 'world': " << stringDefault.Find(findString2) << std::endl;
 
-	string1.WriteToConsole();*/
 
-	//if (string1 < string2)
-	//{
-	//	std::cout << "string1 is less than string2!" << std::endl;
-	//}
-	//else
-	//{
-	//	std::cout << "string1 is not less than string2!" << std::endl;
-	//}
+	std::cout << std::endl;
 
-	//std::cout << "The 2nd char of string1 is: " << string1[1] << std::endl;
+	std::cout << "FindFrom() FUNCTION" << std::endl;
+
+	stringDefault.WriteToConsole();
+
+	findString1.WriteToConsole();
+
+	std::cout << "Index of 'WORLD', from 10: " << stringDefault.FindFrom(10, findString1) << std::endl;
+	std::cout << "Index of 'WORLD', from 25: " << stringDefault.FindFrom(25, findString1) << std::endl;
+
+
+	std::cout << std::endl;
+
+	std::cout << "Replace() FUNCTION" << std::endl;
+
+	stringDefault.WriteToConsole();
+
+	String replaceString("earth");
+
+	replaceString.WriteToConsole();
+
+	findString1.WriteToConsole();
+
+	stringDefault.Replace(findString1, replaceString);
+
+	std::cout << "Replace 'WORLD' with 'earth': " << stringDefault.CStr() << std::endl;
+
+
+	std::cout << std::endl;
+
+	std::cout << "ReadFromConsole() FUNCTION" << std::endl;
+
+	std::cout << "Please input a string (max char 64): ";
+
+	String readString;
+
+	readString.ReadFromConsole();
+
+	readString.WriteToConsole();
+
+
+	std::cout << std::endl;
+
+	std::cout << "WriteToConsole() FUNCTION" << std::endl;
+
+	String stringNew1("Yes! Someone is here!");
+
+	stringNew1.WriteToConsole();
+
+
+	std::cout << std::endl;
+
+	std::cout << "== OPERATOR" << std::endl;
+
+	stringNew1.WriteToConsole();
+
+	String stringNew2("Can you save me?");
+
+	stringNew2.WriteToConsole();
+
+	if (stringNew1 == stringNew2)
+	{
+		std::cout << "The strings are the same" << std::endl;
+	}
+	else
+	{
+		std::cout << "The strings are not the same" << std::endl;
+	}
+
+
+	std::cout << std::endl;
+
+	std::cout << "< OPERATOR" << std::endl;
+
+	stringNew1.WriteToConsole();
+
+	stringNew2.WriteToConsole();
+
+	if (stringNew1 < stringNew2)
+	{
+		std::cout << "The second string comes first" << std::endl;
+	}
+	else
+	{
+		std::cout << "The first string comes first" << std::endl;
+	}
+
+
+	std::cout << std::endl;
+
+	std::cout << "[] OPERATOR" << std::endl;
+
+	String stringNew3("Hello? Can you hear me?");
+
+	stringNew3.WriteToConsole();
+
+	std::cout << "The string at index 7 is: " << stringNew3[7] << std::endl;
+
+
+	std::cout << std::endl;
+
+	std::cout << "= OPERATOR" << std::endl;
+
+	String stringNew4("Why aren't you responding anymore?");
+
+	stringNew3.WriteToConsole();
+
+	stringNew4.WriteToConsole();
+
+	stringNew3 = stringNew4;
+
+	std::cout << "String 3 is now: " << stringNew3.CStr() << std::endl;
+
+
+	std::cout << std::endl;
+
+	std::cout << "+ OPERATOR" << std::endl;
+
+	stringNew4.WriteToConsole();
+
+	String stringNew5("It's so dark.");
+
+	stringNew5.WriteToConsole();
+
+	String stringNew6(" It's so cold.");
+
+	stringNew6.WriteToConsole();
+
+	stringNew4 = (stringNew5 + stringNew6);
+
+	std::cout << "The new string is: " << stringNew4.CStr() << std::endl;
+
+
+	std::cout << std::endl;
+
+	std::cout << "+= OPERATOR" << std::endl;
+
+	String stringNew7("Goodbye");
+
+	String stringNew8(", then.");
+
+	stringNew7.WriteToConsole();
+
+	stringNew8.WriteToConsole();
+
+	stringNew7 += stringNew8;
+
+	std::cout << "The new string is: " << stringNew7.CStr() << std::endl;
+
 }

@@ -607,14 +607,61 @@ void String::Replace(const String& findString, const String& replaceString)
 void String::ReadFromConsole()
 {
 	//	reads the console to replace m_string with the input
+	//	this function crashes the program if the user input is larger than 64
 
-	std::cout << "Waiting for input." << std::endl;		
-		//	prompts the user for input
+	//std::cout << "Waiting for input (max 64 char.)" << std::endl;		
+	//	//	prompts the user for input
 
-	std::cin >> m_string;		
-		//	recieves console input and writes it to m_string
+	char* input = new char[65];	//	allocates hard buffer cap
 
-}	//	functionality confirmed
+	std::cin >> input;	//	writes console input to input array
+
+	int length = strlen(input) + 1;	//	finds the length of console input
+
+	char* newString = new char[length];	//	allocates memory for new array
+
+	strcpy_s(newString, length, input);	//	copies console input to new array
+
+	delete[] input;	//	deallocates memory from temp input array
+
+	delete[] m_string;	//	deallocates memory from m_string
+
+	m_string = newString;	//	points m_string to newString array
+
+	//if (length > 64)
+	//{
+	//	std::cout << "Invalid input." << std::endl;
+
+	//	delete[] input;
+	//}
+	//else
+	//{
+	//	char* newString = new char[length];
+
+	//	strcpy_s(newString, length, input);
+
+	//	delete[] input;
+	//	
+	//	delete[] m_string;
+
+	//	m_string = newString;
+	//}
+
+
+	//String input;
+
+	//std::cin >> input;		
+	//	//	recieves console input and writes it to m_string
+	//
+	//char tempString[strlen(input)];
+
+	//String tempString(input);
+
+	//delete[] m_string;
+
+	//m_string = tempString;
+
+}	//	
 
 void String::WriteToConsole()
 {
@@ -693,33 +740,40 @@ void String::operator = (const String& input)
 
 }	//	functionality confirmed!
 
-String& String::operator + (const String& input)
+String String::operator + (const String& input)
 {
 	//	a member function that provides '+' operator functionality
 
-	int length = strlen(m_string) + input.Length() + 1;
+	int length = strlen(m_string) + input.Length() + 1;	//	variable for length of new string
 
-	char* newArray;
-	newArray = new char[length];
-		//	allocates memory for new char array
+	char* tempArray = new char[length];	//	allocates memory for new char array
 
-	strcpy_s(newArray, length, m_string);
+	strcpy_s(tempArray, length, m_string);	//	copy m_string into new array
 
-	strcat_s(newArray, length, input.CStr());
+	strcat_s(tempArray, length, input.CStr());	//	concatenate input string into new array
 
-	//delete[] m_string;
+	String newString(tempArray);	//	assign new array values to a new string-type variable
 
-	//m_string = newArray;]
+	delete[] tempArray;	//	deallocates tempArray memory after its values are copied into newString
 
-	String tempString(newArray);
+	return newString;	//	return the new string
 
-	delete[] newArray;
+}	//	functionality confirmed
 
-	return tempString;
+void String::operator += (const String& input)
+{
+	//	a member function to provide '+=' operator functionality to String objects
 
-}	//	
+	int length = strlen(m_string) + input.Length() + 1;	//	length of new string
 
-//String& String::operator += (const String& input)
-//{
-//
-//}
+	char* newString = new char[length];	//	allocates memory for new string array
+
+	strcpy_s(newString, length, m_string);	//	copies m_string into newString array
+
+	strcat_s(newString, length, input.CStr());	//	concatenates the input
+
+	delete[] m_string;	//	deallocates m_string memory
+
+	m_string = newString;	//	points m_string to new array memory
+
+}	//	functionality confirmed
