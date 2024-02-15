@@ -14,7 +14,7 @@ int main()
 
 	std::cout << "CUSTOM CONSTRUCTOR" << std::endl;
 
-	String stringCustom(" I am a alive!");
+	String stringCustom(" I am alive!");
 
 	stringCustom.WriteToConsole();
 
@@ -45,9 +45,11 @@ int main()
 
 	stringCopy.WriteToConsole();
 
-	int stringCopyCharAt = stringCopy.CharacterAt(3);
+	char stringCopyCharAt1 = stringCopy.CharacterAt(3);
+	char stringCopyCharAt2 = stringCopy.CharacterAt(20);
 
-	std::cout << "CharacterAt(3) output: " << stringCopyCharAt << std::endl;
+	std::cout << "CharacterAt(3) output: " << stringCopyCharAt1 << std::endl;
+	std::cout << "CharacterAt(20) output: " << stringCopyCharAt2 << std::endl;
 
 
 	std::cout << std::endl;
@@ -163,6 +165,17 @@ int main()
 	stringDefault.Replace(findString1, replaceString);
 
 	std::cout << "Replace 'WORLD' with '[[living world]]': " << stringDefault.CStr() << std::endl;
+
+	String anotherAppendString(" Why am I not in the [[living world]]");
+
+	stringDefault.Append(anotherAppendString);
+
+	stringDefault.WriteToConsole();
+
+	stringDefault.Replace(replaceString, findString1);
+
+	std::cout << "Replace '[[living world]]' with 'WORLD': " << stringDefault.CStr() << std::endl;
+
 
 
 	std::cout << std::endl;

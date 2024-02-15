@@ -13,7 +13,7 @@ private:
 	bool CompareAt(int index, const String& input);
 		//	finds a String-Type object at an index of another String-Type object
 
-	void ReplaceAt(int index, const String& findString, const String& replaceString);	
+	void ReplaceAt(int index, const String& originString, const String& replaceString);	
 		//	replaces a section of a String-Type object with another String-Type object
 
 public:

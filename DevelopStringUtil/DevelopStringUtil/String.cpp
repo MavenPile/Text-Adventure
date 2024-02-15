@@ -69,6 +69,8 @@ char String::CharacterAt(int index)
 	}
 	else
 	{
+//		char hold = m_string[index];
+
 		return m_string[index];	//	returns a char at index
 	}
 
@@ -396,11 +398,11 @@ int String::FindFrom(int index, const String& findString)
 }	//	functionality confirmed! Only finds first occurance of of findString from index
 
 
-void String::ReplaceAt(int index, const String& findString, const String& replaceString)
+void String::ReplaceAt(int index, const String& originString, const String& replaceString)
 {
 	//	a private helper function that replaces a portion of a string with another string
 
-	int diff = replaceString.Length() - findString.Length();
+	int diff = replaceString.Length() - originString.Length();
 		//	the size difference to determine how much more or less memory must be allocated
 
 	int length = strlen(m_string) + diff + 1;
@@ -429,7 +431,7 @@ void String::ReplaceAt(int index, const String& findString, const String& replac
 	for (int i = index; i <= strlen(newString); i++)
 			//	a loop that repeats until the end of newString's allocated length
 	{
-		newChar = m_string[findString.Length() + i];	//	defines helper variable
+		newChar = m_string[originString.Length() + i];	//	defines helper variable
 		newString[replaceString.Length() + i] = newChar;	//	copies new information into newString
 	}
 
