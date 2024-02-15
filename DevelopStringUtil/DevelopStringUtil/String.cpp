@@ -699,7 +699,7 @@ char String::operator [] (const int index)
 	//	a member function to allow '[]' (indexing/subscript) functionality
 	//	has the same functionality as CharacterAt()
 	
-	if (index > strlen(m_string) || index < 0)	//	checks if input is outside array
+	if (index > strlen(m_string))	//	checks if input is outside array
 	{
 		return m_string[strlen(m_string)];	//	returns final char of m_string
 	}
@@ -707,8 +707,10 @@ char String::operator [] (const int index)
 	{
 		return m_string[0];	//	returns first char of m_string
 	}
-
-	return m_string[index];	//	returns the value of m_string at the index
+	else
+	{
+		return m_string[index];	//	returns the value of m_string at the index
+	}
 
 }	//	functionality confirmed!
 

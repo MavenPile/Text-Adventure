@@ -210,6 +210,11 @@ int main()
 
 	stringNew2.WriteToConsole();
 
+
+	stringNew1.EqualTo(stringNew2);
+	stringNew1 == stringNew2;
+
+
 	if (stringNew1 == stringNew2)
 	{
 		std::cout << "The strings are the same" << std::endl;
