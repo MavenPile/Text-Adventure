@@ -59,7 +59,7 @@ public:
 
 		//	Operator overload functions
 
-	bool operator == (const String& input);
+	bool operator == (const String& compareString);
 
 	bool operator < (const String& input);
 

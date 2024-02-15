@@ -666,11 +666,11 @@ void String::WriteToConsole()
 
 }	//	functionality confirmed
 
-bool String::operator == (const String& input)
+bool String::operator == (const String& compareString)
 {
 	//	a member function that allows the use of the '==' operator with string classes
 	
-	if (strcmp(m_string,input.CStr()) != 0)	//	checks if the inputs are different
+	if (strcmp(m_string,compareString.CStr()) != 0)	//	checks if the inputs are different
 	{
 		return false;	//	returns false boolean
 	}
