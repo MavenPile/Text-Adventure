@@ -14,7 +14,7 @@ int main()
 
 	std::cout << "CUSTOM CONSTRUCTOR" << std::endl;
 
-	String stringCustom(" I am a string!");
+	String stringCustom(" I am a alive!");
 
 	stringCustom.WriteToConsole();
 
@@ -154,7 +154,7 @@ int main()
 
 	stringDefault.WriteToConsole();
 
-	String replaceString("earth");
+	String replaceString("[[living world]]");
 
 	replaceString.WriteToConsole();
 
@@ -162,7 +162,7 @@ int main()
 
 	stringDefault.Replace(findString1, replaceString);
 
-	std::cout << "Replace 'WORLD' with 'earth': " << stringDefault.CStr() << std::endl;
+	std::cout << "Replace 'WORLD' with '[[living world]]': " << stringDefault.CStr() << std::endl;
 
 
 	std::cout << std::endl;

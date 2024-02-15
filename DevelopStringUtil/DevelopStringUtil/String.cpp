@@ -614,7 +614,9 @@ void String::ReadFromConsole()
 
 	char* input = new char[65];	//	allocates hard buffer cap
 
-	std::cin >> input;	//	writes console input to input array
+	std::cin.getline (input,65);	//	writes console input to input array
+
+	//std::cin.get(input, 65, '\n');	//	alternate version, '\n' means enter or new line
 
 	int length = strlen(input) + 1;	//	finds the length of console input
 
