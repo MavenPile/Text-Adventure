@@ -61,6 +61,8 @@ public:
 
 	bool operator == (const String& compareString);
 
+	bool operator != (const String& compareString);
+
 	bool operator < (const String& input);
 
 	char operator [] (const int index);

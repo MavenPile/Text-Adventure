@@ -26,59 +26,54 @@ int main()
 	file << " Time: " << hour << ":" << min << ":" << sec << std::endl;
 
 	
-	std::cout << "DEFAULT CONSTRUCTOR";
+	std::cout << "DEFAULT CONSTRUCTOR" << std::endl;
 	
 	String defaultCon;
 
 	String defaultConTester("Hello, World!");
 
-	file << "Test 00 ";
-
 	if (strcmp(defaultCon.CStr(), defaultConTester.CStr()) == 0)
 	{
-		std::cout << "Default Constructor is functional." << std::endl;
+		std::cout << "FUNCTIONAL" << std::endl;
 		
 		if (file.is_open())
 		{
-			file << "FUNCTIONAL: Default Constructor." << std::endl;
+			file << "Test 00 FUNCTIONAL:	 Default Constructor" << std::endl;
 		}
 	}
 	else
 	{
-		std::cout << "Default Constructor is not functional." << std::endl;
+		std::cout << "NOT FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "NOT FUNCTIONAL: Default Constructor." << std::endl;
+			file << "Test 00 NOT FUNCTIONAL: Default Constructor" << std::endl;
 		}
 	}
 
 
 	std::cout << std::endl;
 
-	std::cout << "CUSTOM CONSTRUCTOR";
+	std::cout << "CUSTOM CONSTRUCTOR" << std::endl;
 
 	String customCon("Hello, World!");
 
-	file << "Test 01 ";
-
-
 	if (strcmp(customCon.CStr(), defaultCon.CStr()) == 0)
 	{
-		std::cout << "Custom Constructor is functional." << std::endl;
+		std::cout << "FUNCTIONAL" << std::endl;
 		
 		if (file.is_open())
 		{
-			file << "FUNCTIONAL: Custom Constructor." << std::endl;
+			file << "Test 01 FUNCTIONAL:	 Custom Constructor" << std::endl;
 		}
 	}
 	else
 	{
-		std::cout << "Custom Constructor is not functional." << std::endl;
+		std::cout << "NOT FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "NOT FUNCTIONAL: Custom Constructor." << std::endl;
+			file << "Test 01 NOT FUNCTIONAL: Custom Constructor" << std::endl;
 		}
 	}
 
@@ -89,24 +84,22 @@ int main()
 
 	String copyCon(defaultCon);
 
-	file << "Test 02 ";
-
 	if (strcmp(copyCon.CStr(), defaultCon.CStr()) == 0)
 	{
-		std::cout << "Copy Constructor is functional." << std::endl;
+		std::cout << "FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "FUNCTIONAL: Copy Constructor." << std::endl;
+			file << "Test 02 FUNCTIONAL:	 Copy Constructor" << std::endl;
 		}
 	}
 	else
 	{
-		std::cout << "is not functional." << std::endl;
+		std::cout << "NOT FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "NOT FUNCTIONAL: Copy Constructor." << std::endl;
+			file << "Test 02 NOT FUNCTIONAL: Copy Constructor" << std::endl;
 		}
 	}
 
@@ -115,77 +108,71 @@ int main()
 
 	std::cout << "DESTRUCTOR" << std::endl;
 
-	std::cout << "Destructor is untested." << std::endl;
-
-	file << "Test 03 ";
+	std::cout << "UNTESTED" << std::endl;
 
 	if (file.is_open())
 	{
-		file << "UNTESTED: Destructor." << std::endl;
+		file << "Test 03 UNTESTED:	 Destructor" << std::endl;
 	}
 
 
 	std::cout << std::endl;
 
-	std::cout << "Length()";
+	std::cout << "Length() FUNCTION" << std::endl;
 
 	String lengthTest;
 
-	file << "Test 04 ";
-
 	if (lengthTest.Length() == 13)
 	{
-		std::cout << "Length() is functional." << std::endl;
+		std::cout << "FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "FUNCTIONAL: Length()." << std::endl;
+			file << "Test 04 FUNCTIONAL:	 Length()" << std::endl;
 		}
 	}
 	else
 	{
-		std::cout << "Length() is not functional." << std::endl;
+		std::cout << "NOT FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "NOT FUNCTIONAL: Length()." << std::endl;
+			file << "Test 04 NOT FUNCTIONAL: Length()" << std::endl;
 		}
 	}
 
 
 	std::cout << std::endl;
 
-	std::cout << "CharacterAt()";
+	std::cout << "CharacterAt() FUNCTION" << std::endl;
 
 	String characterAtTest;
 
 	char charAt = characterAtTest.CharacterAt(0);
 
-	file << "Test 05 ";
-
 	if (charAt == 'H')
 	{
-		std::cout << "CharacterAt() is functional" << std::endl;
+		std::cout << "FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "FUNCTIONAL: CharacterAt()." << std::endl;
+			file << "Test 05 FUNCTIONAL:	 CharacterAt()" << std::endl;
 		}
 	}
 	else
 	{
-		std::cout << "CharacterAt() is not functional." << std::endl;
+		std::cout << "NOT FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "NOT FUNCTIONAL: CharacterAt()." << std::endl;
+			file << "Test 05 NOT FUNCTIONAL: CharacterAt()" << std::endl;
 		}
 	}
 
 
 	std::cout << std::endl;
 
-	std::cout << "EqualTo()";
+	std::cout << "EqualTo() FUNCTION" << std::endl;
 
 	String equalToTest;
 
@@ -193,31 +180,29 @@ int main()
 
 	String equalToFalse("false");
 
-	file << "Test 06 ";
-
 	if (equalToTest.EqualTo(equalToTrue) == true && equalToTest.EqualTo(equalToFalse) == false)
 	{
-		std::cout << "EqualTo() is functional." << std::endl;
+		std::cout << "FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "FUNCTIONAL: EqualTo()." << std::endl;
+			file << "Test 06 FUNCTIONAL:	 EqualTo()" << std::endl;
 		}
 	}
 	else
 	{
-		std::cout << "EqualTo() is not functional." << std::endl;
+		std::cout << "NOT FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "NOT FUNCTIONAL: EqualTo()." << std::endl;
+			file << "Test 06 NOT FUNCTIONAL: EqualTo()" << std::endl;
 		}
 	}
 
 
 	std::cout << std::endl;
 
-	std::cout << "Append()";
+	std::cout << "Append() FUNCTION" << std::endl;
 
 	String appendTest;
 
@@ -227,31 +212,29 @@ int main()
 
 	appendTest.Append(appender);
 
-	file << "Test 07 ";
-
 	if (strcmp(appendTest.CStr(), appendTester.CStr()) == 0)
 	{
-		std::cout << "Append() is functional." << std::endl;
+		std::cout << "FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "FUNCTIONAL: Append()." << std::endl;
+			file << "Test 07 FUNCTIONAL:	 Append()" << std::endl;
 		}
 	}
 	else
 	{
-		std::cout << "Append() is not functional." << std::endl;
+		std::cout << "NOT FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "NOT FUNCTIONAL: Append()." << std::endl;
+			file << "Test 07 NOT FUNCTIONAL: Append()" << std::endl;
 		}
 	}
 
 
 	std::cout << std::endl;
 
-	std::cout << "Prepend()";
+	std::cout << "Prepend() FUNCTION" << std::endl;
 
 	String prependTest;
 
@@ -261,43 +244,41 @@ int main()
 
 	prependTest.Prepend(prepender);
 
-	file << "Test 08 ";
-
 	if (strcmp(prependTest.CStr(), prependTester.CStr()) == 0)
 	{
-		std::cout << "Prepend() is functional." << std::endl;
+		std::cout << "FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "FUNCTIONAL: Prepend()." << std::endl;
+			file << "Test 08 FUNCTIONAL:	 Prepend()" << std::endl;
 		}
 	}
 	else
 	{
-		std::cout << "Prepend() is not functional." << std::endl;
+		std::cout << "NOT FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "NOT FUNCTIONAL: Prepend()." << std::endl;
+			file << "Test 08 NOT FUNCTIONAL: Prepend()" << std::endl;
 		}
 	}
 
 
 	std::cout << std::endl;
 
-	std::cout << "CStr() is untested." << std::endl;
+	std::cout << "CStr() FUNCTION" << std::endl;
 
-	file << "Test 09 ";
+	std::cout << "UNTESTED" << std::endl;
 
 	if (file.is_open())
 	{
-		file << "UNTESTED: CStr()." << std::endl;
+		file << "Test 09 UNTESTED:	 CStr()" << std::endl;
 	}
 
 
 	std::cout << std::endl;
 
-	std::cout << "ToLower()";
+	std::cout << "ToLower() FUNCTION" << std::endl;
 
 	String toLowerTest;
 
@@ -305,31 +286,29 @@ int main()
 
 	toLowerTest.ToLower();
 
-	file << "Test 10 ";
-
 	if (strcmp(toLowerTest.CStr(), toLowerTester.CStr()) == 0)
 	{
-		std::cout << "ToLower() is functional." << std::endl;
+		std::cout << "FUNCTIONAL" << std::endl;
 		
 		if (file.is_open())
 		{
-			file << "FUNCTIONAL: ToLower()." << std::endl;
+			file << "Test 10 FUNCTIONAL:	 ToLower()" << std::endl;
 		}
 	}
 	else
 	{
-		std::cout << "ToLower() is not functional." << std::endl;
+		std::cout << "NOT FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "NOT FUNCTIONAL: ToLower()." << std::endl;
+			file << "Test 10 NOT FUNCTIONAL: ToLower()" << std::endl;
 		}
 	}
 
 
 	std::cout << std::endl;
 
-	std::cout << "ToUpper()";
+	std::cout << "ToUpper() FUNCTION" << std::endl;
 
 	String toUpperTest;
 
@@ -337,89 +316,83 @@ int main()
 
 	toUpperTest.ToUpper();
 
-	file << "Test 11 ";
-
 	if (strcmp(toUpperTest.CStr(), toUpperTester.CStr()) == 0)
 	{
-		std::cout << "ToUpper() is functional." << std::endl;
+		std::cout << "FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "FUNCTIONAL: ToUpper()." << std::endl;
+			file << "Test 11 FUNCTIONAL:	 ToUpper()" << std::endl;
 		}
 	}
 	else
 	{
-		std::cout << "ToUpper() is not functional." << std::endl;
+		std::cout << "NOT FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "NOT FUNCTIONAL: ToUpper()." << std::endl;
+			file << "Test 11 NOT FUNCTIONAL: ToUpper()" << std::endl;
 		}
 	}
 
 
 	std::cout << std::endl;
 
-	std::cout << "Find()";
+	std::cout << "Find() FUNCTION" << std::endl;
 
 	String findTest;
 
 	String findHello("Hello");
 
-	file << "Test 12 ";
-
 	if (findTest.Find(findHello) == 0)
 	{
-		std::cout << "Find() is functional." << std::endl;
+		std::cout << "FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "FUNCTIONAL: Find()." << std::endl;
+			file << "Test 12 FUNCTIONAL:	 Find()" << std::endl;
 		}
 	}
 	else
 	{
-		std::cout << "Find() is not functional." << std::endl;
+		std::cout << "NOT FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "NOT FUNCTIONAL: Find()." << std::endl;
+			file << "Test 12 NOT FUNCTIONAL: Find()" << std::endl;
 		}
 	}
 
 
 	std::cout << std::endl;
 
-	std::cout << "FindFrom()";
+	std::cout << "FindFrom() FUNCTION" << std::endl;
 
 	String findFromTest("Hello, World! Hello, Sky!");
 
-	file << "Test 13 ";
-
 	if (findFromTest.FindFrom(1, findHello) == 14)
 	{
-		std::cout << "FindFrom() is functional." << std::endl;
+		std::cout << "FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "FUNCTIONAL: FindFrom()." << std::endl;
+			file << "Test 13 FUNCTIONAL:	 FindFrom()" << std::endl;
 		}
 	}
 	else
 	{
-		std::cout << "FindFrom() is not functional." << std::endl;
+		std::cout << "NOT FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "NOT FUNCTIONAL: FindFrom()." << std::endl;
+			file << "Test 13 NOT FUNCTIONAL: FindFrom()" << std::endl;
 		}
 	}
 
 
 	std::cout << std::endl;
 
-	std::cout << "Replace()";
+	std::cout << "Replace() FUNCTION" << std::endl;
 
 	String replaceTest(findFromTest);
 
@@ -431,31 +404,29 @@ int main()
 
 	replaceTest.Replace(replaceHello, withHi);
 
-	file << "Test 14 ";
-
 	if (strcmp(replaceTest.CStr(), replaceTester.CStr()) == 0)
 	{
-		std::cout << "Replace() is functional." << std::endl;
+		std::cout << "FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "FUNCTIONAL: Replace()." << std::endl;
+			file << "Test 14 FUNCTIONAL:	 Replace()" << std::endl;
 		}
 	}
 	else
 	{
-		std::cout << "Replace() is not functional." << std::endl;
+		std::cout << "NOT FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "NOT FUNCTIONAL: Replace()." << std::endl;
+			file << "Test 14 NOT FUNCTIONAL: Replace()" << std::endl;
 		}
 	}
 
 
 	std::cout << std::endl;
 
-	std::cout << "ReadFromConsole() TEST" << std::endl;
+	std::cout << "ReadFromConsole() FUNCTION" << std::endl;
 
 	String readFromTest;
 
@@ -463,135 +434,153 @@ int main()
 
 	readFromTest.ReadFromConsole();
 
-	file << "Test 15 ";
-
 	if (strcmp(readFromTest.CStr(), readFromTester.CStr()) != 0)
 	{
-		std::cout << "ReadFromConsole() is functional." << std::endl;
+		std::cout << "FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "FUNCTIONAL: ReadFromConsole()." << std::endl;
+			file << "Test 15 FUNCTIONAL:	 ReadFromConsole()" << std::endl;
 		}
 	}
 	else
 	{
-		std::cout << "ReadFromConsole() is not functional." << std::endl;
+		std::cout << "NOT FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "NOT FUNCTIONAL: ReadFromConsole()." << std::endl;
+			file << "Test 15 NOT FUNCTIONAL: ReadFromConsole()" << std::endl;
 		}
 	}
 
 
 	std::cout << std::endl;
 
-	std::cout << "WriteToConsole() TEST" << std::endl;
+	std::cout << "WriteToConsole() FUNCTION" << std::endl;
 
-	std::cout << "WriteToConsole() is untested." << std::endl;
-
-	file << "Test 16 ";
+	std::cout << "UNTESTED" << std::endl;
 
 	if (file.is_open())
 	{
-		file << "UNTESTED: WriteToConsole()." << std::endl;
+		file << "Test 16 UNTESTED:	 WriteToConsole()" << std::endl;
 	}
 
 
 	std::cout << std::endl;
 
-	std::cout << "== operator";
+	std::cout << "== OPERATOR FUNCTION" << std::endl;
 
 	String isEqualsTest;
 
 	String isEqualsTester(isEqualsTest);
 
-	file << "Test 17 ";
-
 	if (isEqualsTest == isEqualsTester)
 	{
-		std::cout << "== operator is functional." << std::endl;
+		std::cout << "FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "FUNCTIONAL: == operator." << std::endl;
+			file << "Test 17 FUNCTIONAL:	 == operator" << std::endl;
 		}
 	}
 	else
 	{
-		std::cout << "== operator is not functional." << std::endl;
+		std::cout << "NOT FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "NOT FUNCTIONAL: == operator." << std::endl;
+			file << "Test 17 NOT FUNCTIONAL: == operator" << std::endl;
 		}
 	}
 
 
 	std::cout << std::endl;
 
-	std::cout << "< OPERATOR";
+	std::cout << "!= OPERATOR FUNCTION" << std::endl;
+
+	String notEqualsTest;
+
+	String notEqualsTester("notEquals");
+
+	if (notEqualsTest != notEqualsTester)
+	{
+		std::cout << "FUNCTIONAL" << std::endl;
+
+		if (file.is_open())
+		{
+			file << "Test 18 FUNCTIONAL:	 != operator" << std::endl;
+		}
+	}
+	else
+	{
+		std::cout << "NOT FUNCTIONAL" << std::endl;
+
+		if (file.is_open())
+		{
+			file << "Test 18 NOT FUNCTIONAL: != operator" << std::endl;
+		}
+	}
+
+
+	std::cout << std::endl;
+
+	std::cout << "< OPERATOR FUNCTION" << std::endl;
 
 	String lessThanTest;
 
 	String lessThanTester("Jello, World!");
 
-	file << "Test 18 ";
-
 	if (lessThanTest < lessThanTester)
 	{
-		std::cout << "< operator is functional." << std::endl;
+		std::cout << "FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "FUNCTIONAL: < operator." << std::endl;
+			file << "Test 18 FUNCTIONAL:	 < operator" << std::endl;
 		}
 	}
 	else
 	{
-		std::cout << "< operator is not functional." << std::endl;
+		std::cout << "NOT FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "NOT FUNCTIONAL: < operator." << std::endl;
+			file << "Test 18 NOT FUNCTIONAL: < operator" << std::endl;
 		}
 	}
 
 
 	std::cout << std::endl;
 
-	std::cout << "[] operator";
+	std::cout << "[] OPERATOR FUNCTION" << std::endl;
 
 	String indexTest;
 
 	char atIndex = indexTest[0];
 
-	file << "Test 19 ";
-
 	if (atIndex == 'H')
 	{
-		std::cout << "[] operator is functional." << std::endl;
+		std::cout << "FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "FUNCTIONAL: [] operator." << std::endl;
+			file << "Test 19 FUNCTIONAL:	 [] operator" << std::endl;
 		}
 	}
 	else
 	{
-		std::cout << "[] operator is not functional." << std::endl;
+		std::cout << "NOT FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "NOT FUNCTIONAL [] operator." << std::endl;
+			file << "Test 19 NOT FUNCTIONAL [] operator" << std::endl;
 		}
 	}
 
 
 	std::cout << std::endl;
 
-	std::cout << "= operator";
+	std::cout << "= OPERATOR FUNCTION" << std::endl;
 
 	String equalsOpTest;
 
@@ -601,31 +590,29 @@ int main()
 
 	equalsOpTest = equalsOpReplacer;
 
-	file << "Test 20 ";
-
 	if (equalsOpTest.EqualTo(equalsOpTester) == false)
 	{
-		std::cout << "= operator is functional." << std::endl;
+		std::cout << "FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "FUNCTIONAL: = operator." << std::endl;
+			file << "Test 20 FUNCTIONAL:	 = operator" << std::endl;
 		}
 	}
 	else
 	{
-		std::cout << "= operator is not functional." << std::endl;
+		std::cout << "NOT FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "NOT FUNCTIONAL: = operator." << std::endl;
+			file << "Test 20 NOT FUNCTIONAL: = operator" << std::endl;
 		}
 	}
 
 
 	std::cout << std::endl;
 
-	std::cout << "+ operator";
+	std::cout << "+ OPERATOR FUNCTION" << std::endl;
 
 	String addToOpTest("");	//	is empty
 
@@ -637,31 +624,29 @@ int main()
 
 	addToOpTest = addOp1 + addOp2;
 
-	file << "Test 21 ";
-
 	if (addToOpTest.EqualTo(addToOpTester) == true)
 	{
-		std::cout << "+ operator is functional." << std::endl;
+		std::cout << "FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "FUNCTIONAL: + operator." << std::endl;
+			file << "Test 21 FUNCTIONAL:	 + operator" << std::endl;
 		}
 	}
 	else
 	{
-		std::cout << "+ operator is not functional." << std::endl;
+		std::cout << "NOT FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "NOT FUNCTIONAL: + operator." << std::endl;
+			file << "Test 21 NOT FUNCTIONAL: + operator" << std::endl;
 		}
 	}
 
 
 	std::cout << std::endl;
 
-	std::cout << "+= operator";
+	std::cout << "+= OPERATOR FUNCTION" << std::endl;
 
 	String addEqualsOpTest("Hello, ");
 
@@ -671,24 +656,22 @@ int main()
 
 	addEqualsOpTest += addEqualsTo;
 
-	file << "Test 22 ";
-
 	if (addEqualsOpTest.EqualTo(addEqualsOpTester) == true)
 	{
-		std::cout << "+= operator is functional." << std::endl;
+		std::cout << "FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "FUNCTIONAL: += operator." << std::endl;
+			file << "Test 22 FUNCTIONAL:	 += operator" << std::endl;
 		}
 	}
 	else
 	{
-		std::cout << "+= operator is not functional." << std::endl;
+		std::cout << "NOT FUNCTIONAL" << std::endl;
 
 		if (file.is_open())
 		{
-			file << "NOT FUNCTIONAL: += operator." << std::endl;
+			file << "Test 22 NOT FUNCTIONAL: += operator" << std::endl;
 		}
 	}
 

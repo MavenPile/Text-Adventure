@@ -682,6 +682,19 @@ bool String::operator == (const String& compareString)
 
 }	//	functionality confirmed!
 
+bool String::operator != (const String& compareString)
+{
+	//	gives '!=' operator functionality with String
+	
+	if (strcmp(m_string, compareString.CStr()) == 0)	//	checks if inputs are the same
+	{
+		return false;
+	}
+		//	if condition was not met
+
+	return true;
+}
+
 bool String::operator < (const String& input)
 {
 	//	a member function to allow '<' (less than) functionality
