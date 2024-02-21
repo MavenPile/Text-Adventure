@@ -6,3 +6,37 @@ Custom Constructor is functional.
 00007FF706B6A760
 Default Constructor is functional.
 Custom Constructor is functional.
+
+Date: 21/2/2024 Time: 14:30:34
+Default Constructor is functional.
+Custom Constructor is functional.
+
+Date: 21/2/2024 Time: 14:35:39
+Default Constructor is functional.
+Custom Constructor is functional.
+Copy Constructor is functional.
+
+Date: 21/2/2024 Time: 14:45:17
+Default Constructor is functional.
+Custom Constructor is functional.
+Copy Constructor is functional.
+Destructor untested.
+Length() is functional.
+CharacterAt() is functional.
+EqualTo() is functional.
+Append() is functional.
+Prepend() is functional.
+CStr() is functional.
+ToLower() is functional.
+ToUpper() is functional.
+Find() is functional.
+FindFrom() is functional.
+Replace() is functional.
+ReadFromConsole() is functional.
+WriteToConsole() is untested.
+== operator is functional.
+< operator is functional.
+ [] operator is functional.
+= operator is functional.
++ operator is functional.
++= operator is functional.
