@@ -601,3 +601,456 @@ Test 19 FUNCTIONAL:	[] operator
 Test 20 FUNCTIONAL:	= operator
 Test 21 FUNCTIONAL:	+ operator
 Test 22 FUNCTIONAL:	+= operator
+
+Date: 22/2/2024 Time: 9:15:9
+Test 00 FUNCTIONAL:	Default Constructor
+Test 01 FUNCTIONAL:	Custom Constructor
+Test 02 FUNCTIONAL:	Copy Constructor
+Test 03 UNTESTED:	Destructor
+Test 04 FUNCTIONAL:	Length()
+Test 05 FUNCTIONAL:	CharacterAt()
+Test 06 FUNCTIONAL:	EqualTo()
+Test 07 FUNCTIONAL:	Append()
+Test 08 FUNCTIONAL:	Prepend()
+Test 09 UNTESTED:	CStr()
+Test 10 FUNCTIONAL:	ToLower()
+Test 11 FUNCTIONAL:	ToUpper()
+Test 12 FUNCTIONAL:	Find()
+Test 13 FUNCTIONAL:	FindFrom()
+Test 14 FUNCTIONAL:	Replace()
+Test 15 FUNCTIONAL:	ReadFromConsole()
+Test 16 UNTESTED:	WriteToConsole()
+Test 17 FUNCTIONAL:	== operator
+Test 18 FUNCTIONAL:	!= operator
+Test 18 FUNCTIONAL:	< operator
+Test 19 FUNCTIONAL:	[] operator
+Test 20 FUNCTIONAL:	= operator
+Test 21 FUNCTIONAL:	+ operator
+Test 22 FUNCTIONAL:	+= operator
+
+Date: 22/2/2024 Time: 9:20:30
+Test 00 FUNCTIONAL:	Default Constructor
+Test 01 FUNCTIONAL:	Custom Constructor
+Test 02 FUNCTIONAL:	Copy Constructor
+Test 03 UNTESTED:	Destructor
+Test 04 FUNCTIONAL:	Length()
+Test 05 FUNCTIONAL:	CharacterAt()
+Test 06 FUNCTIONAL:	EqualTo()
+Test 07 FUNCTIONAL:	Append()
+Test 08 FUNCTIONAL:	Prepend()
+Test 09 NOT FUNCTIONAL: CStr()
+Test 10 FUNCTIONAL:	ToLower()
+Test 11 FUNCTIONAL:	ToUpper()
+Test 12 FUNCTIONAL:	Find()
+Test 13 FUNCTIONAL:	FindFrom()
+Test 14 FUNCTIONAL:	Replace()
+Test 15 FUNCTIONAL:	ReadFromConsole()
+Test 16 UNTESTED:	WriteToConsole()
+Test 17 FUNCTIONAL:	== operator
+Test 18 FUNCTIONAL:	!= operator
+Test 18 FUNCTIONAL:	< operator
+Test 19 FUNCTIONAL:	[] operator
+Test 20 FUNCTIONAL:	= operator
+Test 21 FUNCTIONAL:	+ operator
+Test 22 FUNCTIONAL:	+= operator
+
+Date: 22/2/2024 Time: 9:21:34
+Test 00 FUNCTIONAL:	Default Constructor
+Test 01 FUNCTIONAL:	Custom Constructor
+Test 02 FUNCTIONAL:	Copy Constructor
+Test 03 UNTESTED:	Destructor
+Test 04 FUNCTIONAL:	Length()
+Test 05 FUNCTIONAL:	CharacterAt()
+Test 06 FUNCTIONAL:	EqualTo()
+Test 07 FUNCTIONAL:	Append()
+Test 08 FUNCTIONAL:	Prepend()
+Test 09 FUNCTIONAL:	CStr()
+Test 10 FUNCTIONAL:	ToLower()
+Test 11 FUNCTIONAL:	ToUpper()
+Test 12 FUNCTIONAL:	Find()
+Test 13 FUNCTIONAL:	FindFrom()
+Test 14 FUNCTIONAL:	Replace()
+Test 15 FUNCTIONAL:	ReadFromConsole()
+Test 16 UNTESTED:	WriteToConsole()
+Test 17 FUNCTIONAL:	== operator
+Test 18 FUNCTIONAL:	!= operator
+Test 18 FUNCTIONAL:	< operator
+Test 19 FUNCTIONAL:	[] operator
+Test 20 FUNCTIONAL:	= operator
+Test 21 FUNCTIONAL:	+ operator
+Test 22 FUNCTIONAL:	+= operator
+
+Date: 22/2/2024 Time: 9:25:26
+Test 00 FUNCTIONAL:	Default Constructor
+Test 01 FUNCTIONAL:	Custom Constructor
+Test 02 FUNCTIONAL:	Copy Constructor
+Test 04 FUNCTIONAL:	Length()
+Test 05 FUNCTIONAL:	CharacterAt()
+Test 06 FUNCTIONAL:	EqualTo()
+Test 07 FUNCTIONAL:	Append()
+Test 08 FUNCTIONAL:	Prepend()
+Test 09 FUNCTIONAL:	CStr()
+Test 10 FUNCTIONAL:	ToLower()
+Test 11 FUNCTIONAL:	ToUpper()
+Test 12 FUNCTIONAL:	Find()
+Test 13 FUNCTIONAL:	FindFrom()
+Test 14 FUNCTIONAL:	Replace()
+Test 15 FUNCTIONAL:	ReadFromConsole()
+Test 16 UNTESTED:	WriteToConsole()
+Test 17 FUNCTIONAL:	== operator
+Test 18 FUNCTIONAL:	!= operator
+Test 18 FUNCTIONAL:	< operator
+Test 19 FUNCTIONAL:	[] operator
+
+Date: 22/2/2024 Time: 9:26:26
+Test 00 FUNCTIONAL:	Default Constructor
+Test 01 FUNCTIONAL:	Custom Constructor
+Test 02 FUNCTIONAL:	Copy Constructor
+Test 04 FUNCTIONAL:	Length()
+Test 05 FUNCTIONAL:	CharacterAt()
+Test 06 FUNCTIONAL:	EqualTo()
+Test 07 FUNCTIONAL:	Append()
+Test 08 FUNCTIONAL:	Prepend()
+Test 09 FUNCTIONAL:	CStr()
+Test 10 FUNCTIONAL:	ToLower()
+Test 11 FUNCTIONAL:	ToUpper()
+Test 12 FUNCTIONAL:	Find()
+Test 13 FUNCTIONAL:	FindFrom()
+Test 14 FUNCTIONAL:	Replace()
+Test 15 FUNCTIONAL:	ReadFromConsole()
+Test 16 UNTESTED:	WriteToConsole()
+Test 17 FUNCTIONAL:	== operator
+Test 18 FUNCTIONAL:	!= operator
+Test 18 FUNCTIONAL:	< operator
+Test 19 FUNCTIONAL:	[] operator
+Test 20 FUNCTIONAL:	= operator
+Test 21 FUNCTIONAL:	+ operator
+Test 22 FUNCTIONAL:	+= operator
+
+Date: 22/2/2024 Time: 9:27:40
+Test 00 FUNCTIONAL:	Default Constructor
+Test 01 FUNCTIONAL:	Custom Constructor
+Test 02 FUNCTIONAL:	Copy Constructor
+Test 04 FUNCTIONAL:	Length()
+Test 05 FUNCTIONAL:	CharacterAt()
+Test 06 FUNCTIONAL:	EqualTo()
+Test 07 FUNCTIONAL:	Append()
+Test 08 FUNCTIONAL:	Prepend()
+Test 09 FUNCTIONAL:	CStr()
+Test 10 FUNCTIONAL:	ToLower()
+Test 11 FUNCTIONAL:	ToUpper()
+Test 12 FUNCTIONAL:	Find()
+Test 13 FUNCTIONAL:	FindFrom()
+Test 14 FUNCTIONAL:	Replace()
+
+Date: 22/2/2024 Time: 9:35:31
+Test 00 FUNCTIONAL:	Default Constructor
+Test 01 FUNCTIONAL:	Custom Constructor
+Test 02 FUNCTIONAL:	Copy Constructor
+Test 04 FUNCTIONAL:	Length()
+Test 05 FUNCTIONAL:	CharacterAt()
+Test 06 FUNCTIONAL:	EqualTo()
+Test 07 FUNCTIONAL:	Append()
+Test 08 FUNCTIONAL:	Prepend()
+Test 09 FUNCTIONAL:	CStr()
+Test 10 FUNCTIONAL:	ToLower()
+Test 11 FUNCTIONAL:	ToUpper()
+Test 12 FUNCTIONAL:	Find()
+Test 13 FUNCTIONAL:	FindFrom()
+Test 14 FUNCTIONAL:	Replace()
+Test 15 FUNCTIONAL:	ReadFromConsole()
+Test 16 UNTESTED:	WriteToConsole()
+Test 17 FUNCTIONAL:	== operator
+Test 18 FUNCTIONAL:	!= operator
+Test 18 FUNCTIONAL:	< operator
+Test 19 FUNCTIONAL:	[] operator
+Test 20 FUNCTIONAL:	= operator
+Test 21 FUNCTIONAL:	+ operator
+Test 22 FUNCTIONAL:	+= operator
+
+Date: 22/2/2024 Time: 9:36:14
+Test 00 FUNCTIONAL:	Default Constructor
+Test 01 FUNCTIONAL:	Custom Constructor
+Test 02 FUNCTIONAL:	Copy Constructor
+Test 04 FUNCTIONAL:	Length()
+Test 05 FUNCTIONAL:	CharacterAt()
+Test 06 FUNCTIONAL:	EqualTo()
+Test 07 FUNCTIONAL:	Append()
+Test 08 FUNCTIONAL:	Prepend()
+Test 09 FUNCTIONAL:	CStr()
+Test 10 FUNCTIONAL:	ToLower()
+Test 11 FUNCTIONAL:	ToUpper()
+Test 12 FUNCTIONAL:	Find()
+Test 13 FUNCTIONAL:	FindFrom()
+Test 14 FUNCTIONAL:	Replace()
+Test 15 FUNCTIONAL:	ReadFromConsole()
+Test 16 UNTESTED:	WriteToConsole()
+Test 17 FUNCTIONAL:	== operator
+Test 18 FUNCTIONAL:	!= operator
+Test 18 FUNCTIONAL:	< operator
+Test 19 FUNCTIONAL:	[] operator
+Test 20 FUNCTIONAL:	= operator
+Test 21 FUNCTIONAL:	+ operator
+Test 22 FUNCTIONAL:	+= operator
+
+Date: 22/2/2024 Time: 9:36:44
+Test 00 FUNCTIONAL:	Default Constructor
+Test 01 FUNCTIONAL:	Custom Constructor
+Test 02 FUNCTIONAL:	Copy Constructor
+Test 04 FUNCTIONAL:	Length()
+Test 05 FUNCTIONAL:	CharacterAt()
+Test 06 FUNCTIONAL:	EqualTo()
+Test 07 FUNCTIONAL:	Append()
+Test 08 FUNCTIONAL:	Prepend()
+Test 09 FUNCTIONAL:	CStr()
+Test 10 FUNCTIONAL:	ToLower()
+Test 11 FUNCTIONAL:	ToUpper()
+Test 12 FUNCTIONAL:	Find()
+Test 13 FUNCTIONAL:	FindFrom()
+Test 14 FUNCTIONAL:	Replace()
+Test 15 FUNCTIONAL:	ReadFromConsole()
+Test 16 FUNCTIONAL:	WriteToConsole()
+Test 17 FUNCTIONAL:	== operator
+Test 18 FUNCTIONAL:	!= operator
+Test 18 FUNCTIONAL:	< operator
+Test 19 FUNCTIONAL:	[] operator
+Test 20 FUNCTIONAL:	= operator
+Test 21 FUNCTIONAL:	+ operator
+Test 22 FUNCTIONAL:	+= operator
+
+Date: 22/2/2024 Time: 9:37:52
+Test 00 FUNCTIONAL:	Default Constructor
+Test 01 FUNCTIONAL:	Custom Constructor
+Test 02 FUNCTIONAL:	Copy Constructor
+Test 03 FUNCTIONAL:	Destructor
+Test 04 FUNCTIONAL:	Length()
+Test 05 FUNCTIONAL:	CharacterAt()
+Test 06 FUNCTIONAL:	EqualTo()
+Test 07 FUNCTIONAL:	Append()
+Test 08 FUNCTIONAL:	Prepend()
+Test 09 FUNCTIONAL:	CStr()
+Test 10 FUNCTIONAL:	ToLower()
+Test 11 FUNCTIONAL:	ToUpper()
+Test 12 FUNCTIONAL:	Find()
+Test 13 FUNCTIONAL:	FindFrom()
+Test 14 FUNCTIONAL:	Replace()
+Test 15 FUNCTIONAL:	ReadFromConsole()
+Test 16 FUNCTIONAL:	WriteToConsole()
+Test 17 FUNCTIONAL:	== operator
+Test 18 FUNCTIONAL:	!= operator
+Test 18 FUNCTIONAL:	< operator
+Test 19 FUNCTIONAL:	[] operator
+Test 20 FUNCTIONAL:	= operator
+Test 21 FUNCTIONAL:	+ operator
+Test 22 FUNCTIONAL:	+= operator
+
+Date: 22/2/2024 Time: 9:40:42
+Test 00 FUNCTIONAL:	Default Constructor
+Test 01 FUNCTIONAL:	Custom Constructor
+Test 02 FUNCTIONAL:	Copy Constructor
+Test 03 FUNCTIONAL:	Destructor
+Test 04 FUNCTIONAL:	Length()
+Test 05 FUNCTIONAL:	CharacterAt()
+Test 06 FUNCTIONAL:	EqualTo()
+Test 07 FUNCTIONAL:	Append()
+Test 08 FUNCTIONAL:	Prepend()
+Test 09 FUNCTIONAL:	CStr()
+Test 10 FUNCTIONAL:	ToLower()
+Test 11 FUNCTIONAL:	ToUpper()
+Test 12 FUNCTIONAL:	Find()
+Test 13 FUNCTIONAL:	FindFrom()
+Test 14 FUNCTIONAL:	Replace()
+Test 15 FUNCTIONAL:	ReadFromConsole()
+Test 16 FUNCTIONAL:	WriteToConsole()
+Test 17 FUNCTIONAL:	== operator
+Test 18 FUNCTIONAL:	!= operator
+Test 18 FUNCTIONAL:	< operator
+Test 19 FUNCTIONAL:	[] operator
+Test 20 FUNCTIONAL:	= operator
+Test 21 NOT FUNCTIONAL: + operator
+Test 22 FUNCTIONAL:	+= operator
+
+Date: 22/2/2024 Time: 9:41:4
+Test 00 FUNCTIONAL:	Default Constructor
+Test 01 FUNCTIONAL:	Custom Constructor
+Test 02 FUNCTIONAL:	Copy Constructor
+Test 03 FUNCTIONAL:	Destructor
+Test 04 FUNCTIONAL:	Length()
+Test 05 FUNCTIONAL:	CharacterAt()
+Test 06 FUNCTIONAL:	EqualTo()
+Test 07 FUNCTIONAL:	Append()
+Test 08 FUNCTIONAL:	Prepend()
+Test 09 FUNCTIONAL:	CStr()
+Test 10 FUNCTIONAL:	ToLower()
+Test 11 FUNCTIONAL:	ToUpper()
+Test 12 FUNCTIONAL:	Find()
+Test 13 FUNCTIONAL:	FindFrom()
+Test 14 FUNCTIONAL:	Replace()
+Test 15 FUNCTIONAL:	ReadFromConsole()
+Test 16 FUNCTIONAL:	WriteToConsole()
+Test 17 FUNCTIONAL:	== operator
+Test 18 FUNCTIONAL:	!= operator
+Test 18 FUNCTIONAL:	< operator
+Test 19 FUNCTIONAL:	[] operator
+Test 20 FUNCTIONAL:	= operator
+Test 21 NOT FUNCTIONAL: + operator
+Test 22 FUNCTIONAL:	+= operator
+
+Date: 22/2/2024 Time: 9:42:22
+Test 00 FUNCTIONAL:	Default Constructor
+Test 01 FUNCTIONAL:	Custom Constructor
+Test 02 FUNCTIONAL:	Copy Constructor
+Test 03 FUNCTIONAL:	Destructor
+Test 04 FUNCTIONAL:	Length()
+Test 05 FUNCTIONAL:	CharacterAt()
+Test 06 FUNCTIONAL:	EqualTo()
+Test 07 FUNCTIONAL:	Append()
+Test 08 FUNCTIONAL:	Prepend()
+Test 09 FUNCTIONAL:	CStr()
+Test 10 FUNCTIONAL:	ToLower()
+Test 11 FUNCTIONAL:	ToUpper()
+Test 12 FUNCTIONAL:	Find()
+Test 13 FUNCTIONAL:	FindFrom()
+Test 14 FUNCTIONAL:	Replace()
+Test 15 FUNCTIONAL:	ReadFromConsole()
+Test 16 FUNCTIONAL:	WriteToConsole()
+Test 17 FUNCTIONAL:	== operator
+Test 18 FUNCTIONAL:	!= operator
+Test 18 FUNCTIONAL:	< operator
+Test 19 FUNCTIONAL:	[] operator
+Test 20 FUNCTIONAL:	= operator
+Test 21 NOT FUNCTIONAL: + operator
+Test 22 FUNCTIONAL:	+= operator
+
+Date: 22/2/2024 Time: 9:44:1
+Test 00 FUNCTIONAL:	Default Constructor
+Test 01 FUNCTIONAL:	Custom Constructor
+Test 02 FUNCTIONAL:	Copy Constructor
+Test 03 FUNCTIONAL:	Destructor
+Test 04 FUNCTIONAL:	Length()
+Test 05 FUNCTIONAL:	CharacterAt()
+Test 06 FUNCTIONAL:	EqualTo()
+Test 07 FUNCTIONAL:	Append()
+Test 08 FUNCTIONAL:	Prepend()
+Test 09 FUNCTIONAL:	CStr()
+Test 10 FUNCTIONAL:	ToLower()
+Test 11 FUNCTIONAL:	ToUpper()
+Test 12 FUNCTIONAL:	Find()
+Test 13 FUNCTIONAL:	FindFrom()
+Test 14 FUNCTIONAL:	Replace()
+Test 15 FUNCTIONAL:	ReadFromConsole()
+Test 16 FUNCTIONAL:	WriteToConsole()
+Test 17 FUNCTIONAL:	== operator
+Test 18 FUNCTIONAL:	!= operator
+Test 18 FUNCTIONAL:	< operator
+Test 19 FUNCTIONAL:	[] operator
+Test 20 FUNCTIONAL:	= operator
+Test 21 FUNCTIONAL:	+ operator
+Test 22 FUNCTIONAL:	+= operator
+
+Date: 22/2/2024 Time: 9:44:52
+Test 00 FUNCTIONAL:	Default Constructor
+Test 01 FUNCTIONAL:	Custom Constructor
+Test 02 FUNCTIONAL:	Copy Constructor
+Test 03 FUNCTIONAL:	Destructor
+Test 04 FUNCTIONAL:	Length()
+Test 05 FUNCTIONAL:	CharacterAt()
+Test 06 FUNCTIONAL:	EqualTo()
+Test 07 FUNCTIONAL:	Append()
+Test 08 FUNCTIONAL:	Prepend()
+Test 09 FUNCTIONAL:	CStr()
+Test 10 FUNCTIONAL:	ToLower()
+Test 11 FUNCTIONAL:	ToUpper()
+Test 12 FUNCTIONAL:	Find()
+Test 13 FUNCTIONAL:	FindFrom()
+Test 14 FUNCTIONAL:	Replace()
+Test 15 FUNCTIONAL:	ReadFromConsole()
+Test 16 FUNCTIONAL:	WriteToConsole()
+Test 17 FUNCTIONAL:	== operator
+Test 18 FUNCTIONAL:	!= operator
+Test 18 FUNCTIONAL:	< operator
+Test 19 FUNCTIONAL:	[] operator
+Test 20 FUNCTIONAL:	= operator
+Test 21 FUNCTIONAL:	+ operator
+Test 22 FUNCTIONAL:	+= operator
+
+Date: 22/2/2024 Time: 9:53:39
+Test 00 FUNCTIONAL:	Default Constructor
+Test 01 FUNCTIONAL:	Custom Constructor
+Test 02 FUNCTIONAL:	Copy Constructor
+Test 03 FUNCTIONAL:	Destructor
+Test 04 FUNCTIONAL:	Length()
+Test 05 FUNCTIONAL:	CharacterAt()
+Test 06 FUNCTIONAL:	EqualTo()
+Test 07 FUNCTIONAL:	Append()
+Test 08 FUNCTIONAL:	Prepend()
+Test 09 FUNCTIONAL:	CStr()
+Test 10 FUNCTIONAL:	ToLower()
+Test 11 FUNCTIONAL:	ToUpper()
+Test 12 FUNCTIONAL:	Find()
+Test 13 FUNCTIONAL:	FindFrom()
+Test 14 FUNCTIONAL:	Replace()
+Test 15 FUNCTIONAL:	ReadFromConsole()
+Test 16 FUNCTIONAL:	WriteToConsole()
+Test 17 FUNCTIONAL:	== operator
+Test 18 FUNCTIONAL:	!= operator
+Test 18 FUNCTIONAL:	< operator
+Test 19 FUNCTIONAL:	> operator
+Test 19 FUNCTIONAL:	[] operator
+Test 20 FUNCTIONAL:	= operator
+Test 21 FUNCTIONAL:	+ operator
+Test 22 FUNCTIONAL:	+= operator
+
+Date: 22/2/2024 Time: 9:54:19
+Test 00 FUNCTIONAL:	Default Constructor
+Test 01 FUNCTIONAL:	Custom Constructor
+Test 02 FUNCTIONAL:	Copy Constructor
+Test 03 FUNCTIONAL:	Destructor
+Test 04 FUNCTIONAL:	Length()
+Test 05 FUNCTIONAL:	CharacterAt()
+Test 06 FUNCTIONAL:	EqualTo()
+Test 07 FUNCTIONAL:	Append()
+Test 08 FUNCTIONAL:	Prepend()
+Test 09 FUNCTIONAL:	CStr()
+Test 10 FUNCTIONAL:	ToLower()
+Test 11 FUNCTIONAL:	ToUpper()
+Test 12 FUNCTIONAL:	Find()
+Test 13 FUNCTIONAL:	FindFrom()
+Test 14 FUNCTIONAL:	Replace()
+Test 15 FUNCTIONAL:	ReadFromConsole()
+Test 16 FUNCTIONAL:	WriteToConsole()
+Test 17 FUNCTIONAL:	== operator
+Test 18 FUNCTIONAL:	!= operator
+Test 18 FUNCTIONAL:	< operator
+Test 19 FUNCTIONAL:	> operator
+Test 20 FUNCTIONAL:	[] operator
+Test 21 FUNCTIONAL:	= operator
+Test 22 FUNCTIONAL:	+ operator
+Test 23 FUNCTIONAL:	+= operator
+
+Date: 22/2/2024 Time: 9:56:38
+Test 00 FUNCTIONAL:	Default Constructor
+Test 01 FUNCTIONAL:	Custom Constructor
+Test 02 FUNCTIONAL:	Copy Constructor
+Test 03 FUNCTIONAL:	Destructor
+Test 04 FUNCTIONAL:	Length()
+Test 05 FUNCTIONAL:	CharacterAt()
+Test 06 FUNCTIONAL:	EqualTo()
+Test 07 FUNCTIONAL:	Append()
+Test 08 FUNCTIONAL:	Prepend()
+Test 09 FUNCTIONAL:	CStr()
+Test 10 FUNCTIONAL:	ToLower()
+Test 11 FUNCTIONAL:	ToUpper()
+Test 12 FUNCTIONAL:	Find()
+Test 13 FUNCTIONAL:	FindFrom()
+Test 14 FUNCTIONAL:	Replace()
+Test 15 FUNCTIONAL:	ReadFromConsole()
+Test 16 FUNCTIONAL:	WriteToConsole()
+Test 17 FUNCTIONAL:	== operator
+Test 18 FUNCTIONAL:	!= operator
+Test 19 FUNCTIONAL:	< operator
+Test 20 FUNCTIONAL:	> operator
+Test 21 FUNCTIONAL:	[] operator
+Test 22 FUNCTIONAL:	= operator
+Test 23 FUNCTIONAL:	+ operator
+Test 24 FUNCTIONAL:	+= operator

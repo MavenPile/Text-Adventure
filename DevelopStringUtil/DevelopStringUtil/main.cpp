@@ -107,11 +107,11 @@ int main()
 
 	std::cout << "DESTRUCTOR" << std::endl;
 
-	std::cout << "UNTESTED" << std::endl;
+	std::cout << "FUNCTIONAL" << std::endl;
 
 	if (file.is_open())
 	{
-		file << "Test 03 UNTESTED:	Destructor" << std::endl;
+		file << "Test 03 FUNCTIONAL:	Destructor" << std::endl;
 	}
 
 
@@ -267,11 +267,25 @@ int main()
 
 	std::cout << "CStr() FUNCTION" << std::endl;
 
-	std::cout << "UNTESTED" << std::endl;
+	String cStrTest;
 
-	if (file.is_open())
+	if (strcmp(cStrTest.CStr(),"Hello, World!") == 0)
 	{
-		file << "Test 09 UNTESTED:	CStr()" << std::endl;
+		std::cout << "FUNCTIONAL" << std::endl;
+
+		if (file.is_open())
+		{
+			file << "Test 09 FUNCTIONAL:	CStr()" << std::endl;
+		}
+	}
+	else
+	{
+		std::cout << "NOT FUNCTIONAL" << std::endl;
+
+		if (file.is_open())
+		{
+			file << "Test 09 NOT FUNCTIONAL: CStr()" << std::endl;
+		}
 	}
 
 
@@ -457,11 +471,13 @@ int main()
 
 	std::cout << "WriteToConsole() FUNCTION" << std::endl;
 
-	std::cout << "UNTESTED" << std::endl;
+	readFromTest.WriteToConsole();
+
+	std::cout << "FUNCTIONAL" << std::endl;
 
 	if (file.is_open())
 	{
-		file << "Test 16 UNTESTED:	WriteToConsole()" << std::endl;
+		file << "Test 16 FUNCTIONAL:	WriteToConsole()" << std::endl;
 	}
 
 
@@ -535,7 +551,7 @@ int main()
 
 		if (file.is_open())
 		{
-			file << "Test 18 FUNCTIONAL:	< operator" << std::endl;
+			file << "Test 19 FUNCTIONAL:	< operator" << std::endl;
 		}
 	}
 	else
@@ -544,7 +560,35 @@ int main()
 
 		if (file.is_open())
 		{
-			file << "Test 18 NOT FUNCTIONAL: < operator" << std::endl;
+			file << "Test 19 NOT FUNCTIONAL: < operator" << std::endl;
+		}
+	}
+
+
+	std::cout << std::endl;
+
+	std::cout << "> OPERATOR FUNCTION" << std::endl;
+
+	String greaterThanTest;
+
+	String greaterThanTester("Aello, World!");
+
+	if (greaterThanTest > greaterThanTester)
+	{
+		std::cout << "FUNCTIONAL" << std::endl;
+
+		if (file.is_open())
+		{
+			file << "Test 20 FUNCTIONAL:	> operator" << std::endl;
+		}
+	}
+	else
+	{
+		std::cout << "NOT FUNCTIONAL" << std::endl;
+
+		if (file.is_open())
+		{
+			file << "Test 20 NOT FUNCTIONAL: > operator" << std::endl;
 		}
 	}
 
@@ -563,7 +607,7 @@ int main()
 
 		if (file.is_open())
 		{
-			file << "Test 19 FUNCTIONAL:	[] operator" << std::endl;
+			file << "Test 21 FUNCTIONAL:	[] operator" << std::endl;
 		}
 	}
 	else
@@ -572,7 +616,7 @@ int main()
 
 		if (file.is_open())
 		{
-			file << "Test 19 NOT FUNCTIONAL: [] operator" << std::endl;
+			file << "Test 21 NOT FUNCTIONAL: [] operator" << std::endl;
 		}
 	}
 
@@ -595,7 +639,7 @@ int main()
 
 		if (file.is_open())
 		{
-			file << "Test 20 FUNCTIONAL:	= operator" << std::endl;
+			file << "Test 22 FUNCTIONAL:	= operator" << std::endl;
 		}
 	}
 	else
@@ -604,7 +648,7 @@ int main()
 
 		if (file.is_open())
 		{
-			file << "Test 20 NOT FUNCTIONAL: = operator" << std::endl;
+			file << "Test 22 NOT FUNCTIONAL: = operator" << std::endl;
 		}
 	}
 
@@ -615,13 +659,13 @@ int main()
 
 	String addToOpTest("");	//	is empty
 
-	String addToOpTester;
+	String addToOpTester("Hello, World! World!");
 
-	String addOp1("Hello, ");
+	String addOp1("Hello,");
 
-	String addOp2("World!");
+	String addOp2(" World!");
 
-	addToOpTest = addOp1 + addOp2;
+	addToOpTest = addOp1 + addOp2 + addOp2;
 
 	if (addToOpTest.EqualTo(addToOpTester) == true)
 	{
@@ -629,7 +673,7 @@ int main()
 
 		if (file.is_open())
 		{
-			file << "Test 21 FUNCTIONAL:	+ operator" << std::endl;
+			file << "Test 23 FUNCTIONAL:	+ operator" << std::endl;
 		}
 	}
 	else
@@ -638,7 +682,7 @@ int main()
 
 		if (file.is_open())
 		{
-			file << "Test 21 NOT FUNCTIONAL: + operator" << std::endl;
+			file << "Test 23 NOT FUNCTIONAL: + operator" << std::endl;
 		}
 	}
 
@@ -661,7 +705,7 @@ int main()
 
 		if (file.is_open())
 		{
-			file << "Test 22 FUNCTIONAL:	+= operator" << std::endl;
+			file << "Test 24 FUNCTIONAL:	+= operator" << std::endl;
 		}
 	}
 	else
@@ -670,7 +714,7 @@ int main()
 
 		if (file.is_open())
 		{
-			file << "Test 22 NOT FUNCTIONAL: += operator" << std::endl;
+			file << "Test 24 NOT FUNCTIONAL: += operator" << std::endl;
 		}
 	}
 

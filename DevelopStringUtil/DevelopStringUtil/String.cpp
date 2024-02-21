@@ -707,6 +707,19 @@ bool String::operator < (const String& input)
 
 }	//	functionality confirmed!
 
+bool String::operator > (const String& input)
+{
+	//	allows '>' functionality with String class objects
+
+	if (strcmp(m_string, input.CStr()) == +1)	//	checks if input comes first alphabetically
+	{
+		return true;
+	}
+
+	return false;
+
+}
+
 char String::operator [] (const int index)
 {
 	//	a member function to allow '[]' (indexing/subscript) functionality

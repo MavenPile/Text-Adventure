@@ -65,6 +65,8 @@ public:
 
 	bool operator < (const String& input);
 
+	bool operator > (const String& input);
+
 	char operator [] (const int index);
 
 	void operator = (const String& input);
