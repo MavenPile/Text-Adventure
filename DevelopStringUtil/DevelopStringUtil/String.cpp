@@ -1,6 +1,5 @@
 #include "String.h"
 #include <iostream>
-#include <cctype>
 #include <ctype.h>
 
 String::String()

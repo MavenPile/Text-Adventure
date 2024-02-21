@@ -1,7 +1,6 @@
 #include <iostream>
 #include "String.h"
 #include <fstream>
-#include <ctime>
 
 std::fstream file;
 
