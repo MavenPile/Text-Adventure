@@ -404,9 +404,20 @@ int main()
 
 	std::cout << std::endl;
 
-	std::cout << "== OPERATOR" << std::endl;
+	std::cout << "== operator ";
 
+	String isEqualsTest;
 
+	String isEqualsTester(isEqualsTest);
+
+	if (isEqualsTest == isEqualsTester)
+	{
+		std::cout << "is functional." << std::endl;
+	}
+	else
+	{
+		std::cout << "is not functional." << std::endl;
+	}
 
 	//stringNew1.WriteToConsole();
 
@@ -431,7 +442,20 @@ int main()
 
 	std::cout << std::endl;
 
-	std::cout << "< OPERATOR" << std::endl;
+	std::cout << "< OPERATOR ";
+
+	String lessThanTest;
+
+	String lessThanTester("Jello, World!");
+
+	if (lessThanTest < lessThanTester)
+	{
+		std::cout << "is functional." << std::endl;
+	}
+	else
+	{
+		std::cout << "is not functional." << std::endl;
+	}
 
 	//stringNew1.WriteToConsole();
 
@@ -449,7 +473,20 @@ int main()
 
 	std::cout << std::endl;
 
-	std::cout << "[] OPERATOR" << std::endl;
+	std::cout << "[] operator ";
+
+	String indexTest;
+
+	char atIndex = indexTest[0];
+
+	if (atIndex == 'H')
+	{
+		std::cout << "is functional." << std::endl;
+	}
+	else
+	{
+		std::cout << "is not functional." << std::endl;
+	}
 
 	//String stringNew3("Hello? Can you hear me?");
 
@@ -460,7 +497,24 @@ int main()
 
 	std::cout << std::endl;
 
-	std::cout << "= OPERATOR" << std::endl;
+	std::cout << "= operator ";
+
+	String equalsOpTest;
+
+	String equalsOpReplacer("Goodbye, World");
+
+	String equalsOpTester(equalsOpTest);
+
+	equalsOpTest = equalsOpReplacer;
+
+	if (equalsOpTest.EqualTo(equalsOpTester) == false)
+	{
+		std::cout << "is functional." << std::endl;
+	}
+	else
+	{
+		std::cout << "is not functional." << std::endl;
+	}
 
 	//String stringNew4("Why aren't you responding anymore?");
 
@@ -475,7 +529,26 @@ int main()
 
 	std::cout << std::endl;
 
-	std::cout << "+ OPERATOR" << std::endl;
+	std::cout << "+ operator ";
+
+	String addToOpTest("");	//	is empty
+
+	String addToOpTester;
+
+	String addOp1("Hello, ");
+
+	String addOp2("World!");
+
+	addToOpTest = addOp1 + addOp2;
+
+	if (addToOpTest.EqualTo(addToOpTester) == true)
+	{
+		std::cout << "is functional." << std::endl;
+	}
+	else
+	{
+		std::cout << "is not functional." << std::endl;
+	}
 
 	//stringNew4.WriteToConsole();
 
@@ -494,7 +567,24 @@ int main()
 
 	std::cout << std::endl;
 
-	std::cout << "+= OPERATOR" << std::endl;
+	std::cout << "+= operator ";
+
+	String addEqualsOpTest("Hello, ");
+
+	String addEqualsOpTester;
+
+	String addEqualsTo("World!");
+
+	addEqualsOpTest += addEqualsTo;
+
+	if (addEqualsOpTest.EqualTo(addEqualsOpTester) == true)
+	{
+		std::cout << "is functional." << std::endl;
+	}
+	else
+	{
+		std::cout << "is not functional." << std::endl;
+	}
 
 	//String stringNew7("Goodbye");
 
