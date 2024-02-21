@@ -38,7 +38,7 @@ int main()
 		
 		if (file.is_open())
 		{
-			file << "Test 00 FUNCTIONAL:	 Default Constructor" << std::endl;
+			file << "Test 00 FUNCTIONAL:	Default Constructor" << std::endl;
 		}
 	}
 	else
@@ -64,7 +64,7 @@ int main()
 		
 		if (file.is_open())
 		{
-			file << "Test 01 FUNCTIONAL:	 Custom Constructor" << std::endl;
+			file << "Test 01 FUNCTIONAL:	Custom Constructor" << std::endl;
 		}
 	}
 	else
@@ -90,7 +90,7 @@ int main()
 
 		if (file.is_open())
 		{
-			file << "Test 02 FUNCTIONAL:	 Copy Constructor" << std::endl;
+			file << "Test 02 FUNCTIONAL:	Copy Constructor" << std::endl;
 		}
 	}
 	else
@@ -112,7 +112,7 @@ int main()
 
 	if (file.is_open())
 	{
-		file << "Test 03 UNTESTED:	 Destructor" << std::endl;
+		file << "Test 03 UNTESTED:	Destructor" << std::endl;
 	}
 
 
@@ -128,7 +128,7 @@ int main()
 
 		if (file.is_open())
 		{
-			file << "Test 04 FUNCTIONAL:	 Length()" << std::endl;
+			file << "Test 04 FUNCTIONAL:	Length()" << std::endl;
 		}
 	}
 	else
@@ -156,7 +156,7 @@ int main()
 
 		if (file.is_open())
 		{
-			file << "Test 05 FUNCTIONAL:	 CharacterAt()" << std::endl;
+			file << "Test 05 FUNCTIONAL:	CharacterAt()" << std::endl;
 		}
 	}
 	else
@@ -186,7 +186,7 @@ int main()
 
 		if (file.is_open())
 		{
-			file << "Test 06 FUNCTIONAL:	 EqualTo()" << std::endl;
+			file << "Test 06 FUNCTIONAL:	EqualTo()" << std::endl;
 		}
 	}
 	else
@@ -218,7 +218,7 @@ int main()
 
 		if (file.is_open())
 		{
-			file << "Test 07 FUNCTIONAL:	 Append()" << std::endl;
+			file << "Test 07 FUNCTIONAL:	Append()" << std::endl;
 		}
 	}
 	else
@@ -250,7 +250,7 @@ int main()
 
 		if (file.is_open())
 		{
-			file << "Test 08 FUNCTIONAL:	 Prepend()" << std::endl;
+			file << "Test 08 FUNCTIONAL:	Prepend()" << std::endl;
 		}
 	}
 	else
@@ -272,7 +272,7 @@ int main()
 
 	if (file.is_open())
 	{
-		file << "Test 09 UNTESTED:	 CStr()" << std::endl;
+		file << "Test 09 UNTESTED:	CStr()" << std::endl;
 	}
 
 
@@ -292,7 +292,7 @@ int main()
 		
 		if (file.is_open())
 		{
-			file << "Test 10 FUNCTIONAL:	 ToLower()" << std::endl;
+			file << "Test 10 FUNCTIONAL:	ToLower()" << std::endl;
 		}
 	}
 	else
@@ -322,7 +322,7 @@ int main()
 
 		if (file.is_open())
 		{
-			file << "Test 11 FUNCTIONAL:	 ToUpper()" << std::endl;
+			file << "Test 11 FUNCTIONAL:	ToUpper()" << std::endl;
 		}
 	}
 	else
@@ -350,7 +350,7 @@ int main()
 
 		if (file.is_open())
 		{
-			file << "Test 12 FUNCTIONAL:	 Find()" << std::endl;
+			file << "Test 12 FUNCTIONAL:	Find()" << std::endl;
 		}
 	}
 	else
@@ -376,7 +376,7 @@ int main()
 
 		if (file.is_open())
 		{
-			file << "Test 13 FUNCTIONAL:	 FindFrom()" << std::endl;
+			file << "Test 13 FUNCTIONAL:	FindFrom()" << std::endl;
 		}
 	}
 	else
@@ -410,7 +410,7 @@ int main()
 
 		if (file.is_open())
 		{
-			file << "Test 14 FUNCTIONAL:	 Replace()" << std::endl;
+			file << "Test 14 FUNCTIONAL:	Replace()" << std::endl;
 		}
 	}
 	else
@@ -440,7 +440,7 @@ int main()
 
 		if (file.is_open())
 		{
-			file << "Test 15 FUNCTIONAL:	 ReadFromConsole()" << std::endl;
+			file << "Test 15 FUNCTIONAL:	ReadFromConsole()" << std::endl;
 		}
 	}
 	else
@@ -462,7 +462,7 @@ int main()
 
 	if (file.is_open())
 	{
-		file << "Test 16 UNTESTED:	 WriteToConsole()" << std::endl;
+		file << "Test 16 UNTESTED:	WriteToConsole()" << std::endl;
 	}
 
 
@@ -480,7 +480,7 @@ int main()
 
 		if (file.is_open())
 		{
-			file << "Test 17 FUNCTIONAL:	 == operator" << std::endl;
+			file << "Test 17 FUNCTIONAL:	== operator" << std::endl;
 		}
 	}
 	else
@@ -508,7 +508,7 @@ int main()
 
 		if (file.is_open())
 		{
-			file << "Test 18 FUNCTIONAL:	 != operator" << std::endl;
+			file << "Test 18 FUNCTIONAL:	!= operator" << std::endl;
 		}
 	}
 	else
@@ -536,7 +536,7 @@ int main()
 
 		if (file.is_open())
 		{
-			file << "Test 18 FUNCTIONAL:	 < operator" << std::endl;
+			file << "Test 18 FUNCTIONAL:	< operator" << std::endl;
 		}
 	}
 	else
@@ -564,7 +564,7 @@ int main()
 
 		if (file.is_open())
 		{
-			file << "Test 19 FUNCTIONAL:	 [] operator" << std::endl;
+			file << "Test 19 FUNCTIONAL:	[] operator" << std::endl;
 		}
 	}
 	else
@@ -573,7 +573,7 @@ int main()
 
 		if (file.is_open())
 		{
-			file << "Test 19 NOT FUNCTIONAL [] operator" << std::endl;
+			file << "Test 19 NOT FUNCTIONAL: [] operator" << std::endl;
 		}
 	}
 
@@ -596,7 +596,7 @@ int main()
 
 		if (file.is_open())
 		{
-			file << "Test 20 FUNCTIONAL:	 = operator" << std::endl;
+			file << "Test 20 FUNCTIONAL:	= operator" << std::endl;
 		}
 	}
 	else
@@ -630,7 +630,7 @@ int main()
 
 		if (file.is_open())
 		{
-			file << "Test 21 FUNCTIONAL:	 + operator" << std::endl;
+			file << "Test 21 FUNCTIONAL:	+ operator" << std::endl;
 		}
 	}
 	else
@@ -662,7 +662,7 @@ int main()
 
 		if (file.is_open())
 		{
-			file << "Test 22 FUNCTIONAL:	 += operator" << std::endl;
+			file << "Test 22 FUNCTIONAL:	+= operator" << std::endl;
 		}
 	}
 	else
