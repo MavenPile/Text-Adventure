@@ -3,178 +3,363 @@
 
 int main()
 {
-	std::cout << "DEFAULT CONSTRUCTOR" << std::endl;
+	std::cout << "Default Constructor ";
 	
-	String stringDefault;
+	String defaultCon;
 
-	stringDefault.WriteToConsole();
+	String defaultConTester("Hello, World!");
 
+	if (strcmp(defaultCon.CStr(), defaultConTester.CStr()) == 0)
+	{
+		std::cout << "is functional." << std::endl;
+	}
+	else
+	{
+		std::cout << "is not functional." << std::endl;
+	}
 
-	std::cout << std::endl;
-
-	std::cout << "CUSTOM CONSTRUCTOR" << std::endl;
-
-	String stringCustom(" I am alive!");
-
-	stringCustom.WriteToConsole();
-
-
-	std::cout << std::endl;
-
-	std::cout << "COPY CONSTRUCTOR" << std::endl;
-
-	String stringCopy(stringCustom);
-
-	stringCopy.WriteToConsole();
+	//stringDefault.WriteToConsole();
 
 
 	std::cout << std::endl;
 
-	std::cout << "Length() FUNCTION" << std::endl;
+	std::cout << "Custom Constructor ";
 
-	stringCopy.WriteToConsole();
+	String customCon("Hello, World!");
 
-	int stringCopyLength = stringCopy.Length();
+	if (strcmp(customCon.CStr(), defaultCon.CStr()) == 0)
+	{
+		std::cout << "is functional." << std::endl;
+	}
+	else
+	{
+		std::cout << "is not functional." << std::endl;
+	}
 
-	std::cout << "Length() output: " << stringCopyLength << std::endl;
+	//String stringCustom(" I am alive!");
 
-
-	std::cout << std::endl;
-
-	std::cout << "CharacterAt() FUNCTION" << std::endl;
-
-	stringCopy.WriteToConsole();
-
-	char stringCopyCharAt1 = stringCopy.CharacterAt(3);
-	char stringCopyCharAt2 = stringCopy.CharacterAt(20);
-
-	std::cout << "CharacterAt(3) output: " << stringCopyCharAt1 << std::endl;
-	std::cout << "CharacterAt(20) output: " << stringCopyCharAt2 << std::endl;
+	//stringCustom.WriteToConsole();
 
 
 	std::cout << std::endl;
 
-	std::cout << "EqualTo() FUNCTION" << std::endl;
+	std::cout << "Copy Constructor ";
 
-	stringCopy.WriteToConsole();
+	String copyCon(defaultCon);
 
-	stringCustom.WriteToConsole();
+	if (strcmp(copyCon.CStr(), defaultCon.CStr()) == 0)
+	{
+		std::cout << "is functional." << std::endl;
+	}
+	else
+	{
+		std::cout << "is not functional." << std::endl;
+	}
 
-	bool copyMatchCustom = stringCopy.EqualTo(stringCustom);
+	//String stringCopy(stringCustom);
 
-	std::cout << "stringCopy equals stringCustom = " << copyMatchCustom << std::endl;
+	//stringCopy.WriteToConsole();
 
-
-	std::cout << std::endl;
-
-	std::cout << "Append() FUNCTION" << std::endl;
-
-	stringDefault.WriteToConsole();
-
-	stringCopy.WriteToConsole();
-
-	stringDefault.Append(stringCopy);
-
-	std::cout << "stringDefault.Append(stringCopy): " << stringDefault.CStr() << std::endl;
 
 
 	std::cout << std::endl;
 
-	std::cout << "Prepend() FUNCTION" << std::endl;
+	std::cout << "Length() function";
 
-	stringDefault.WriteToConsole();
+	String lengthTest;
 
-	String stringPrepend("Is anyone there? ");
+	if (lengthTest.Length() == 13)
+	{
+		std::cout << " is functional." << std::endl;
+	}
+	else
+	{
+		std::cout << " is not functional." << std::endl;
+	}
 
-	stringPrepend.WriteToConsole();
+	//stringCopy.WriteToConsole();
 
-	stringDefault.Prepend(stringPrepend);
+	//int stringCopyLength = stringCopy.Length();
 
-	std::cout << "stringDefault.Append(stringPrepend): " << stringDefault.CStr() << std::endl;
+	//std::cout << "Length() output: " << stringCopyLength << std::endl;
+
+
+	std::cout << std::endl;
+
+	std::cout << "CharacterAt() function ";
+
+	String characterAtTest;
+
+
+
+	//if ()
+	//{
+	//	std::cout << " is functional" << std::endl;
+	//}
+	//else
+	//{
+	//	std::cout << " is not functional." << std::endl;
+	//}
+
+
+	//stringCopy.WriteToConsole();
+
+	//char stringCopyCharAt1 = stringCopy.CharacterAt(3);
+	//char stringCopyCharAt2 = stringCopy.CharacterAt(20);
+
+	//std::cout << "CharacterAt(3) output: " << stringCopyCharAt1 << std::endl;
+	//std::cout << "CharacterAt(20) output: " << stringCopyCharAt2 << std::endl;
+
+
+	std::cout << std::endl;
+
+	std::cout << "EqualTo() function ";
+
+	String equalToTest;
+
+	String equalToTrue(equalToTest);
+
+	String equalToFalse("false");
+
+	bool equalToMatch = equalToTest.EqualTo(equalToTrue);
+
+	bool equalToNoMatch = equalToTest.EqualTo(equalToFalse);
+
+	if (equalToMatch == true && equalToNoMatch == false)
+	{
+		std::cout << "is functional." << std::endl;
+	}
+	else
+	{
+		std::cout << "is not functional." << std::endl;
+	}
+
+	//stringCopy.WriteToConsole();
+
+	//stringCustom.WriteToConsole();
+
+	//bool copyMatchCustom = stringCopy.EqualTo(stringCustom);
+
+	//std::cout << "stringCopy equals stringCustom = " << copyMatchCustom << std::endl;
+
+
+	std::cout << std::endl;
+
+	std::cout << "Append() function";
+
+	String appendTest;
+
+	String appender(" I am a string.");
+
+	String appendTester("Hello, World! I am a string.");
+
+	appendTest.Append(appender);
+
+	if (strcmp(appendTest.CStr(), appendTester.CStr()) == 0)
+	{
+		std::cout << " is functional." << std::endl;
+	}
+	else
+	{
+		std::cout << " is not functional." << std::endl;
+	}
+
+	//stringDefault.WriteToConsole();
+
+	//stringCopy.WriteToConsole();
+
+	//stringDefault.Append(stringCopy);
+
+	//std::cout << "stringDefault.Append(stringCopy): " << stringDefault.CStr() << std::endl;
+
+
+	std::cout << std::endl;
+
+	std::cout << "Prepend() function ";
+
+	String prependTest;
+
+	String prependTester("Is anyone there? Hello, World!");
+
+	String prepender("Is anyone there? ");
+
+	prependTest.Prepend(prepender);
+
+	if (strcmp(prependTest.CStr(), prependTester.CStr()) == 0)
+	{
+		std::cout << "is functional." << std::endl;
+	}
+	else
+	{
+		std::cout << "is not functional." << std::endl;
+	}
+
+	//stringDefault.WriteToConsole();
+
+	//String stringPrepend("Is anyone there? ");
+
+	//stringPrepend.WriteToConsole();
+
+	//stringDefault.Prepend(stringPrepend);
+
+	//std::cout << "stringDefault.Append(stringPrepend): " << stringDefault.CStr() << std::endl;
 
 
 	std::cout << std::endl;
 
 	std::cout << "CStr() FUNCTION" << std::endl;
 
-	std::cout << "Returns member array, not directly to console: " << stringDefault.CStr() << std::endl;
+	//std::cout << "Returns member array, not directly to console: " << stringDefault.CStr() << std::endl;
 
 
 	std::cout << std::endl;
 
-	std::cout << "ToLower() FUNCTION" << std::endl;
+	std::cout << "ToLower() function ";
 
-	stringDefault.WriteToConsole();
+	String toLowerTest;
 
-	stringDefault.ToLower();
+	String toLowerTester("hello, world!");
 
-	stringDefault.WriteToConsole();
+	toLowerTest.ToLower();
 
+	if (strcmp(toLowerTest.CStr(), toLowerTester.CStr()) == 0)
+	{
+		std::cout << "is functional." << std::endl;
+	}
+	else
+	{
+		std::cout << "is not functional." << std::endl;
+	}
 
-	std::cout << std::endl;
+	//stringDefault.WriteToConsole();
 
-	std::cout << "ToUpper() FUNCTION" << std::endl;
+	//stringDefault.ToLower();
 
-	stringDefault.WriteToConsole();
-	
-	stringDefault.ToUpper();
-
-	stringDefault.WriteToConsole();
-
-
-	std::cout << std::endl;
-
-	std::cout << "Find() FUNCTION" << std::endl;
-
-	stringDefault.WriteToConsole();
-
-	String findString1("WORLD");
-	String findString2("world");
-
-	findString1.WriteToConsole();
-	findString2.WriteToConsole();
-
-	std::cout << "Index of 'WORLD': " << stringDefault.Find(findString1) << std::endl;
-	std::cout << "Index of 'world': " << stringDefault.Find(findString2) << std::endl;
+	//stringDefault.WriteToConsole();
 
 
 	std::cout << std::endl;
 
-	std::cout << "FindFrom() FUNCTION" << std::endl;
+	std::cout << "ToUpper() function ";
 
-	stringDefault.WriteToConsole();
+	String toUpperTest;
 
-	findString1.WriteToConsole();
+	String toUpperTester("HELLO, WORLD!");
 
-	std::cout << "Index of 'WORLD', from 10: " << stringDefault.FindFrom(10, findString1) << std::endl;
-	std::cout << "Index of 'WORLD', from 25: " << stringDefault.FindFrom(25, findString1) << std::endl;
+	toUpperTest.ToUpper();
+
+	if (strcmp(toUpperTest.CStr(), toUpperTester.CStr()) == 0)
+	{
+		std::cout << "is functional." << std::endl;
+	}
+	else
+	{
+		std::cout << "is not functional." << std::endl;
+	}
+
+	//stringDefault.WriteToConsole();
+	//
+	//stringDefault.ToUpper();
+
+	//stringDefault.WriteToConsole();
 
 
 	std::cout << std::endl;
 
-	std::cout << "Replace() FUNCTION" << std::endl;
+	std::cout << "Find() function ";
 
-	stringDefault.WriteToConsole();
+	String findTest;
 
-	String replaceString("[[living world]]");
+	String findHello("Hello");
 
-	replaceString.WriteToConsole();
+	if (findTest.Find(findHello) == 0)
+	{
+		std::cout << "is functional." << std::endl;
+	}
+	else
+	{
+		std::cout << "is not functional." << std::endl;
+	}
 
-	findString1.WriteToConsole();
+	//stringDefault.WriteToConsole();
 
-	stringDefault.Replace(findString1, replaceString);
+	//String findString1("WORLD");
+	//String findString2("world");
 
-	std::cout << "Replace 'WORLD' with '[[living world]]': " << stringDefault.CStr() << std::endl;
+	//findString1.WriteToConsole();
+	//findString2.WriteToConsole();
 
-	String anotherAppendString(" Why am I not in the [[living world]]");
+	//std::cout << "Index of 'WORLD': " << stringDefault.Find(findString1) << std::endl;
+	//std::cout << "Index of 'world': " << stringDefault.Find(findString2) << std::endl;
 
-	stringDefault.Append(anotherAppendString);
 
-	stringDefault.WriteToConsole();
+	std::cout << std::endl;
 
-	stringDefault.Replace(replaceString, findString1);
+	std::cout << "FindFrom() function ";
 
-	std::cout << "Replace '[[living world]]' with 'WORLD': " << stringDefault.CStr() << std::endl;
+	String findFromTest("Hello, World! Hello, Sky!");
+
+	if (findFromTest.FindFrom(1, findHello) == 14)
+	{
+		std::cout << "is functional." << std::endl;
+	}
+	else
+	{
+		std::cout << "is not functional." << std::endl;
+	}
+
+	//stringDefault.WriteToConsole();
+
+	//findString1.WriteToConsole();
+
+	//std::cout << "Index of 'WORLD', from 10: " << stringDefault.FindFrom(10, findString1) << std::endl;
+	//std::cout << "Index of 'WORLD', from 25: " << stringDefault.FindFrom(25, findString1) << std::endl;
+
+
+	std::cout << std::endl;
+
+	std::cout << "Replace() function ";
+
+	String replaceTest(findFromTest);
+
+	String replaceTester("Hi, World! Hi, Sky!");
+
+	String replaceHello("Hello");
+
+	String withHi("Hi");
+
+	replaceTest.Replace(replaceHello, withHi);
+
+	if (strcmp(replaceTest.CStr(), replaceTester.CStr()) == 0)
+	{
+		std::cout << "is functional." << std::endl;
+	}
+	else
+	{
+		std::cout << "is not functional." << std::endl;
+	}
+
+	//stringDefault.WriteToConsole();
+
+	//String replaceString("[[living world]]");
+
+	//replaceString.WriteToConsole();
+
+	//findString1.WriteToConsole();
+
+	//stringDefault.Replace(findString1, replaceString);
+
+	//std::cout << "Replace 'WORLD' with '[[living world]]': " << stringDefault.CStr() << std::endl;
+
+	//String anotherAppendString(" Why am I not in the [[living world]]");
+
+	//stringDefault.Append(anotherAppendString);
+
+	//stringDefault.WriteToConsole();
+
+	//stringDefault.Replace(replaceString, findString1);
+
+	//std::cout << "Replace '[[living world]]' with 'WORLD': " << stringDefault.CStr() << std::endl;
 
 
 
@@ -182,126 +367,128 @@ int main()
 
 	std::cout << "ReadFromConsole() FUNCTION" << std::endl;
 
-	std::cout << "Please input a string (max char 64): ";
 
-	String readString;
 
-	readString.ReadFromConsole();
+	//std::cout << "Please input a string (max char 64): ";
 
-	readString.WriteToConsole();
+	//String readString;
+
+	//readString.ReadFromConsole();
+
+	//readString.WriteToConsole();
 
 
 	std::cout << std::endl;
 
 	std::cout << "WriteToConsole() FUNCTION" << std::endl;
 
-	String stringNew1("Yes! Someone is here!");
+	//String stringNew1("Yes! Someone is here!");
 
-	stringNew1.WriteToConsole();
+	//stringNew1.WriteToConsole();
 
 
 	std::cout << std::endl;
 
 	std::cout << "== OPERATOR" << std::endl;
 
-	stringNew1.WriteToConsole();
+	//stringNew1.WriteToConsole();
 
-	String stringNew2("Can you save me?");
+	//String stringNew2("Can you save me?");
 
-	stringNew2.WriteToConsole();
-
-
-	stringNew1.EqualTo(stringNew2);
-	stringNew1 == stringNew2;
+	//stringNew2.WriteToConsole();
 
 
-	if (stringNew1 == stringNew2)
-	{
-		std::cout << "The strings are the same" << std::endl;
-	}
-	else
-	{
-		std::cout << "The strings are not the same" << std::endl;
-	}
+	//stringNew1.EqualTo(stringNew2);
+	//stringNew1 == stringNew2;
+
+
+	//if (stringNew1 == stringNew2)
+	//{
+	//	std::cout << "The strings are the same" << std::endl;
+	//}
+	//else
+	//{
+	//	std::cout << "The strings are not the same" << std::endl;
+	//}
 
 
 	std::cout << std::endl;
 
 	std::cout << "< OPERATOR" << std::endl;
 
-	stringNew1.WriteToConsole();
+	//stringNew1.WriteToConsole();
 
-	stringNew2.WriteToConsole();
+	//stringNew2.WriteToConsole();
 
-	if (stringNew1 < stringNew2)
-	{
-		std::cout << "The second string comes first" << std::endl;
-	}
-	else
-	{
-		std::cout << "The first string comes first" << std::endl;
-	}
+	//if (stringNew1 < stringNew2)
+	//{
+	//	std::cout << "The second string comes first" << std::endl;
+	//}
+	//else
+	//{
+	//	std::cout << "The first string comes first" << std::endl;
+	//}
 
 
 	std::cout << std::endl;
 
 	std::cout << "[] OPERATOR" << std::endl;
 
-	String stringNew3("Hello? Can you hear me?");
+	//String stringNew3("Hello? Can you hear me?");
 
-	stringNew3.WriteToConsole();
+	//stringNew3.WriteToConsole();
 
-	std::cout << "The string at index 7 is: " << stringNew3[7] << std::endl;
+	//std::cout << "The string at index 7 is: " << stringNew3[7] << std::endl;
 
 
 	std::cout << std::endl;
 
 	std::cout << "= OPERATOR" << std::endl;
 
-	String stringNew4("Why aren't you responding anymore?");
+	//String stringNew4("Why aren't you responding anymore?");
 
-	stringNew3.WriteToConsole();
+	//stringNew3.WriteToConsole();
 
-	stringNew4.WriteToConsole();
+	//stringNew4.WriteToConsole();
 
-	stringNew3 = stringNew4;
+	//stringNew3 = stringNew4;
 
-	std::cout << "String 3 is now: " << stringNew3.CStr() << std::endl;
+	//std::cout << "String 3 is now: " << stringNew3.CStr() << std::endl;
 
 
 	std::cout << std::endl;
 
 	std::cout << "+ OPERATOR" << std::endl;
 
-	stringNew4.WriteToConsole();
+	//stringNew4.WriteToConsole();
 
-	String stringNew5("It's so dark.");
+	//String stringNew5("It's so dark.");
 
-	stringNew5.WriteToConsole();
+	//stringNew5.WriteToConsole();
 
-	String stringNew6(" It's so cold.");
+	//String stringNew6(" It's so cold.");
 
-	stringNew6.WriteToConsole();
+	//stringNew6.WriteToConsole();
 
-	stringNew4 = (stringNew5 + stringNew6);
+	//stringNew4 = (stringNew5 + stringNew6);
 
-	std::cout << "The new string is: " << stringNew4.CStr() << std::endl;
+	//std::cout << "The new string is: " << stringNew4.CStr() << std::endl;
 
 
 	std::cout << std::endl;
 
 	std::cout << "+= OPERATOR" << std::endl;
 
-	String stringNew7("Goodbye");
+	//String stringNew7("Goodbye");
 
-	String stringNew8(", then.");
+	//String stringNew8(", then.");
 
-	stringNew7.WriteToConsole();
+	//stringNew7.WriteToConsole();
 
-	stringNew8.WriteToConsole();
+	//stringNew8.WriteToConsole();
 
-	stringNew7 += stringNew8;
+	//stringNew7 += stringNew8;
 
-	std::cout << "The new string is: " << stringNew7.CStr() << std::endl;
+	//std::cout << "The new string is: " << stringNew7.CStr() << std::endl;
 
 }

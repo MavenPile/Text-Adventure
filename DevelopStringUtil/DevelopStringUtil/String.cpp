@@ -81,7 +81,7 @@ bool String::EqualTo(const String& input) const
 	//	uses C-String functionality to compare the input to the string, returning a boolean
 	//	pairs with an if statement to measure the output boolean of strcmp()
 
-	if (strcmp(m_string,input.CStr()))		//	compares the input's string is equal to m_string
+	if (strcmp(m_string,input.CStr()) == 0)		//	compares the input's string is equal to m_string
 	{
 		return true;	//	outputs a true boolean
 	}
@@ -424,6 +424,7 @@ void String::ReplaceAt(int index, const String& originString, const String& repl
 	newString[index] = '\0';
 		//	inputs a null terminator so strcat_s can work
 		//	I don't know why visual studio is underlining this
+		//	What is "buffer overrun"?
 
 	strcat_s(newString, length, replaceString.CStr());
 		//	concatenates replaceString to newString, at appropriate index
@@ -458,10 +459,10 @@ void String::Replace(const String& findString, const String& replaceString)
 		bool isMatch;
 			//	a holder variable declaration
 
-		int length = strlen(m_string) - findString.Length();
-			//	the length of m_string that might contain findString's first char
+		int searchLength = strlen(m_string) - findString.Length();
+			//	the length of m_string that might contain findString
 
-		for (int i = 0; i <= length; i++)
+		for (int i = 0; i <= searchLength; i++)
 			//	loop from 0 to findString[0]'s final possible location in m_string
 		{
 			isMatch = CompareAt(i, findString);
@@ -473,10 +474,10 @@ void String::Replace(const String& findString, const String& replaceString)
 				ReplaceAt(i, findString, replaceString);
 					//	uses ReplaceAt helper function to replace findString with replaceString at i
 
-				if (i != length)
+				if (i != searchLength)
 						//	checks if m_string has been entirely searched for findString
 				{
-					length = strlen(m_string);	//	updates length with new length of m_string
+					searchLength = strlen(m_string) - findString.Length();	//	updates length with new length of m_string
 					i += replaceString.Length() - 1;	//	skips replaced section
 					continue;	//	if m_string has not been fully searched, continues for loop
 				}
@@ -485,15 +486,15 @@ void String::Replace(const String& findString, const String& replaceString)
 					break;	//	all occurances of findString replaced
 				}
 			}
-			else if (i != length)
+			else/* if (i != searchLength)*/
 				//	if i isn't at the final char
 			{
 				continue;	//	continue searching for findString
 			}
-			else
-			{
-				break;	//	findString not found
-			}
+			//else
+			//{
+			//	break;	//	findString not found
+			//}
 		}
 	}
 		
