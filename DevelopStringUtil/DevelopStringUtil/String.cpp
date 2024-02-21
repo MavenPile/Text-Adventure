@@ -602,7 +602,7 @@ void String::ReadFromConsole()
 	//	reads the console to replace m_string with the input
 	//	this function crashes the program if the user input is larger than 64
 
-	//std::cout << "Waiting for input (max 64 char.)" << std::endl;		
+	std::cout << "Waiting for input (max 64 char.)" << std::endl;		
 	//	//	prompts the user for input
 
 	char* input = new char[65];	//	allocates hard buffer cap

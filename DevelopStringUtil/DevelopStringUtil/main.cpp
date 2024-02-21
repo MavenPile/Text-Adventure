@@ -64,17 +64,17 @@ int main()
 
 	std::cout << std::endl;
 
-	std::cout << "Length() function";
+	std::cout << "Length() ";
 
 	String lengthTest;
 
 	if (lengthTest.Length() == 13)
 	{
-		std::cout << " is functional." << std::endl;
+		std::cout << "is functional." << std::endl;
 	}
 	else
 	{
-		std::cout << " is not functional." << std::endl;
+		std::cout << "is not functional." << std::endl;
 	}
 
 	//stringCopy.WriteToConsole();
@@ -86,20 +86,20 @@ int main()
 
 	std::cout << std::endl;
 
-	std::cout << "CharacterAt() function ";
+	std::cout << "CharacterAt() ";
 
 	String characterAtTest;
 
+	char charAt = characterAtTest.CharacterAt(0);
 
-
-	//if ()
-	//{
-	//	std::cout << " is functional" << std::endl;
-	//}
-	//else
-	//{
-	//	std::cout << " is not functional." << std::endl;
-	//}
+	if (charAt == 'H')
+	{
+		std::cout << "is functional" << std::endl;
+	}
+	else
+	{
+		std::cout << "is not functional." << std::endl;
+	}
 
 
 	//stringCopy.WriteToConsole();
@@ -113,7 +113,7 @@ int main()
 
 	std::cout << std::endl;
 
-	std::cout << "EqualTo() function ";
+	std::cout << "EqualTo() ";
 
 	String equalToTest;
 
@@ -121,11 +121,7 @@ int main()
 
 	String equalToFalse("false");
 
-	bool equalToMatch = equalToTest.EqualTo(equalToTrue);
-
-	bool equalToNoMatch = equalToTest.EqualTo(equalToFalse);
-
-	if (equalToMatch == true && equalToNoMatch == false)
+	if (equalToTest.EqualTo(equalToTrue) == true && equalToTest.EqualTo(equalToFalse) == false)
 	{
 		std::cout << "is functional." << std::endl;
 	}
@@ -145,7 +141,7 @@ int main()
 
 	std::cout << std::endl;
 
-	std::cout << "Append() function";
+	std::cout << "Append() ";
 
 	String appendTest;
 
@@ -157,11 +153,11 @@ int main()
 
 	if (strcmp(appendTest.CStr(), appendTester.CStr()) == 0)
 	{
-		std::cout << " is functional." << std::endl;
+		std::cout << "is functional." << std::endl;
 	}
 	else
 	{
-		std::cout << " is not functional." << std::endl;
+		std::cout << "is not functional." << std::endl;
 	}
 
 	//stringDefault.WriteToConsole();
@@ -175,7 +171,7 @@ int main()
 
 	std::cout << std::endl;
 
-	std::cout << "Prepend() function ";
+	std::cout << "Prepend() ";
 
 	String prependTest;
 
@@ -207,14 +203,14 @@ int main()
 
 	std::cout << std::endl;
 
-	std::cout << "CStr() FUNCTION" << std::endl;
+	std::cout << "CStr() is functional." << std::endl;
 
 	//std::cout << "Returns member array, not directly to console: " << stringDefault.CStr() << std::endl;
 
 
 	std::cout << std::endl;
 
-	std::cout << "ToLower() function ";
+	std::cout << "ToLower() ";
 
 	String toLowerTest;
 
@@ -240,7 +236,7 @@ int main()
 
 	std::cout << std::endl;
 
-	std::cout << "ToUpper() function ";
+	std::cout << "ToUpper() ";
 
 	String toUpperTest;
 
@@ -266,7 +262,7 @@ int main()
 
 	std::cout << std::endl;
 
-	std::cout << "Find() function ";
+	std::cout << "Find() ";
 
 	String findTest;
 
@@ -295,7 +291,7 @@ int main()
 
 	std::cout << std::endl;
 
-	std::cout << "FindFrom() function ";
+	std::cout << "FindFrom() ";
 
 	String findFromTest("Hello, World! Hello, Sky!");
 
@@ -318,7 +314,7 @@ int main()
 
 	std::cout << std::endl;
 
-	std::cout << "Replace() function ";
+	std::cout << "Replace() ";
 
 	String replaceTest(findFromTest);
 
@@ -362,11 +358,24 @@ int main()
 	//std::cout << "Replace '[[living world]]' with 'WORLD': " << stringDefault.CStr() << std::endl;
 
 
-
 	std::cout << std::endl;
 
-	std::cout << "ReadFromConsole() FUNCTION" << std::endl;
+	std::cout << "ReadFromConsole() TEST" << std::endl;
 
+	String readFromTest;
+
+	String readFromTester;
+
+	readFromTest.ReadFromConsole();
+
+	if (strcmp(readFromTest.CStr(), readFromTester.CStr()) != 0)
+	{
+		std::cout << "ReadFromConsole() is functional." << std::endl;
+	}
+	else
+	{
+		std::cout << "ReadFromConsole() is not functional." << std::endl;
+	}
 
 
 	//std::cout << "Please input a string (max char 64): ";
@@ -380,7 +389,13 @@ int main()
 
 	std::cout << std::endl;
 
-	std::cout << "WriteToConsole() FUNCTION" << std::endl;
+	std::cout << "WriteToConsole() TEST" << std::endl;
+
+	String writeToTest;
+
+	writeToTest.WriteToConsole();
+
+	std::cout << "WriteToConsole() is functional." << std::endl;
 
 	//String stringNew1("Yes! Someone is here!");
 
@@ -390,6 +405,8 @@ int main()
 	std::cout << std::endl;
 
 	std::cout << "== OPERATOR" << std::endl;
+
+
 
 	//stringNew1.WriteToConsole();
 
