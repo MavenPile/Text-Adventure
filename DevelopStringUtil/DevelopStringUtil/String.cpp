@@ -373,7 +373,7 @@ int String::FindFrom(int index, const String& findString)
 	{
 		bool isMatch;	//	declares a variable to hold CompareAt output
 
-		int length = strlen(m_string) + findString.Length();	//	holds searchable length of m_string
+		int length = strlen(m_string) - findString.Length();	//	holds searchable length of m_string
 
 		for (int i = index; i <= length; i++)	//	loops through entire searchable length
 		{
@@ -395,6 +395,57 @@ int String::FindFrom(int index, const String& findString)
 	}
 	
 }	//	functionality confirmed! Only finds first occurance of of findString from index
+
+//int* FindArray(const String& findString)
+//{
+//		//	finds all instances of findString in m_string
+//		//	stores all indexes in an int array, then returns the array pointer
+//
+//	if (findString.Length() > strlen(m_string))
+//	{
+//		int* noFind;
+//		
+//		return noFind;
+//	}
+//	else
+//	{
+//		int searchLength = strlen(m_string) - findString.Length();
+//
+//		int arrayIndex = 0;
+//
+//		int* foundStrings;
+//
+//		int arrayLength = 0;
+//
+//		for (int i = 0; i < searchLength; i++)
+//		{			
+//			if (CompareAt(i, findString) == true)
+//			{
+//				arrayLength++;
+//				
+//				int* temp = new int[arrayLength];
+//
+//				temp[arrayIndex] = 
+//				
+//				delete[] m_string;
+//
+//				m_string = temp;
+//
+//				arrayIndex++;
+//			}
+//			else if (i < searchLength)
+//			{
+//				continue;
+//			}
+//			else
+//			{
+//				int* noFind;
+//
+//				return noFind;
+//			}
+//		}
+//	}
+//}
 
 
 void String::ReplaceAt(int index, const String& originString, const String& replaceString)

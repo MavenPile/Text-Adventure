@@ -50,8 +50,11 @@ public:
 
 	int FindFrom(int index, const String& findString);	//	same as Find(), but begins search from index			
 
+	//int* FindArray(const String& findString);	
+		//	finds all instances of findString, and returns an array of their indexes
+
 	void Replace(const String& findString, const String& replaceString);
-			//	same as find, but uses ReplaceAt() helper function, and doesn't return anything
+		//	same as find, but uses ReplaceAt() helper function, and doesn't return anything
 
 	void ReadFromConsole();	//	prompts user for input, writes input into m_string
 
