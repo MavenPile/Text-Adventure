@@ -12,9 +12,9 @@ public:
 
 	~item();
 	
-	void Description();
+	virtual void Description();
 
-	void Use();
+	virtual void Use();
 
 protected:
 
