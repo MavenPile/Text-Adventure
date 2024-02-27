@@ -1,6 +1,7 @@
 #pragma once
 
-class item
+class Item	//	this is an abstract class, it can only be derived, not instantiated
+			//	the pure virtual functions below are what make this class abstract
 {
 private:
 
@@ -8,13 +9,15 @@ private:
 
 public:
 
-	item();
+	Item();
 
-	~item();
+	~Item();
+
+	virtual const char& GetName() = 0;	//	a pure virtual function, meaning it does nothing and makes the class abstract
 	
-	virtual void Description();
+	virtual void Description() = 0;	//	a pure virtual function
 
-	virtual void Use();
+	virtual void Use() = 0;	//	a pure virtual function
 
 protected:
 
