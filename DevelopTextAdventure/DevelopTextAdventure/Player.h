@@ -1,12 +1,12 @@
 #pragma once
 #include "String.h"
-#include "Room.h"
+#include "Game.h"
 
 class Player
 {
 private:
 
-	Room* currentRoom;
+	Room* roomPointer;
 
 public:
 
@@ -16,6 +16,6 @@ public:
 
 	bool FindSpell(const String& spell);
 
-	int* GetCurrentRoom();
+	//Room* GetCurrentRoom();
 };
 

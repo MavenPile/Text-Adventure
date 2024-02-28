@@ -3,36 +3,34 @@
 
 Key::Key()
 {
-	name = new char[4] {"Key"};
+	name = "Key";
 
-	desc = new char[7] {"A key."};
+	desc = "A key. You don't know where to use it.";
 }
 
-Key::~Key()
-{
-	delete[] name;
+//Key::~Key()
+//{
+//
+//}
 
-	delete[] desc;
-}
-
-const char* Key::GetCharName()
+String Key::GetName()
 {
 	return name;
 }
 
-const char* Key::Description()
+String Key::Description()
 {
 	return desc;
 }
 
 void Key::Use()
 {
-	if (player.GetCurrentRoom())
-	{
+	//if (player.GetCurrentRoom())
+	//{
 
-	}
-	else
-	{
-		std::cout << "Key cannot be used here." << std::endl;
-	}
+	//}
+	//else
+	//{
+	//	std::cout << "Key cannot be used here." << std::endl;
+	//}
 }

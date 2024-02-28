@@ -19,6 +19,8 @@ public:
 
 	Room();
 
+	Room(int iRow, int iCol);
+
 	Room(int iRow, int iCol, String desc);
 
 	Room(int iRow, int iCol, String desc, Item* item);

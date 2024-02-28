@@ -5,19 +5,19 @@ class Key : public Item
 {
 private:
 
-	char* name;
+	String name;
 
-	char* desc;
+	String desc;
 
 public:
 
 	Key();
 
-	~Key();
+	//~Key();
 	
-	const char* GetCharName() override;
+	String GetName() override;
 
-	const char* Description() override;
+	String Description() override;
 
 	void Use() override;
 
