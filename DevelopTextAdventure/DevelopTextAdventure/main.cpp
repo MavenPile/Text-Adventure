@@ -1,10 +1,16 @@
 #include <iostream>
 #include "Game.h"
+#include "Room.h"
 
 
 int main()
 {
-	Run();
-	
+	Game game;
+
+	game.Run();
+
+
+
+
 	return 0;
 }

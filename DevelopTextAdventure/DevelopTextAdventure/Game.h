@@ -17,5 +17,7 @@ public:
 
 	void Run();
 
+	//void CreateMap();
+
 };
 

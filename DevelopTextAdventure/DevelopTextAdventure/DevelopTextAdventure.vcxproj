@@ -127,13 +127,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\DevelopStringUtil\DevelopStringUtil\String.cpp" />
-    <ClCompile Include="item.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Key.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Room.cpp" />
+    <ClCompile Include="Spell.cpp" />
+    <ClCompile Include="String.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\DevelopStringUtil\DevelopStringUtil\String.h" />
-    <ClInclude Include="item.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="Key.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Room.h" />
+    <ClInclude Include="Spell.h" />
+    <ClInclude Include="String.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

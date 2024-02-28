@@ -1,7 +1,8 @@
 #pragma once
 #include "String.h"
 
-class spell
+
+class Spell
 {
 private:
 

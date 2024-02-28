@@ -1,11 +1,12 @@
 #pragma once
 #include "String.h"
+#include "Room.h"
 
 class Player
 {
 private:
 
-	
+	Room* currentRoom;
 
 public:
 
