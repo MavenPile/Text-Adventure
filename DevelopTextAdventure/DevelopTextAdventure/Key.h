@@ -13,11 +13,9 @@ public:
 
 	Key();
 
-	Key(const char* newName, const char* newDesc);
-
 	~Key();
 	
-	const char* GetName() override;
+	const char* GetCharName() override;
 
 	const char* Description() override;
 

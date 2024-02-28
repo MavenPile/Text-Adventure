@@ -8,17 +8,6 @@ Key::Key()
 	desc = new char[7] {"A key."};
 }
 
-Key::Key(const char* newName, const char* newDesc)
-{
-	name = new char[strlen(newName) + 1];
-
-	strcpy_s(name, strlen(newName) + 1, newName);
-
-	desc = new char[strlen(newDesc) + 1];
-
-	strcpy_s(desc, strlen(newDesc) + 1, newDesc);
-}
-
 Key::~Key()
 {
 	delete[] name;
@@ -26,7 +15,7 @@ Key::~Key()
 	delete[] desc;
 }
 
-const char* Key::GetName()
+const char* Key::GetCharName()
 {
 	return name;
 }
@@ -34,4 +23,16 @@ const char* Key::GetName()
 const char* Key::Description()
 {
 	return desc;
+}
+
+void Key::Use()
+{
+	if (player.GetCurrentRoom())
+	{
+
+	}
+	else
+	{
+		std::cout << "Key cannot be used here." << std::endl;
+	}
 }

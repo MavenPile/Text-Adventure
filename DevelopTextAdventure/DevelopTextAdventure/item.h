@@ -10,7 +10,7 @@ private:
 
 public:
 
-	virtual const char* GetName() = 0;	//	a pure virtual function, meaning it does nothing and makes the class abstract
+	virtual const char* GetCharName() = 0;	//	a pure virtual function, meaning it does nothing and makes the class abstract
 	
 	virtual const char* Description() = 0;	//	a pure virtual function
 

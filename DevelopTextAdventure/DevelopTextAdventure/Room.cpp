@@ -2,20 +2,20 @@
 
 Room::Room()
 {
-    description = "this is a room";
 }
 
-Room::Room(String desc)
+Room::Room(int iRow, int iCol, String desc)
 {
-    description = desc;
+    row = iRow;
+    col = iCol;
 }
 
-Room::Room(String desc, Item* item)
+Room::Room(int iRow, int iCol, String desc, Item* item)
 {
 
 }
 
-Room::Room(String desc, Item* item, Enemy* enemy)
+Room::Room(int iRow, int iCol, String desc, Item* item, Enemy* enemy)
 {
 
 }

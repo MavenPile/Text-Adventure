@@ -15,5 +15,7 @@ public:
 	~Player();
 
 	bool FindSpell(const String& spell);
+
+	int* GetCurrentRoom();
 };
 

@@ -1,10 +1,15 @@
 #pragma once
-
+#include "Player.h"
+#include "Room.h"
 
 class Game
 {
 private:
 
+	Player* player;
+	
+	
+	
 	int gameMap[5][5];
 
 
