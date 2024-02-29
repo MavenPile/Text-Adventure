@@ -1,5 +1,7 @@
 #pragma once
 #include "Item.h"
+#include "Game.h"
+#include <iostream>
 
 class Key : public Item
 {
@@ -9,9 +11,13 @@ private:
 
 	String desc;
 
+	Game* game;
+
 public:
 
 	Key();
+
+	Key(Game* currentGame);
 
 	//~Key();
 	

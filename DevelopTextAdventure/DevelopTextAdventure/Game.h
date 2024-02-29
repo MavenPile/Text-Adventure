@@ -23,6 +23,8 @@ public:
 
 	void PrintMap();
 
+	int* GetPlayerRoom();
+
 	//void CreateMap();
 
 };

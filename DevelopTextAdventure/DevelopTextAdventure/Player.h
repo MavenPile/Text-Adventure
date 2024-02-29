@@ -1,6 +1,7 @@
 #pragma once
 #include "String.h"
 #include "Game.h"
+#include <algorithm>
 
 class Player
 {
@@ -8,11 +9,13 @@ private:
 
 	Room* roomPointer;
 
+	Game* game;
+
 public:
 
 	Player();
 
-	Player(Game game);
+	Player(Game* currentGame);
 
 	~Player();
 

@@ -1,11 +1,19 @@
 #include "Key.h"
-#include <iostream>
 
 Key::Key()
 {
 	name = "Key";
 
 	desc = "A key. You don't know where to use it.";
+}
+
+Key::Key(Game* currentGame)
+{
+	name = "Key";
+
+	desc = "A key. You don't know where to use it.";
+
+	game = currentGame;
 }
 
 //Key::~Key()
@@ -25,12 +33,12 @@ String Key::Description()
 
 void Key::Use()
 {
-	//if (player.GetCurrentRoom())
-	//{
+	if (game.GetPlayerRoom() == nullptr)
+	{
 
-	//}
-	//else
-	//{
-	//	std::cout << "Key cannot be used here." << std::endl;
-	//}
+	}
+	else
+	{
+		std::cout << "Key cannot be used here." << std::endl;
+	}
 }

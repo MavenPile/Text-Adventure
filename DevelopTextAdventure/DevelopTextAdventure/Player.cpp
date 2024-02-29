@@ -1,14 +1,13 @@
 #include "Player.h"
-#include "String.h"
 
 Player::Player()
 {
     //currentRoom = room[0][0];
 }
 
-Player::Player(Game game)
+Player::Player(Game* currentGame)
 {
-
+    game = currentGame;
 }
 
 Player::~Player()
