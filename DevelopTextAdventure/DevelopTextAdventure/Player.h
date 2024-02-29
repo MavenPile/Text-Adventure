@@ -7,7 +7,7 @@ class Player
 {
 private:
 
-	Room* roomPointer;
+	Room* currentRoom;
 
 	Game* game;
 
@@ -18,9 +18,15 @@ public:
 	Player(Game* currentGame);
 
 	~Player();
+	
+	void SetCurrentRoom(Room* newRoom);
+
+	Room* GetCurrentRoom();
+	
+	void Move(char direction);
 
 	bool FindSpell(const String& spell);
 
-	//Room* GetCurrentRoom();
+
 };
 

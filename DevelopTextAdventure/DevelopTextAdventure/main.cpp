@@ -17,6 +17,8 @@ int main()
 	int map[mapSize][mapSize];
 	
 	String command;
+
+	Player player1;
 	
 	while (gaming)
 	{		
@@ -70,6 +72,8 @@ int main()
 		if (command.EqualTo("move north") == true)
 		{
 			std::cout << "You have decided to move North." << std::endl;
+
+			player1.MoveNorth();
 		}
 		else if (command.EqualTo("move east") == true)
 		{

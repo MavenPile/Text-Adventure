@@ -652,61 +652,45 @@ void String::ReadFromConsole()
 	//	reads the console to replace m_string with the input
 	//	this function crashes the program if the user input is larger than 64
 
-	std::cout << "Waiting for input (max 64 char.)" << std::endl;		
-	//	//	prompts the user for input
+	bool inputting = true;
 
-	char* input = new char[65];	//	allocates hard buffer cap
+	while (inputting)
+	{
+		std::cout << "Waiting for input (max 64 char.)" << std::endl;
+		//	//	prompts the user for input
 
-	std::cin.getline (input,65);	//	writes console input to input array
+		char* input = new char[65];	//	allocates hard buffer cap
 
-	//std::cin.get(input, 65, '\n');	//	alternate version, '\n' means enter or new line
+		std::cin.getline(input, 65);	//	writes console input to input array
 
-	int length = strlen(input) + 1;	//	finds the length of console input
+		if (std::cin.fail())
+		{
+			std::cin.clear();
 
-	char* newString = new char[length];	//	allocates memory for new array
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 
-	strcpy_s(newString, length, input);	//	copies console input to new array
+			std::cout << "Invalid input, try again." << std::endl;
 
-	delete[] input;	//	deallocates memory from temp input array
+			std::cout << std::endl;
+		}
+		else
+		{
+			int length = strlen(input) + 1;	//	finds the length of console input
 
-	delete[] m_string;	//	deallocates memory from m_string
+			char* newString = new char[length];	//	allocates memory for new array
 
-	m_string = newString;	//	points m_string to newString array
+			strcpy_s(newString, length, input);	//	copies console input to new array
 
-	//if (length > 64)
-	//{
-	//	std::cout << "Invalid input." << std::endl;
+			delete[] input;	//	deallocates memory from temp input array
 
-	//	delete[] input;
-	//}
-	//else
-	//{
-	//	char* newString = new char[length];
+			delete[] m_string;	//	deallocates memory from m_string
 
-	//	strcpy_s(newString, length, input);
+			m_string = newString;	//	points m_string to newString array
 
-	//	delete[] input;
-	//	
-	//	delete[] m_string;
-
-	//	m_string = newString;
-	//}
-
-
-	//String input;
-
-	//std::cin >> input;		
-	//	//	recieves console input and writes it to m_string
-	//
-	//char tempString[strlen(input)];
-
-	//String tempString(input);
-
-	//delete[] m_string;
-
-	//m_string = tempString;
-
-}	//	
+			inputting = false;
+		}
+	}
+}	
 
 void String::WriteToConsole()
 {

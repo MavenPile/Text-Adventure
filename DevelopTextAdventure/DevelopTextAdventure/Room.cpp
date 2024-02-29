@@ -2,22 +2,9 @@
 
 Room::Room()
 {
-}
+    keyGen = false;
 
-Room::Room(int iRow, int iCol, String desc)
-{
-    row = iRow;
-    col = iCol;
-}
-
-Room::Room(int iRow, int iCol, String desc, Item* item)
-{
-
-}
-
-Room::Room(int iRow, int iCol, String desc, Item* item, Enemy* enemy)
-{
-
+    desc = "A room.";
 }
 
 Room::~Room()
@@ -25,7 +12,15 @@ Room::~Room()
     
 }
 
-const void Room::Description()
+void Room::Generate()
 {
-    return void();
+    if (keyGen == ) //  if true, room generates with key
+    {
+
+    }
+}
+
+String Room::Description()
+{
+    return desc;
 }

@@ -9,7 +9,7 @@ private:
 
 	Player* player;
 	
-	int gameMap[5][5];
+	Room** gameMap;	//	a room object class pointer pointer
 
 	//Room* currentRoom /* = &room1 */;
 
