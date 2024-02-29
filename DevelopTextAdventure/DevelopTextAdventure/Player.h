@@ -12,6 +12,8 @@ public:
 
 	Player();
 
+	Player(Game game);
+
 	~Player();
 
 	bool FindSpell(const String& spell);

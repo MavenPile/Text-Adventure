@@ -6,6 +6,11 @@ Player::Player()
     //currentRoom = room[0][0];
 }
 
+Player::Player(Game game)
+{
+
+}
+
 Player::~Player()
 {
 }

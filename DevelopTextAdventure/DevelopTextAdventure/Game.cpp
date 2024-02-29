@@ -2,11 +2,12 @@
 
 Game::Game()
 {
-
+	player = new Player(this);
 }
 
 Game::~Game()
 {
+	delete[] player;
 }
 
 void Game::Run()
