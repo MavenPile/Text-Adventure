@@ -850,3 +850,19 @@ void String::operator += (const String& input)
 	m_string = newString;	//	points m_string to new array memory
 
 }	//	functionality confirmed
+
+String::String(String&& input)
+{
+	m_string = input.m_string;
+
+	input = nullptr;
+}
+
+void String::operator = (String&& input)
+{
+	delete[] m_string;
+
+	m_string = input.m_string;
+	
+	input = nullptr;
+}
