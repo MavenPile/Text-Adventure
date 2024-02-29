@@ -1,4 +1,6 @@
 #pragma once
+#include <iostream>
+#include <ctype.h>
 
 class String
 {
@@ -88,4 +90,3 @@ public:
 	void operator = (String&& input);	//	moves value from input to new string class object
 										//	input becomes a null pointer
 };
-

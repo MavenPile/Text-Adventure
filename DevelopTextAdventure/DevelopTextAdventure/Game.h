@@ -11,6 +11,8 @@ private:
 	
 	Room** gameMap;	//	a room object class pointer pointer
 
+	Room*** gameMap3D;
+
 	//Room* currentRoom /* = &room1 */;
 
 public:

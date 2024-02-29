@@ -11,6 +11,27 @@ Game::Game()
 		gameMap[i] = new Room[5];	//	allocating (sub-)arrays
 
 	}	//	can be accessed by gameMap[row][col]
+
+
+		//	A challenge
+
+	bool is3D = false;
+
+	if (is3D = true)
+	{
+		gameMap3D = new Room * *[5];
+
+		for (int row = 0; row < 5; row++)
+		{
+			gameMap3D[row] = new Room*[5];
+
+			for (int col = 0; col < 5; col++)
+			{
+				gameMap3D[row][col] = new Room[2];
+
+			}	//	accessed with gameMap3D[row][col][dep]
+		}
+	}
 }
 
 Game::~Game()
