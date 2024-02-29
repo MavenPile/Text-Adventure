@@ -27,7 +27,7 @@ public:
 
 	int* GetPlayerRoom();
 
-	//void CreateMap();
+	void CreateMap();
 
 };
 
