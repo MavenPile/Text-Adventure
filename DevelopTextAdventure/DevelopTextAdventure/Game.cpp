@@ -4,34 +4,7 @@ Game::Game()
 {
 	player = new Player(this);
 
-	gameMap = new Room * [5];	//	allocating memory for an array of class pointers
-
-	for (int i = 0; i < 5; i++)
-	{
-		gameMap[i] = new Room[5];	//	allocating (sub-)arrays
-
-	}	//	can be accessed by gameMap[row][col]
-
-
-		//	A challenge
-
-	bool is3D = false;
-
-	if (is3D = true)
-	{
-		gameMap3D = new Room * *[5];
-
-		for (int row = 0; row < 5; row++)
-		{
-			gameMap3D[row] = new Room*[5];
-
-			for (int col = 0; col < 5; col++)
-			{
-				gameMap3D[row][col] = new Room[2];
-
-			}	//	accessed with gameMap3D[row][col][dep]
-		}
-	}
+	CreateMap();
 }
 
 Game::~Game()
@@ -130,12 +103,44 @@ int* Game::GetPlayerRoom()
 	return nullptr;
 }
 
-//void Game::CreateMap()
-//{
-//	int* rows = new int[5];
-//
-//	for (int i = 0; i < 5; i++)
-//	{
-//
-//	}
-//}
+void Game::CreateMap()
+{
+	//	generates a 2D array of arrays
+	
+	gameMap = new Room * [5];	//	allocating memory for an array of class pointers
+
+	for (int i = 0; i < 5; i++)
+	{
+		gameMap[i] = new Room[5];	//	allocating (sub-)arrays
+
+	}	//	can be accessed by gameMap[row][col]
+
+	for (int row = 0; row < 5; row++)
+	{
+		for (int col = 0; col < 5; col++)
+		{
+			gameMap[row][col].Generate();	//	calls Generate function
+		}
+	}
+
+
+	//	A challenge
+
+	bool is3D = false;
+
+	if (is3D = true)
+	{
+		gameMap3D = new Room * *[5];
+
+		for (int row = 0; row < 5; row++)
+		{
+			gameMap3D[row] = new Room * [5];
+
+			for (int col = 0; col < 5; col++)
+			{
+				gameMap3D[row][col] = new Room[2];
+
+			}	//	accessed with gameMap3D[row][col][dep]
+		}
+	}
+}

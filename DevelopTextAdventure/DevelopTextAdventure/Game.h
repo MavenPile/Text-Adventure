@@ -11,7 +11,7 @@ private:
 	
 	Room** gameMap;	//	a room object class pointer pointer
 
-	Room*** gameMap3D;
+	Room*** gameMap3D;	//	a pointer pointer pointer, for a 3D array of rooms
 
 	//Room* currentRoom /* = &room1 */;
 
