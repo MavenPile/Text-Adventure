@@ -6,7 +6,17 @@
 
 int main()
 {
-	bool gaming = true;
+	Game* myGame = new Game();
+
+	
+	while (true)
+	{
+		myGame->PrintMap();
+		system("pause");
+	}
+	
+	
+	bool gaming = false;
 
 	int playerPos = 1;
 
@@ -73,7 +83,7 @@ int main()
 		{
 			std::cout << "You have decided to move North." << std::endl;
 
-			player1.MoveNorth();
+			//player1.MoveNorth();
 		}
 		else if (command.EqualTo("move east") == true)
 		{

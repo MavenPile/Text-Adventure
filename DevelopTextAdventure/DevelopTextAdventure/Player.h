@@ -7,26 +7,30 @@ class Player
 {
 private:
 
-	Room* currentRoom;
+	//Game* game;
 
-	Game* game;
+	int m_posX, m_posY;
+
+	bool hasKey;
 
 public:
 
 	Player();
 
-	Player(Game* currentGame);
+	//Player(Game* currentGame);
 
 	~Player();
 	
-	void SetCurrentRoom(Room* newRoom);
+	int GetPosX();
 
-	Room* GetCurrentRoom();
-	
+	int GetPosY();
+
 	void Move(char direction);
 
 	bool FindSpell(const String& spell);
 
+	void GetKey();
 
+	bool HasKey();
 };
 

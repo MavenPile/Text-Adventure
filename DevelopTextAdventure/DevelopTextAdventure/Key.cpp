@@ -2,43 +2,27 @@
 
 Key::Key()
 {
-	name = "Key";
-
-	desc = "A key. You don't know where to use it.";
+	desc = new String("It's a key.");
 }
 
-Key::Key(Game* currentGame)
+Key::~Key()
 {
-	name = "Key";
-
-	desc = "A key. You don't know where to use it.";
-
-	game = currentGame;
+	delete desc;
 }
 
-//Key::~Key()
-//{
-//
-//}
-
-String Key::GetName()
-{
-	return name;
-}
-
-String Key::Description()
+String* Key::Description() const
 {
 	return desc;
 }
 
 void Key::Use()
 {
-	if (game.GetPlayerRoom() == nullptr)
-	{
+	//if (game.GetPlayerRoom() == nullptr)
+	//{
 
-	}
-	else
-	{
-		std::cout << "Key cannot be used here." << std::endl;
-	}
+	//}
+	//else
+	//{
+	//	std::cout << "Key cannot be used here." << std::endl;
+	//}
 }

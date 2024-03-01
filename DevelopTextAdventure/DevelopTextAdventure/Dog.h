@@ -1,22 +1,21 @@
 #pragma once
 #include "Item.h"
-#include <iostream>
 
-class Key : public Item
+class Dog : public Item
 {
-private:
-
-	String* desc;
-
 public:
+	Dog();
 
-	Key();
-
-	~Key();
+	~Dog();
 
 	String* Description() const override;
 
 	void Use() override;
+
+private:
+	bool isDog;
+
+	String* desc;
 
 };
 

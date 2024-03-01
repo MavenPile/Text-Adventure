@@ -2,28 +2,30 @@
 
 Player::Player()
 {
-    //currentRoom = room[0][0];
+    m_posX, m_posY = 0;
+
+    hasKey = false;
 }
 
-Player::Player(Game* currentGame)
-{
-    game = currentGame;
-}
+//Player::Player(Game* currentGame)
+//{
+//    game = currentGame;
+//}
 
 Player::~Player()
 {
 }
 
-void Player::SetCurrentRoom(Room* newRoom)
+int Player::GetPosX()
 {
-    currentRoom = newRoom;
+    return m_posX;
 }
 
-Room* Player::GetCurrentRoom()
+int Player::GetPosY()
 {
-    return currentRoom;
-
+    return m_posY;
 }
+
 void Player::Move(char direction)
 {
     if (direction == 'n')   //  North
@@ -50,6 +52,10 @@ void Player::Move(char direction)
     {
 
     }
+    else
+    {
+        std::cout << "Couldn't find that direction..." << std::endl;
+    }
 }
 
 bool Player::FindSpell(const String& spell)
@@ -57,3 +63,19 @@ bool Player::FindSpell(const String& spell)
     return false;
 }
 
+void Player::GetKey()
+{
+    hasKey = true;
+}
+
+bool Player::HasKey()
+{
+    if (hasKey == true)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}

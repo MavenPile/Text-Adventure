@@ -14,10 +14,10 @@ Room::~Room()
 
 void Room::Generate()
 {
-    if (keyGen == ) //  if true, room generates with key
-    {
+    //if (keyGen == ) //  if true, room generates with key
+    //{
 
-    }
+    //}
 }
 
 String Room::Description()
