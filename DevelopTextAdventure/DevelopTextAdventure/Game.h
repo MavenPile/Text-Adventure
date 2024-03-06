@@ -48,8 +48,6 @@ public:	//	Public Methods
 
 	void Run();
 
-	void Move();
-
 	void KeyGen();	//	prevents more than one key from appearing
 
 	bool HasKey();	//	check if the player has the key

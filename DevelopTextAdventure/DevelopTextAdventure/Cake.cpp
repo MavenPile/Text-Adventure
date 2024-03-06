@@ -1,11 +1,21 @@
 #include "Cake.h"
 #include "String.h"
+#include "Room.h"
 
 Cake::Cake()
 {
 	m_desc = new String("It is a full cake...");
 
 	m_cakeRemaining = 100;
+}
+
+Cake::Cake(Room* myRoom)
+{
+	m_desc = new String("It is a full cake...");
+
+	m_cakeRemaining = 100;
+
+	m_myRoom = myRoom;
 }
 
 Cake::~Cake()
@@ -26,21 +36,25 @@ void Cake::Use()
 	}
 	else
 	{
-		std::cout << "You use a random amount of cake. It feels like you've lost sight of something..." << std::endl;
+		std::cout << "You use the cake. You feel you've lost sight of what's important..." << std::endl;
 
 		srand(time(NULL));
 
-		int randomLoss = rand() % 40;
+		int randomLoss = rand() % 100;
 
 		m_cakeRemaining -= randomLoss;
 
 		if (m_cakeRemaining < 0)
 		{
+			std::cout << "There is no longer a cake..." << std::endl;
+			
 			String* newDesc = new String("There is no cake...");
 
 			delete m_desc;
 
 			m_desc = newDesc;
+
+			m_myRoom->ChangeDesc(*newDesc);
 		}
 		else
 		{

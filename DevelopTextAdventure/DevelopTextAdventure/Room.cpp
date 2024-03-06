@@ -7,10 +7,12 @@
 #include "Door.h"
 #include "Cake.h"
 #include "Skeleton.h"
+#include <iostream>
+#include <stdlib.h>
 
 Room::Room()
 {
-    m_desc = nullptr;
+    m_desc = new String("The room is empty...");
     item = nullptr;
     enemy = nullptr;
 }
@@ -24,7 +26,7 @@ Room::~Room()
 
 void Room::Generate(Game* myGame, int row, int col)
 {
-    if (row == 0 && col == 4)   //  generates end door
+    if (row == 0 && col == 4)   //  generates door
     {
         item = new Door(myGame);
         m_desc = new String("You see a door in the room, not connected to any walls...");
@@ -36,11 +38,11 @@ void Room::Generate(Game* myGame, int row, int col)
     }
     else
     {
-        //srand(time(NULL));
+        srand(row + col);
 
-        //int randVar = rand() % 4;
+        int randVar = rand() % 8;
 
-        int randVar = ((row * 7) * (col * 2)) % 4;
+        //int randVar = ((row * 7) * (col * 2)) % 4;
 
         switch (randVar)
         {
@@ -61,12 +63,8 @@ void Room::Generate(Game* myGame, int row, int col)
             item = new Lamp();
             break;
         case 4: //  empty
-            m_desc = new String("The room is empty...");
-            this->item = nullptr;
             break;
-        default:
-            m_desc = new String("The room is empty...");
-            this->item = nullptr;
+        default:    //  empty
             break;
         }
     }
@@ -81,4 +79,18 @@ void Room::Generate(Game* myGame, int row, int col)
 void Room::Description()
 {
     m_desc->WriteToConsole();
+}
+
+void Room::ChangeDesc(String& inputDesc)
+{
+    String* newDesc = new String(inputDesc);
+    
+    delete m_desc;
+
+    m_desc = newDesc;
+}
+
+void Room::RemoveItem()
+{
+    delete item;
 }

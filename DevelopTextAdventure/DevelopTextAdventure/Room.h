@@ -26,5 +26,9 @@ public:	//	Methods
 	void Generate(Game* myGame, int row, int col);	//	generates the properties of the room (items, enemies, etc.)
 
 	void Description();
+
+	void ChangeDesc(String& inputDesc);
+
+	void RemoveItem();
 };
 

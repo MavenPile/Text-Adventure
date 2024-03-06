@@ -152,7 +152,7 @@ void Game::Run()
 			{
 				if (m_command->Find("cake") != -1)
 				{
-					m_TryUse('a');
+					m_TryUse('c');
 				}
 				else if (m_command->Find("cat") != -1)
 				{
@@ -181,7 +181,7 @@ void Game::Run()
 			{
 				if (m_command->Find("cake") != -1)
 				{
-					m_TryInspect('a');
+					m_TryInspect('c');
 				}
 				else if (m_command->Find("cat") != -1)
 				{
@@ -241,11 +241,6 @@ void Game::Run()
 	std::cout << "Congratuations, you have exited the... Labyrinth? You Win!" << std::endl;
 
 	system("pause");
-}
-
-void Game::Move()
-{
-
 }
 
 void Game::KeyGen()

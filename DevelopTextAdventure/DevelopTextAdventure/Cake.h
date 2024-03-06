@@ -2,6 +2,7 @@
 #include "Item.h"
 
 class String;
+class Room;
 
 class Cake : public Item
 {
@@ -16,6 +17,8 @@ public:
 public:
 
 	Cake();
+
+	Cake(Room* myRoom);
 
 	~Cake();
 
