@@ -1,6 +1,8 @@
 #pragma once
 #include "Item.h"
 
+class String;
+
 class Dog : public Item
 {
 public:
@@ -8,14 +10,16 @@ public:
 
 	~Dog();
 
-	String* Description() const override;
+	void Description() const override;
 
 	void Use() override;
 
 private:
 	bool isDog;
 
-	String* desc;
+	bool hasKey;
+
+	String* m_desc;
 
 };
 

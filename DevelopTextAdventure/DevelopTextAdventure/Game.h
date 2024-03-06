@@ -6,42 +6,50 @@ class String;
 
 class Game
 {
-private:
+private:	//	Private Variables
+
 	String* m_command;	//	the user input for commands
 
 	Player* m_player;	//	the player
 
 	Room** m_gameMap;	//	a room object class pointer pointer
 
-	Room*** m_gameMap3D;	//	a pointer pointer pointer, for a 3D array of rooms
+	int m_row, m_col;	//	size of the map
 
-	Room**** m_gameMap4D;	//	I guess this is possible
+	bool m_hasKey;	//	if the player has collected the key or not
 
-	int m_row = 5;	//	no. of rows in the map
+	bool m_keyGen;	//	if the key exists in the world
 
-	int m_col = 5;	//	no. of columns in the map
+	int m_posX, m_posY;	//	position of the player
 
-	int m_dep = 5;	//	optional: depth of the map, can't be printed
+private:	//	Private Methods
 
-	int m_godKnows = 5;	//	optional: a fourth dimension, can't be printed
+	void m_TryMove(char c);
 
-	bool hasKey;
+	void m_TryUse();
 
-public:
+	void m_TryInspect();
+
+	void m_TryCast();
+
+public:	//	Public Methods
 
 	Game();
 
 	~Game();
 
-	void Run();
+	void CreateMap();
 
 	void PrintMap();
 
-	int* GetPlayerRoom();
+	void Run();
 
-	void CreateMap();
+	void Move();
 
-	void GetKey();
+	bool KeyGen();	//	prevents more than one key from appearing
 
+	bool HasKey();	//	check if the player has the key
+
+	void GetKey();	//	gives the player the key
 };
 

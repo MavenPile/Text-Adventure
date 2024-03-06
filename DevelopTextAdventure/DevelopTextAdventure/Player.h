@@ -7,25 +7,25 @@ class Player
 {
 private:
 
-	//Game* game;
+	Game* game;
 
-	int m_posX, m_posY;
+	//int m_posX, m_posY;
 
-	bool hasKey;
+	bool m_hasKey;
 
 public:
 
 	Player();
 
-	//Player(Game* currentGame);
+	Player(Game* currentGame);
 
 	~Player();
 	
-	int GetPosX();
+	//int GetPosX();
 
-	int GetPosY();
+	//int GetPosY();
 
-	void Move(char direction);
+	//void Move(char direction);
 
 	bool FindSpell(const String& spell);
 

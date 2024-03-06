@@ -1,24 +1,27 @@
 #pragma once
-#include "Item.h"
-#include "String.h"
-#include "Enemy.h"
+
+class Game;
+class Item;
+class String;
 
 class Room
 {
 private:
 	
-	bool keyGen;	//	prevents more than one key from appearing
+	String* m_desc;
 
-	String desc;
+public:	//	public variables
 
-public:
+	Item* item;
+
+public:	//	Methods
 
 	Room();
 
 	~Room();
 
-	void Generate();	//	generates the properties of the room (items, enemies, etc.)
+	void Generate(Game* myGame, int row, int col);	//	generates the properties of the room (items, enemies, etc.)
 
-	String Description();
+	void Description();
 };
 

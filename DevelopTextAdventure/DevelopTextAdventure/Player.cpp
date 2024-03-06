@@ -2,61 +2,61 @@
 
 Player::Player()
 {
-    m_posX, m_posY = 0;
+    //m_posX, m_posY = 0;
 
-    hasKey = false;
+    //hasKey = false;
 }
 
-//Player::Player(Game* currentGame)
-//{
-//    game = currentGame;
-//}
+Player::Player(Game* currentGame)
+{
+    game = currentGame;
+}
 
 Player::~Player()
 {
 }
 
-int Player::GetPosX()
-{
-    return m_posX;
-}
+//int Player::GetPosX()
+//{
+//    return m_posX;
+//}
+//
+//int Player::GetPosY()
+//{
+//    return m_posY;
+//}
 
-int Player::GetPosY()
-{
-    return m_posY;
-}
-
-void Player::Move(char direction)
-{
-    if (direction == 'n')   //  North
-    {
-
-    }
-    else if (direction == 'e')  //  East
-    {
-
-    }
-    else if (direction == 's')  //  South
-    {
-
-    }
-    else if (direction == 'w')  //  West
-    {
-
-    }
-    else if (direction == 'd')  //  Down
-    {
-
-    }
-    else if (direction == 'u')  //  Up
-    {
-
-    }
-    else
-    {
-        std::cout << "Couldn't find that direction..." << std::endl;
-    }
-}
+//void Player::Move(char direction)
+//{
+//    if (direction == 'n')   //  North
+//    {
+//
+//    }
+//    else if (direction == 'e')  //  East
+//    {
+//
+//    }
+//    else if (direction == 's')  //  South
+//    {
+//
+//    }
+//    else if (direction == 'w')  //  West
+//    {
+//
+//    }
+//    else if (direction == 'd')  //  Down
+//    {
+//
+//    }
+//    else if (direction == 'u')  //  Up
+//    {
+//
+//    }
+//    else
+//    {
+//        std::cout << "Couldn't find that direction..." << std::endl;
+//    }
+//}
 
 bool Player::FindSpell(const String& spell)
 {
@@ -65,12 +65,12 @@ bool Player::FindSpell(const String& spell)
 
 void Player::GetKey()
 {
-    hasKey = true;
+    m_hasKey = true;
 }
 
 bool Player::HasKey()
 {
-    if (hasKey == true)
+    if (m_hasKey == true)
     {
         return true;
     }
@@ -78,4 +78,5 @@ bool Player::HasKey()
     {
         return false;
     }
+
 }

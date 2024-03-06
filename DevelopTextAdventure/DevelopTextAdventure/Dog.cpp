@@ -1,29 +1,38 @@
 #include "Dog.h"
+#include "String.h"
 
 Dog::Dog()
 {
 	isDog = true;
 
-	desc = new String("It's a dog...");
+	hasKey = true;
+
+	m_desc = new String("It's a dog...");
 }
 
 Dog::~Dog()
 {
-	delete desc;
+	delete m_desc;
 }
 
-String* Dog::Description() const
+void Dog::Description() const
 {
-	return desc;
+	m_desc->WriteToConsole();
 }
 
 void Dog::Use()
 {
-	if (isDog == false)
+	if (hasKey == false)
 	{
-		std::cout << "It's a dog that is no longer a dog... It gave you a key..." << std::endl;
+		std::cout << "You use the dog, nothing happens..." << std::endl;
+	}
+	else if (isDog == false)
+	{
+		std::cout << "It's a dog that is no longer a dog... Using it gave you a key..." << std::endl;
 		
-		m_player.GetKey();
+		hasKey = false;
+
+		//m_player.GetKey();
 	}
 	else
 	{
@@ -32,8 +41,8 @@ void Dog::Use()
 
 		String* newDesc = new String("It looks like a dog...");
 
-		delete desc;
+		delete m_desc;
 
-		desc = newDesc;
+		m_desc = newDesc;
 	}
 }
