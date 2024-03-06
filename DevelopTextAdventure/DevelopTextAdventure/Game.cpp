@@ -3,6 +3,11 @@
 #include "String.h"
 #include "Room.h"
 #include "Lamp.h"
+#include "Skeleton.h"
+#include "Cake.h"
+#include "Door.h"
+#include "Cat.h"
+#include "Dog.h"
 
 Game::Game()
 {
@@ -70,10 +75,6 @@ void Game::PrintMap()
 			{
 				std::cout << "P";	//	prints player location
 			}
-			//else if (row == (m_row / 2) && col == (m_col / 2))
-			//{
-			//	std::cout << "E";	//	prints end location at centre-ish
-			//}
 			else
 			{
 				std::cout << "_";
@@ -95,7 +96,7 @@ void Game::Run()
 		
 		m_gameMap[m_posX][m_posY].Description();	//	outputs description of room
 
-		std::cout << "What action would you like to take? (move/use/inspect/cast)" << std::endl;
+		std::cout << "What action would you like to take? (type \"help\" for commands)" << std::endl;
 
 		m_command->ReadFromConsole();	//	recieves input
 
@@ -103,6 +104,24 @@ void Game::Run()
 
 		switch (m_command->CharacterAt(0))
 		{
+		case 'h':
+			if (m_command->Find("help") != -1)
+			{
+				std::cout << std::endl;
+				std::cout << "move <north, south, east, west: move to an adjacent room..." << std::endl;
+				std::cout << "use <item>: use an item in the current room..." << std::endl;
+				std::cout << "inspect <item/enemy>: see the description of an item or enemy..." << std::endl;
+				std::cout << "cast <spell>: cast a spell from your library..." << std::endl;
+				std::cout << "attack <target>: to attack an enemy in the room..." << std::endl;
+				std::cout << std::endl;
+			}
+			break;
+		case 'a':
+			if (m_command->Find("attack") != -1)
+			{
+				m_TryAttack();
+			}
+			break;
 		case 'm':	//	move
 			if (m_command->Find("move") != -1)
 			{
@@ -131,13 +150,63 @@ void Game::Run()
 		case 'u':	//	use
 			if (m_command->Find("use") != -1)
 			{
-
+				if (m_command->Find("cake") != -1)
+				{
+					m_TryUse('a');
+				}
+				else if (m_command->Find("cat") != -1)
+				{
+					m_TryUse('a');
+				}
+				else if (m_command->Find("dog") != -1)
+				{
+					m_TryUse('d');
+				}
+				else if (m_command->Find("door") != -1)
+				{
+					m_TryUse('o');
+				}
+				else if (m_command->Find("lamp") != -1)
+				{
+					m_TryUse('l');
+				}
+				else
+				{
+					std::cout << "There was nothing like that to use..." << std::endl;
+				}
 			}
 			break;
 		case 'i':	//	inspect
 			if (m_command->Find("inspect") != -1)
 			{
-
+				if (m_command->Find("cake") != -1)
+				{
+					m_TryInspect('a');
+				}
+				else if (m_command->Find("cat") != -1)
+				{
+					m_TryInspect('a');
+				}
+				else if (m_command->Find("dog") != -1)
+				{
+					m_TryInspect('d');
+				}
+				else if (m_command->Find("door") != -1)
+				{
+					m_TryInspect('o');
+				}
+				else if (m_command->Find("lamp") != -1)
+				{
+					m_TryInspect('l');
+				}
+				else if (m_command->Find("skeleton") != -1)
+				{
+					m_TryInspect('s');
+				}
+				else
+				{
+					std::cout << "There was nothing like that to inspect..." << std::endl;
+				}
 			}
 			break;
 		case 'c':	//	cast
@@ -146,6 +215,21 @@ void Game::Run()
 
 			}
 			break;
+		case 'd':	//	debug
+			if (m_command->Find("debug") != -1)
+			{
+				if (m_command->Find("getkey") != -1)
+				{
+					GetKey();
+					std::cout << "Where'd you get that?" << std::endl;
+				}
+				else if (m_command->Find("endgame") != -1)
+				{
+					GameWin();
+					std::cout << "How'd you do that?" << std::endl;
+				}
+				break;
+			}
 		default:
 			std::cout << "Couldn't determine what you wanted to do..." << std::endl;
 			break;
@@ -154,7 +238,9 @@ void Game::Run()
 		system("pause");
 	}
 
+	std::cout << "Congratuations, you have exited the... Labyrinth? You Win!" << std::endl;
 
+	system("pause");
 }
 
 void Game::Move()
@@ -184,6 +270,11 @@ void Game::GetKey()
 void Game::GameWin()
 {
 	gameWin = true;
+}
+
+Player* Game::GetPlayer()
+{
+	return m_player;
 }
 
 void Game::m_TryMove(char c)
@@ -247,29 +338,175 @@ void Game::m_TryUse(char c)
 {
 	switch (c)
 	{
-	case 'l':
-	{
-		Lamp* lamp = dynamic_cast<Lamp*>(m_gameMap[m_posX][m_posY].item);
-		if (lamp != nullptr)
+		case 'c':	//	cake
 		{
-			lamp->Use();
+			Cake* cake = dynamic_cast<Cake*>(m_gameMap[m_posX][m_posY].item);
+			if (cake != nullptr)
+			{
+				cake->Use();
+			}
+			else
+			{
+				std::cout << "That didn't seem to be in the room to use..." << std::endl;
+			}
+			break;
 		}
-		else
+		case 'a':	//	cat
 		{
-			std::cout << "That didn't seem to be in the room to use..." << std::endl;
+			Cat* cat = dynamic_cast<Cat*>(m_gameMap[m_posX][m_posY].item);
+			if (cat != nullptr)
+			{
+				cat->Use();
+			}
+			else
+			{
+				std::cout << "That didn't seem to be in the room to use..." << std::endl;
+			}
+			break;
 		}
-		break;
-	}
-
+		case 'd':	//	dog
+		{
+			Dog* dog = dynamic_cast<Dog*>(m_gameMap[m_posX][m_posY].item);
+			if (dog != nullptr)
+			{
+				dog->Use();
+			}
+			else
+			{
+				std::cout << "That didn't seem to be in the room to use..." << std::endl;
+			}
+			break;
+		}
+		case 'o':	//	door
+		{
+			Door* door = dynamic_cast<Door*>(m_gameMap[m_posX][m_posY].item);
+			if (door != nullptr)
+			{
+				door->Use();
+			}
+			else
+			{
+				std::cout << "That didn't seem to be in the room to use..." << std::endl;
+			}
+			break;
+		}
+		case 'l':	//	lamp
+		{
+			Lamp* lamp = dynamic_cast<Lamp*>(m_gameMap[m_posX][m_posY].item);
+			if (lamp != nullptr)
+			{
+				lamp->Use();
+			}
+			else
+			{
+				std::cout << "That didn't seem to be in the room to use..." << std::endl;
+			}
+			break;
+		}
 	}
 }
 
-void Game::m_TryInspect()
+void Game::m_TryInspect(char c)
 {
+	switch (c)
+	{
+		case 'c':	//	cake
+		{
+			Cake* cake = dynamic_cast<Cake*>(m_gameMap[m_posX][m_posY].item);
+			if (cake != nullptr)
+			{
+				cake->Description();
+			}
+			else
+			{
+				std::cout << "That didn't seem to be in the room to inspect..." << std::endl;
+			}
+			break;
+		}
+		case 'a':	//	cat
+		{
+			Cat* cat = dynamic_cast<Cat*>(m_gameMap[m_posX][m_posY].item);
+			if (cat != nullptr)
+			{
+				cat->Description();
+			}
+			else
+			{
+				std::cout << "That didn't seem to be in the room to inspect..." << std::endl;
+			}
+			break;
+		}
+		case 'd':	//	dog
+		{
+			Dog* dog = dynamic_cast<Dog*>(m_gameMap[m_posX][m_posY].item);
+			if (dog != nullptr)
+			{
+				dog->Description();
+			}
+			else
+			{
+				std::cout << "That didn't seem to be in the room to inspect..." << std::endl;
+			}
+			break;
+		}
+		case 'o':	//	door
+		{
+			Door* door = dynamic_cast<Door*>(m_gameMap[m_posX][m_posY].item);
+			if (door != nullptr)
+			{
+				door->Description();
+			}
+			else
+			{
+				std::cout << "That didn't seem to be in the room to inspect..." << std::endl;
+			}
+			break;
+		}
+		case 'l':	//	lamp
+		{
+			Lamp* lamp = dynamic_cast<Lamp*>(m_gameMap[m_posX][m_posY].item);
+			if (lamp != nullptr)
+			{
+				lamp->Description();
+			}
+			else
+			{
+				std::cout << "That didn't seem to be in the room to inspect..." << std::endl;
+			}
+			break;
+		}
+		case 's':
+		{
+			Skeleton* skeleton = dynamic_cast<Skeleton*>(m_gameMap[m_posX][m_posY].enemy);
+			if (skeleton != nullptr)
+			{
+				skeleton->Description();
+			}
+			else
+			{
+				std::cout << "That didn't seem to be in the room to inspect..." << std::endl;
+			}
+			break;
+		}
+	}
 
 }
 
 void Game::m_TryCast()
 {
 
+}
+
+void Game::m_TryAttack()
+{
+	Skeleton* skeleton = dynamic_cast<Skeleton*>(m_gameMap[m_posY][m_posY].enemy);
+
+	if (skeleton != nullptr)
+	{
+		skeleton->TakeDamage(0);
+	}
+	else
+	{
+		std::cout << "It didn't seem like there was anything to attack..." << std::endl;
+	}
 }

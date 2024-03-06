@@ -18,6 +18,8 @@ Dog::Dog(Game* myGame)
 	hasKey = true;
 
 	m_desc = new String("It's a dog...");
+
+	m_myGame = myGame;
 }
 
 Dog::~Dog()

@@ -1,12 +1,14 @@
 #pragma once
 
+class Player;
+
 class Enemy
 {
-private:
+protected:
 
-	int health;
+	int m_health;
 
-	int damage;
+	Player* m_player;
 
 public:
 

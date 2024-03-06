@@ -11,6 +11,8 @@ Door::Door()
 Door::Door(Game* myGame)
 {
 	m_desc = new String("It's a door with a lock...");
+
+	m_myGame = myGame;
 }
 
 Door::~Door()

@@ -30,9 +30,11 @@ private:	//	Private Methods
 
 	void m_TryUse(char c);
 
-	void m_TryInspect();
+	void m_TryInspect(char c);
 
 	void m_TryCast();
+
+	void m_TryAttack();
 
 public:	//	Public Methods
 
@@ -55,5 +57,7 @@ public:	//	Public Methods
 	void GetKey();	//	gives the player the key
 
 	void GameWin();
+
+	Player* GetPlayer();
 };
 

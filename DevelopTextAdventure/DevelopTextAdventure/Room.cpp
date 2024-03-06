@@ -6,17 +6,20 @@
 #include "Cat.h"
 #include "Door.h"
 #include "Cake.h"
+#include "Skeleton.h"
 
 Room::Room()
 {
     m_desc = nullptr;
     item = nullptr;
+    enemy = nullptr;
 }
 
 Room::~Room()
 {
     delete m_desc;
     delete item;
+    delete enemy;
 }
 
 void Room::Generate(Game* myGame, int row, int col)
@@ -42,28 +45,28 @@ void Room::Generate(Game* myGame, int row, int col)
         switch (randVar)
         {
         case 0:
-            item = nullptr;
-
+            m_desc = new String("There is a skeleton in the room, it seems to want to attack you...");
+            enemy = new Skeleton(myGame->GetPlayer());
             break;
         case 1: //  cake
-            item = new Cake();
             m_desc = new String("There is a cake on a table in this room...");
+            item = new Cake();
             break;
         case 2: //  cat
-            item = new Cat();
             m_desc = new String("A cat is sleeping in this room...");
+            item = new Cat();
             break;
         case 3: //  lamp
-            item = new Lamp();
             m_desc = new String("There is a lamp in this room...");
+            item = new Lamp();
             break;
         case 4: //  empty
-            this->item = nullptr;
             m_desc = new String("The room is empty...");
+            this->item = nullptr;
             break;
         default:
-            this->item = nullptr;
             m_desc = new String("The room is empty...");
+            this->item = nullptr;
             break;
         }
     }

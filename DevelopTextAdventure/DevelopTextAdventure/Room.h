@@ -3,6 +3,7 @@
 class Game;
 class Item;
 class String;
+class Enemy;
 
 class Room
 {
@@ -13,6 +14,8 @@ private:
 public:	//	public variables
 
 	Item* item;
+
+	Enemy* enemy;
 
 public:	//	Methods
 
