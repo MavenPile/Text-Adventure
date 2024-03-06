@@ -7,8 +7,7 @@ int main()
 	
 	while (true)
 	{
-		myGame->PrintMap();
-		system("pause");
+		myGame->Run();
 	}
 	
 	

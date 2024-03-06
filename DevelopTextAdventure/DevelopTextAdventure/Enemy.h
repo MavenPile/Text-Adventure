@@ -8,10 +8,6 @@ private:
 
 	int damage;
 
-	int posRow;
-
-	int posCol;
-
 public:
 
 	virtual void TakeDamage(int dmg) = 0;

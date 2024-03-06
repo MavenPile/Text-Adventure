@@ -22,6 +22,8 @@ private:	//	Private Variables
 
 	int m_posX, m_posY;	//	position of the player
 
+	bool gameWin;
+
 private:	//	Private Methods
 
 	void m_TryMove(char c);
@@ -46,10 +48,12 @@ public:	//	Public Methods
 
 	void Move();
 
-	bool KeyGen();	//	prevents more than one key from appearing
+	void KeyGen();	//	prevents more than one key from appearing
 
 	bool HasKey();	//	check if the player has the key
 
 	void GetKey();	//	gives the player the key
+
+	void GameWin();
 };
 

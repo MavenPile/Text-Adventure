@@ -19,6 +19,8 @@ Game::Game()
 	m_hasKey = false;
 
 	m_keyGen = false;
+
+	gameWin = false;
 }
 
 Game::~Game()
@@ -87,63 +89,72 @@ void Game::PrintMap()
 
 void Game::Run()
 {
-	m_gameMap[m_posX][m_posY].Description();	//	outputs description of room
-
-	std::cout << "What action would you like to take? (move/use/inspect/cast)" << std::endl;
-
-	m_command->ReadFromConsole();	//	recieves input
-
-	m_command->ToLower();	//	makes input consistent
-
-	switch (m_command->CharacterAt(0))
+	while (gameWin == false)
 	{
-	case 'm':
-		if (m_command->Find("move") != -1)
-		{
-			if (m_command->Find("north") != -1)
-			{
-				m_TryMove('n');
-			}
-			else if (m_command->Find("south") != -1)
-			{
-				m_TryMove('s');
-			}
-			else if (m_command->Find("east") != -1)
-			{
-				m_TryMove('e');
-			}
-			else if (m_command->Find("west") != -1)
-			{
-				m_TryMove('w');
-			}
-			else
-			{
-				std::cout << "That isn't a direction to move..." << std::endl;
-			}
-		}
-		break;
-	case 'u':
-		if (m_command->Find("use") != -1)
-		{
+		PrintMap();	//	prints the map
+		
+		m_gameMap[m_posX][m_posY].Description();	//	outputs description of room
 
-		}
-		break;
-	case 'i':
-		if (m_command->Find("inspect") != -1)
-		{
+		std::cout << "What action would you like to take? (move/use/inspect/cast)" << std::endl;
 
-		}
-		break;
-	case 'c':
-		if (m_command->Find("cast") != -1)
-		{
+		m_command->ReadFromConsole();	//	recieves input
 
+		m_command->ToLower();	//	makes input consistent
+
+		switch (m_command->CharacterAt(0))
+		{
+		case 'm':	//	move
+			if (m_command->Find("move") != -1)
+			{
+				if (m_command->Find("north") != -1)
+				{
+					m_TryMove('n');
+				}
+				else if (m_command->Find("south") != -1)
+				{
+					m_TryMove('s');
+				}
+				else if (m_command->Find("east") != -1)
+				{
+					m_TryMove('e');
+				}
+				else if (m_command->Find("west") != -1)
+				{
+					m_TryMove('w');
+				}
+				else
+				{
+					std::cout << "That isn't a direction to move..." << std::endl;
+				}
+			}
+			break;
+		case 'u':	//	use
+			if (m_command->Find("use") != -1)
+			{
+
+			}
+			break;
+		case 'i':	//	inspect
+			if (m_command->Find("inspect") != -1)
+			{
+
+			}
+			break;
+		case 'c':	//	cast
+			if (m_command->Find("cast") != -1)
+			{
+
+			}
+			break;
+		default:
+			std::cout << "Couldn't determine what you wanted to do..." << std::endl;
+			break;
 		}
-		break;
-	default:
-		std::cout << "Couldn't determine what you wanted to do..." << std::endl;
-		break;
+
+		system("pause");
 	}
+
+
 }
 
 void Game::Move()
@@ -151,7 +162,7 @@ void Game::Move()
 
 }
 
-bool Game::KeyGen()
+void Game::KeyGen()
 {
 	m_keyGen = true;
 }
@@ -168,6 +179,11 @@ bool Game::HasKey()
 void Game::GetKey()
 {
 	m_hasKey = true;
+}
+
+void Game::GameWin()
+{
+	gameWin = true;
 }
 
 void Game::m_TryMove(char c)

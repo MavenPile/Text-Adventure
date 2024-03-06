@@ -8,6 +8,8 @@ class Dog : public Item
 public:
 	Dog();
 
+	Dog(Game* myGame);
+
 	~Dog();
 
 	void Description() const override;

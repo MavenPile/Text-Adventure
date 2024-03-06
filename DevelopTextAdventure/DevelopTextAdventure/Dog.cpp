@@ -1,7 +1,17 @@
 #include "Dog.h"
 #include "String.h"
+#include "Game.h"
 
 Dog::Dog()
+{
+	isDog = true;
+
+	hasKey = true;
+
+	m_desc = new String("It's a dog...");
+}
+
+Dog::Dog(Game* myGame)
 {
 	isDog = true;
 
@@ -24,7 +34,7 @@ void Dog::Use()
 {
 	if (hasKey == false)
 	{
-		std::cout << "You use the dog, nothing happens..." << std::endl;
+		std::cout << "You use it, nothing happens..." << std::endl;
 	}
 	else if (isDog == false)
 	{
@@ -32,7 +42,7 @@ void Dog::Use()
 		
 		hasKey = false;
 
-		
+		m_myGame->GetKey();
 	}
 	else
 	{
