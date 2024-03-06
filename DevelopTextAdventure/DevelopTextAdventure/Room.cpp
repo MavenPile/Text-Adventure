@@ -52,15 +52,15 @@ void Room::Generate(Game* myGame, int row, int col)
             break;
         case 1: //  cake
             m_desc = new String("There is a cake on a table in this room...");
-            item = new Cake();
+            item = new Cake(this);
             break;
         case 2: //  cat
             m_desc = new String("A cat is sleeping in this room...");
             item = new Cat();
             break;
         case 3: //  lamp
-            m_desc = new String("There is a lamp in this room...");
-            item = new Lamp();
+            m_desc = new String("The room is dark. But, there is a lamp...");
+            item = new Lamp(this);
             break;
         case 4: //  empty
             break;
@@ -93,4 +93,15 @@ void Room::ChangeDesc(String& inputDesc)
 void Room::RemoveItem()
 {
     delete item;
+}
+
+void Room::FullRemoveItem()
+{
+    delete item;
+
+    delete m_desc;
+
+    String* newDesc = new String("The room is empty...");
+
+    m_desc = newDesc;
 }

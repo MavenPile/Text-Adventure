@@ -54,7 +54,9 @@ void Cake::Use()
 
 			m_desc = newDesc;
 
-			m_myRoom->ChangeDesc(*newDesc);
+			String* myRoomDesc = new String("There is just a table...");
+
+			m_myRoom->ChangeDesc(*myRoomDesc);
 		}
 		else
 		{

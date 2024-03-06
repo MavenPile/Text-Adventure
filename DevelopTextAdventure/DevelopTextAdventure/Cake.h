@@ -14,8 +14,6 @@ private:
 
 public:
 
-public:
-
 	Cake();
 
 	Cake(Room* myRoom);

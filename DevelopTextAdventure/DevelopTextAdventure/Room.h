@@ -30,5 +30,7 @@ public:	//	Methods
 	void ChangeDesc(String& inputDesc);
 
 	void RemoveItem();
+
+	void FullRemoveItem();
 };
 

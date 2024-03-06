@@ -5,7 +5,7 @@ Cat::Cat()
 {
 	m_purring = false;
 	
-	m_desc = new String("It's a cat, wandering around the room...");
+	m_desc = new String("It's a cat, it's just sleeping...");
 }
 
 Cat::~Cat()
@@ -20,7 +20,7 @@ void Cat::Description() const
 
 void Cat::Use()
 {
-	std::cout << "You use the cat, it might be happy about this...";
+	std::cout << "You use the cat, it might be happy about this..." << std::endl;
 
 	m_purring = !m_purring;
 
@@ -34,7 +34,7 @@ void Cat::Use()
 	}
 	else
 	{
-		String* newDesc = new String("It's a cat, wandering around the room...");
+		String* newDesc = new String("It's a cat, it's just sleeping...");
 
 		delete m_desc;
 

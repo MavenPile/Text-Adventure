@@ -1,6 +1,7 @@
 #pragma once
 #include "Item.h"
 class String;
+class Room;
 
 class Lamp : public Item
 {
@@ -13,6 +14,8 @@ private:
 public:
 
 	Lamp();
+
+	Lamp(Room* myRoom);
 
 	~Lamp();
 
