@@ -1,6 +1,7 @@
 #include "Dog.h"
 #include "String.h"
 #include "Game.h"
+#include "Room.h"
 
 Dog::Dog()
 {
@@ -11,7 +12,7 @@ Dog::Dog()
 	m_desc = new String("It's a dog...");
 }
 
-Dog::Dog(Game* myGame)
+Dog::Dog(Game* myGame, Room* myRoom)
 {
 	isDog = true;
 
@@ -20,6 +21,8 @@ Dog::Dog(Game* myGame)
 	m_desc = new String("It's a dog...");
 
 	m_myGame = myGame;
+
+	m_myRoom = myRoom;
 }
 
 Dog::~Dog()
@@ -40,7 +43,7 @@ void Dog::Use()
 	}
 	else if (isDog == false)
 	{
-		std::cout << "It's a dog that is no longer a dog... Using it gave you a key..." << std::endl;
+		std::cout << "It's no longer a dog... Using it gave you a key..." << std::endl;
 		
 		hasKey = false;
 
@@ -56,5 +59,9 @@ void Dog::Use()
 		delete m_desc;
 
 		m_desc = newDesc;
+
+		String* newRoomDesc = new String("What looks like a dog smiles at you from the centre of the room...");
+
+		m_myRoom->ChangeDesc(*newRoomDesc);
 	}
 }

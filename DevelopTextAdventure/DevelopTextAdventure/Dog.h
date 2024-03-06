@@ -2,13 +2,14 @@
 #include "Item.h"
 
 class String;
+class Room;
 
 class Dog : public Item
 {
 public:
 	Dog();
 
-	Dog(Game* myGame);
+	Dog(Game* myGame, Room* myRoom);
 
 	~Dog();
 

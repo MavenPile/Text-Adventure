@@ -15,7 +15,7 @@ private:
 
 	bool m_legRight;
 
-	bool m_alive;
+	bool m_canAttack;
 
 	String* m_desc;
 

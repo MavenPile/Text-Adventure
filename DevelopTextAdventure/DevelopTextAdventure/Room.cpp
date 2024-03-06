@@ -33,7 +33,7 @@ void Room::Generate(Game* myGame, int row, int col)
     }
     else if (row == 3 && col == 1)   //  generates dog
     {
-        item = new Dog(myGame);
+        item = new Dog(myGame, this);
         m_desc = new String("A dog smiles at you from the centre of the room...");
     }
     else

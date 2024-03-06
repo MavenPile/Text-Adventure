@@ -112,7 +112,7 @@ void Game::Run()
 				std::cout << "use <item>: use an item in the current room..." << std::endl;
 				std::cout << "inspect <item/enemy>: see the description of an item or enemy..." << std::endl;
 				std::cout << "cast <spell>: cast a spell from your library..." << std::endl;
-				std::cout << "attack <target>: to attack an enemy in the room..." << std::endl;
+				std::cout << "attack <enemy>: to attack an enemy in the room..." << std::endl;
 				std::cout << std::endl;
 			}
 			break;
@@ -494,7 +494,7 @@ void Game::m_TryCast()
 
 void Game::m_TryAttack()
 {
-	Skeleton* skeleton = dynamic_cast<Skeleton*>(m_gameMap[m_posY][m_posY].enemy);
+	Skeleton* skeleton = dynamic_cast<Skeleton*>(m_gameMap[m_posX][m_posY].enemy);
 
 	if (skeleton != nullptr)
 	{

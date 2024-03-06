@@ -12,8 +12,6 @@ Skeleton::Skeleton()
 
 	m_legRight = true;
 
-	m_alive = true;
-
 	m_desc = new String("It's a skeleton, it's standing up but has no weapon");
 
 }
@@ -30,7 +28,7 @@ Skeleton::Skeleton(Player* player)
 
 	m_legRight = true;
 
-	m_alive = true;
+	m_canAttack = true;
 
 	m_desc = new String("It's a skeleton, it's standing up but has no weapon...");
 }
@@ -73,7 +71,6 @@ void Skeleton::TakeDamage(int dmg)
 	{
 		std::cout << "With all your might, you attack the skeleton, scattering it across the floor..." << std::endl;
 		m_legLeft = false;
-		m_alive = false;
 
 		String* newDesc = new String("The skeleton is scattered across the floor...");
 		delete m_desc;
@@ -119,16 +116,12 @@ void Skeleton::DealDamage()
 	else if (m_legLeft == true)
 	{
 		std::cout << "With all it's might, the skeleton lunges at you... Scattering on impact..." << std::endl;
+		std::cout << "The skeleton will no longer attack you..." << std::endl;
 		m_legLeft = false;
-		m_alive = false;
 
 		String* newDesc = new String("The skeleton is scattered across the floor...");
 		delete m_desc;
 		m_desc = newDesc;
-	}
-	else
-	{
-		std::cout << "The skeleton is no longer attacking you..." << std::endl;
 	}
 }
 
