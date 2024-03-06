@@ -1,23 +1,30 @@
 #pragma once
-#include "String.h"
 
-class Player;
+class Player;	//	forward declaration, helps prevent circular dependencies
+class String;
 
-class Spell
+class Spell	
 {
-private:
+private:	//	private vars
 
-	String* name;
-
-	int damage;
+	int m_damage;
 
 	Player* m_player;
 
-public:
+public:	//	public vars
 
-	virtual void Cast() = 0;
+	String* m_name;
 
-	virtual bool Compare(Spell a, Spell b) = 0;
+public:	//	public methods
+	
+	Spell();
 
+	Spell(int dmg, Player* player, String* name);
+
+	~Spell();
+	
+	void Cast();
+
+	bool Compare(Spell a, Spell b);
 };
 

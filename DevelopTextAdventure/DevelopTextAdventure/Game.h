@@ -22,7 +22,7 @@ private:	//	Private Variables
 
 	int m_posX, m_posY;	//	position of the player
 
-	bool gameWin;
+	bool gameWin;	//	game loop game state check
 
 private:	//	Private Methods
 
@@ -32,7 +32,7 @@ private:	//	Private Methods
 
 	void m_TryInspect(char c);
 
-	void m_TryCast();
+	void m_TryCast(char c);
 
 	void m_TryAttack();
 

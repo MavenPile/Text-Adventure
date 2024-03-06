@@ -1,19 +1,21 @@
 #include "Skeleton.h"
 #include <iostream>
 #include "Player.h"
+#include "String.h"
 
 Skeleton::Skeleton()
 {
-	m_armLeft = true;
+	m_armLeft = false;
 
-	m_armRight = true;
+	m_armRight = false;
 
-	m_legLeft = true;
+	m_legLeft = false;
 
-	m_legRight = true;
+	m_legRight = false;
 
-	m_desc = new String("It's a skeleton, it's standing up but has no weapon");
+	m_canAttack = false;
 
+	m_desc = new String("This is a false skeleton...");
 }
 
 Skeleton::Skeleton(Player* player)

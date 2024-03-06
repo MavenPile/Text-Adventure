@@ -3,6 +3,7 @@
 
 class String;
 class Game;
+class Spell;
 
 class Player
 {
@@ -11,6 +12,10 @@ private:
 	Game* m_myGame;
 
 	String* m_spells;
+
+	Spell* m_playerSpells;
+
+	int m_health;
 
 public:
 
@@ -24,8 +29,6 @@ public:
 
 	bool FindSpell(const String& spell);
 
-	void GetKey();
-
-	bool HasKey();
+	void LoseHealth(int dmg);
 };
 

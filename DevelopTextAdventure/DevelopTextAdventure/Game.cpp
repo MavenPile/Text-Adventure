@@ -111,7 +111,7 @@ void Game::Run()
 				std::cout << "move <north, south, east, west: move to an adjacent room..." << std::endl;
 				std::cout << "use <item>: use an item in the current room..." << std::endl;
 				std::cout << "inspect <item/enemy>: see the description of an item or enemy..." << std::endl;
-				std::cout << "cast <spell>: cast a spell from your library..." << std::endl;
+				std::cout << "cast <spell>: cast a spell on something in a room..." << std::endl;
 				std::cout << "attack <enemy>: to attack an enemy in the room..." << std::endl;
 				std::cout << std::endl;
 			}
@@ -212,7 +212,22 @@ void Game::Run()
 		case 'c':	//	cast
 			if (m_command->Find("cast") != -1)
 			{
-
+				if (m_command->Find("eruption") != -1)
+				{
+					m_TryCast('e');
+				}
+				else if (m_command->Find("frostbolt") != -1)
+				{
+					m_TryCast('f');
+				}
+				else if (m_command->Find("polymorph") != -1)
+				{
+					m_TryCast('p');
+				}
+				else
+				{
+					std::cout << "You didn't have such a spell to cast..." << std::endl;
+				}
 			}
 			break;
 		case 'd':	//	debug
@@ -487,9 +502,53 @@ void Game::m_TryInspect(char c)
 
 }
 
-void Game::m_TryCast()
+void Game::m_TryCast(char c)
 {
+	Skeleton* skeleton = dynamic_cast<Skeleton*>(m_gameMap[m_posX][m_posY].enemy);
 
+	if (skeleton != nullptr)
+	{
+		switch ('c')
+		{
+		case 'e':
+			if (m_player->FindSpell("eruption") == true)
+			{
+
+			}
+			else
+			{
+				std::cout << "You didn't seem to have that spell." << std::endl;
+			}
+			break;
+		case 'f':
+			if (m_player->FindSpell("frostbolt") == true)
+			{
+
+			}
+			else
+			{
+				std::cout << "You didn't seem to have that spell." << std::endl;
+			}
+			break;
+		case 'p':
+			if (m_player->FindSpell("polymorph") == true)
+			{
+
+			}
+			else
+			{
+				std::cout << "You didn't seem to have that spell." << std::endl;
+			}
+			break;
+		default:
+			std::cout << "You didn't seem to have that spell." << std::endl;
+			break;
+		}
+	}
+	else
+	{
+		std::cout << "It didn't seem like there was anything to cast a spell on..." << std::endl;
+	}
 }
 
 void Game::m_TryAttack()

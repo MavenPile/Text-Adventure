@@ -2,6 +2,7 @@
 #include "String.h"
 #include "Game.h"
 #include <iostream>
+#include "Spell.h"
 
 Player::Player()
 {
@@ -15,6 +16,8 @@ Player::Player(Game* myGame)
     m_myGame = myGame;
 
     CreateSpellList();
+
+    m_health = 100;
 }
 
 Player::~Player()
@@ -23,6 +26,11 @@ Player::~Player()
 
 void Player::CreateSpellList()
 {
+    m_playerSpells = new Spell[3];
+
+
+
+    
     m_spells = new String[3];
 
     String* fireball = new String("Fireball");
@@ -35,20 +43,7 @@ bool Player::FindSpell(const String& spell)
     return false;
 }
 
-void Player::GetKey()
+void Player::LoseHealth(int dmg)
 {
-    m_hasKey = true;
-}
-
-bool Player::HasKey()
-{
-    if (m_hasKey == true)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-
+    m_health -= dmg;
 }
