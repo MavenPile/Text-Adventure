@@ -23,6 +23,5 @@ private:
 	bool hasKey;
 
 	String* m_desc;
-
 };
 

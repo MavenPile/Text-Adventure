@@ -1,31 +1,26 @@
 #pragma once
-#include "String.h"
-#include "Game.h"
 #include <algorithm>
+
+class String;
+class Game;
 
 class Player
 {
 private:
 
-	Game* game;
+	Game* m_myGame;
 
-	//int m_posX, m_posY;
-
-	bool m_hasKey;
+	String* m_spells;
 
 public:
 
 	Player();
 
-	Player(Game* currentGame);
+	Player(Game* myGame);
 
 	~Player();
-	
-	//int GetPosX();
 
-	//int GetPosY();
-
-	//void Move(char direction);
+	void CreateSpellList();
 
 	bool FindSpell(const String& spell);
 

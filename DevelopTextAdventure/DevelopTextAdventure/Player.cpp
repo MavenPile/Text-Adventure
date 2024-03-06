@@ -1,4 +1,7 @@
 #include "Player.h"
+#include "String.h"
+#include "Game.h"
+#include <iostream>
 
 Player::Player()
 {
@@ -7,56 +10,25 @@ Player::Player()
     //hasKey = false;
 }
 
-Player::Player(Game* currentGame)
+Player::Player(Game* myGame)
 {
-    game = currentGame;
+    m_myGame = myGame;
+
+    CreateSpellList();
 }
 
 Player::~Player()
 {
 }
 
-//int Player::GetPosX()
-//{
-//    return m_posX;
-//}
-//
-//int Player::GetPosY()
-//{
-//    return m_posY;
-//}
+void Player::CreateSpellList()
+{
+    m_spells = new String[3];
 
-//void Player::Move(char direction)
-//{
-//    if (direction == 'n')   //  North
-//    {
-//
-//    }
-//    else if (direction == 'e')  //  East
-//    {
-//
-//    }
-//    else if (direction == 's')  //  South
-//    {
-//
-//    }
-//    else if (direction == 'w')  //  West
-//    {
-//
-//    }
-//    else if (direction == 'd')  //  Down
-//    {
-//
-//    }
-//    else if (direction == 'u')  //  Up
-//    {
-//
-//    }
-//    else
-//    {
-//        std::cout << "Couldn't find that direction..." << std::endl;
-//    }
-//}
+    String* fireball = new String("Fireball");
+
+    m_spells[0] = *fireball;
+}
 
 bool Player::FindSpell(const String& spell)
 {

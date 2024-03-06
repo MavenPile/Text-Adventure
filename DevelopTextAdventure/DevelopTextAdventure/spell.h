@@ -1,22 +1,19 @@
 #pragma once
 #include "String.h"
 
+class Player;
 
 class Spell
 {
 private:
 
-	String name;
+	String* name;
 
 	int damage;
 
+	Player* m_player;
+
 public:
-
-	//Spell();
-
-	//Spell(String name, int damage);
-
-	//~Spell();
 
 	virtual void Cast() = 0;
 
