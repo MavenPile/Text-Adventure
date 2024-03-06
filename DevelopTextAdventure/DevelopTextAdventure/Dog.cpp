@@ -32,7 +32,7 @@ void Dog::Use()
 		
 		hasKey = false;
 
-		//m_player.GetKey();
+		
 	}
 	else
 	{

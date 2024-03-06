@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "String.h"
 #include "Room.h"
+#include "Lamp.h"
 
 Game::Game()
 {
@@ -88,7 +89,7 @@ void Game::Run()
 {
 	m_gameMap[m_posX][m_posY].Description();	//	outputs description of room
 
-	std::cout << "What action would you like to take?" << std::endl;
+	std::cout << "What action would you like to take? (move/use/inspect/cast)" << std::endl;
 
 	m_command->ReadFromConsole();	//	recieves input
 
@@ -99,7 +100,26 @@ void Game::Run()
 	case 'm':
 		if (m_command->Find("move") != -1)
 		{
-
+			if (m_command->Find("north") != -1)
+			{
+				m_TryMove('n');
+			}
+			else if (m_command->Find("south") != -1)
+			{
+				m_TryMove('s');
+			}
+			else if (m_command->Find("east") != -1)
+			{
+				m_TryMove('e');
+			}
+			else if (m_command->Find("west") != -1)
+			{
+				m_TryMove('w');
+			}
+			else
+			{
+				std::cout << "That isn't a direction to move..." << std::endl;
+			}
 		}
 		break;
 	case 'u':
@@ -207,9 +227,25 @@ void Game::m_TryMove(char c)
 	}
 }
 
-void Game::m_TryUse()
+void Game::m_TryUse(char c)
 {
+	switch (c)
+	{
+	case 'l':
+	{
+		Lamp* lamp = dynamic_cast<Lamp*>(m_gameMap[m_posX][m_posY].item);
+		if (lamp != nullptr)
+		{
+			lamp->Use();
+		}
+		else
+		{
+			std::cout << "That didn't seem to be in the room to use..." << std::endl;
+		}
+		break;
+	}
 
+	}
 }
 
 void Game::m_TryInspect()

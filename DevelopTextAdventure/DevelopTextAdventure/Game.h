@@ -26,7 +26,7 @@ private:	//	Private Methods
 
 	void m_TryMove(char c);
 
-	void m_TryUse();
+	void m_TryUse(char c);
 
 	void m_TryInspect();
 
