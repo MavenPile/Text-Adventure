@@ -24,46 +24,87 @@ Player::Player(Game* myGame)
 
 Player::~Player()
 {    
-    delete[] m_playerSpells;
 }
 
 void Player::CreateSpellList()
 {
-    m_playerSpells = new Spell[3];
-
-
     String fireboltName("Firebolt");
 
     Spell firebolt(10, this, fireboltName);
 
-    m_playerSpells[0] = firebolt;
+    m_spells.push_back(firebolt);
 
 
-    String frostboltName("Frostbolt");
+    String iceboltName("Icebolt");
 
-    Spell frostbolt(10, this, frostboltName);
+    Spell icebolt(10, this, iceboltName);
 
-    m_playerSpells[1] = frostbolt;
+    m_spells.push_back(icebolt);
 
-
-    String thunderboltName("ThunderBolt");
+    
+    String thunderboltName("Thunderbolt");
 
     Spell thunderbolt(10, this, thunderboltName);
+    
+    m_spells.push_back(thunderbolt);
 
-    m_playerSpells[2] = thunderbolt;
+
+    m_spellNames.push_back(String("Firebolt"));
+
+    m_spellNames.push_back(String("Icebolt"));
+
+    m_spellNames.push_back(String("Thunderbolt"));
 }
 
-bool Player::FindSpell(const String& spell)
+bool Player::FindSpell(const char c)
 {
-    std::vector<Spell> v(m_playerSpells, m_playerSpells + 3);
+    std::sort(m_spellNames.begin(), m_spellNames.end());    //  sorts the vector
 
-    std::sort(v.begin(), v.end());
+    String findSpell;
 
-    if (std::binary_search(v.begin(), v.end(), spell))
+    if (c == 'f')
+    {
+        findSpell = "Firebolt";
+    }
+    else if (c == 'i')
+    {
+        findSpell = "Icebolt";
+    }
+    else
+    {
+        findSpell = "Thunderbolt";
+    }
+
+    if (m_BinarySearch(findSpell, 0, 2) == true)  //  calls binary search, hardcoded length
     {
         return true;
     }
     
+    return false;
+}
+
+bool Player::m_BinarySearch(const String& spell, int startIndex, int endIndex)
+{
+    int pivot;  //  pivot for binary search
+
+    while (startIndex <= endIndex)  //  possible search length
+    {
+        pivot = (startIndex + endIndex) / 2;  //  start at centre of search area
+
+        if (m_spellNames[pivot] == spell)   //  if pivot is search target
+        {
+            return true;
+        }
+        else if (m_spellNames[pivot] > spell)   //  if pivot is greater than search target
+        {
+            endIndex = pivot - 1;
+        }
+        else   //   if pivot is less than search target
+        {
+            startIndex = pivot + 1;
+        }
+    }
+
     return false;
 }
 

@@ -245,15 +245,15 @@ void Game::Run()
 				}
 				else if (m_command->Find("findspell") != -1)
 				{
-					if (m_command->Find("eruption") != -1)
+					if (m_command->Find("firebolt") != -1)
 					{
-						if (m_player->FindSpell("eruption") == true)
+						if (m_player->FindSpell('f') == true)
 						{
-							std::cout << "You have the spell called eruption..." << std::endl;
+							std::cout << "You have the spell called Firebolt..." << std::endl;
 						}
 						else
 						{
-							std::cout << "You do not have the spell eruption..." << std::endl;
+							std::cout << "You do not have the spell Firebolt..." << std::endl;
 						}
 					}
 				}

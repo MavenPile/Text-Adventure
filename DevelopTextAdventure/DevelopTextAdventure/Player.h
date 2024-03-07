@@ -1,5 +1,5 @@
 #pragma once
-#include <algorithm>
+#include <vector>
 
 class String;
 class Game;
@@ -11,11 +11,17 @@ private:
 
 	Game* m_myGame;
 
-	String* m_spells;
+	std::vector<Spell> m_spells;
 
-	Spell* m_playerSpells;
+	std::vector<String> m_spellNames;
+
+	//String* m_spells;
+
+	//Spell* m_playerSpells;
 
 	int m_health;
+
+	bool m_BinarySearch(const String& spell, int start, int end);
 
 public:
 
@@ -27,7 +33,7 @@ public:
 
 	void CreateSpellList();
 
-	bool FindSpell(const String& spell);
+	bool FindSpell(const char c);
 
 	void LoseHealth(int dmg);
 };
