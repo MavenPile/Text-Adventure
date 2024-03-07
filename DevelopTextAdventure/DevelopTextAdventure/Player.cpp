@@ -28,54 +28,40 @@ Player::~Player()
 
 void Player::CreateSpellList()
 {
-    String fireboltName("Firebolt");
+    String fireName("Fire");
 
-    Spell firebolt(10, this, fireboltName);
+    Spell fire(10, this, fireName);
 
-    m_spells.push_back(firebolt);
+    m_spells.push_back(fire);
+
+    m_spellNames.push_back(fireName);
 
 
-    String iceboltName("Icebolt");
+    String iceName("Ice");
 
-    Spell icebolt(10, this, iceboltName);
+    Spell ice(10, this, iceName);
 
-    m_spells.push_back(icebolt);
+    m_spells.push_back(ice);
 
+    m_spellNames.push_back(iceName);
+
+
+    String thunderName("Thunder");
+
+    Spell thunder(10, this, thunderName);
     
-    String thunderboltName("Thunderbolt");
+    m_spells.push_back(thunder);
 
-    Spell thunderbolt(10, this, thunderboltName);
-    
-    m_spells.push_back(thunderbolt);
-
-
-    m_spellNames.push_back(String("Firebolt"));
-
-    m_spellNames.push_back(String("Icebolt"));
-
-    m_spellNames.push_back(String("Thunderbolt"));
+    m_spellNames.push_back(thunderName);
 }
 
-bool Player::FindSpell(const char c)
+bool Player::FindSpell(const char* findSpell)
 {
     std::sort(m_spellNames.begin(), m_spellNames.end());    //  sorts the vector
 
-    String findSpell;
+    String find(findSpell);
 
-    if (c == 'f')
-    {
-        findSpell = "Firebolt";
-    }
-    else if (c == 'i')
-    {
-        findSpell = "Icebolt";
-    }
-    else
-    {
-        findSpell = "Thunderbolt";
-    }
-
-    if (m_BinarySearch(findSpell, 0, 2) == true)  //  calls binary search, hardcoded length
+    if (m_BinarySearchName(find, 0, 2) == true)  //  calls binary search, hardcoded length
     {
         return true;
     }
@@ -83,7 +69,7 @@ bool Player::FindSpell(const char c)
     return false;
 }
 
-bool Player::m_BinarySearch(const String& spell, int startIndex, int endIndex)
+bool Player::m_BinarySearchName(const String& spell, int startIndex, int endIndex)
 {
     int pivot;  //  pivot for binary search
 

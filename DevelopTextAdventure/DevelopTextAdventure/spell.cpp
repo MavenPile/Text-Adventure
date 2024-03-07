@@ -12,11 +12,13 @@ Spell::Spell(int dmg, Player* player, String name)
 {
 	m_damage = dmg;
 	m_player = player;
-	m_name = &name;
+	//m_name = &name;
+	m_name = new String(name);
 }
 
 Spell::~Spell()
 {
+	//delete m_name;
 }
 
 void Spell::Cast()

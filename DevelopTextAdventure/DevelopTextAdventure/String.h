@@ -87,6 +87,6 @@ public:
 	String(String&& input);	//	moves the value in input to a new string class object
 							//	input becomes a null pointer
 
-	void operator = (String&& input);	//	moves value from input to new string class object
+	String& operator = (String&& input);	//	moves value from input to new string class object
 										//	input becomes a null pointer
 };

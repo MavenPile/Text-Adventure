@@ -46,7 +46,7 @@ void Cake::Use()
 
 		if (m_cakeRemaining < 0)
 		{
-			std::cout << "There is no longer a cake..." << std::endl;
+			std::cout << "You've used all of the cake. There is no longer a cake..." << std::endl;
 			
 			String* newDesc = new String("There is no cake...");
 

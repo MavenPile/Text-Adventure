@@ -81,9 +81,6 @@
     <ClCompile Include="String.cpp">
       <Filter>Source Files\GameStuff</Filter>
     </ClCompile>
-    <ClCompile Include="Rock.cpp">
-      <Filter>Source Files\Spells</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Item.h">
@@ -124,9 +121,6 @@
     </ClInclude>
     <ClInclude Include="String.h">
       <Filter>Header Files\GameStuff</Filter>
-    </ClInclude>
-    <ClInclude Include="Rock.h">
-      <Filter>Header Files\Spells</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

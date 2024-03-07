@@ -245,16 +245,42 @@ void Game::Run()
 				}
 				else if (m_command->Find("findspell") != -1)
 				{
-					if (m_command->Find("firebolt") != -1)
+					if (m_command->Find("fire") != -1)
 					{
-						if (m_player->FindSpell('f') == true)
+						if (m_player->FindSpell("fire") == true)
 						{
-							std::cout << "You have the spell called Firebolt..." << std::endl;
+							std::cout << "You have the spell called Fire..." << std::endl;
 						}
 						else
 						{
-							std::cout << "You do not have the spell Firebolt..." << std::endl;
+							std::cout << "You do not have the spell Fire..." << std::endl;
 						}
+					}
+					else if (m_command->Find("ice") != -1)
+					{
+						if (m_player->FindSpell("ice") == true)
+						{
+							std::cout << "You have the spell called Ice..." << std::endl;
+						}
+						else
+						{
+							std::cout << "You do not have the spell Ice..." << std::endl;
+						}
+					}
+					else if (m_command->Find("thunder") != -1)
+					{
+						if (m_player->FindSpell("thunder") == true)
+						{
+							std::cout << "You have the spell called Thunder..." << std::endl;
+						}
+						else
+						{
+							std::cout << "You do not have the spell Thunder..." << std::endl;
+						}
+					}
+					else
+					{
+						std::cout << "You don't have a spell by that name..." << std::endl;
 					}
 				}
 				break;
@@ -524,38 +550,38 @@ void Game::m_TryCast(char c)
 	{
 		switch ('c')
 		{
-		case 'e':
-			if (m_player->FindSpell("eruption") == true)
-			{
-
-			}
-			else
-			{
-				std::cout << "You didn't seem to have that spell." << std::endl;
-			}
-			break;
 		case 'f':
-			if (m_player->FindSpell("frostbolt") == true)
+			if (m_player->FindSpell("fire") == true)
 			{
 
 			}
 			else
 			{
-				std::cout << "You didn't seem to have that spell." << std::endl;
+				std::cout << "You didn't seem to have that spell..." << std::endl;
 			}
 			break;
-		case 'p':
-			if (m_player->FindSpell("polymorph") == true)
+		case 'i':
+			if (m_player->FindSpell("ice") == true)
 			{
 
 			}
 			else
 			{
-				std::cout << "You didn't seem to have that spell." << std::endl;
+				std::cout << "You didn't seem to have that spell..." << std::endl;
+			}
+			break;
+		case 't':
+			if (m_player->FindSpell("thunder") == true)
+			{
+
+			}
+			else
+			{
+				std::cout << "You didn't seem to have that spell..." << std::endl;
 			}
 			break;
 		default:
-			std::cout << "You didn't seem to have that spell." << std::endl;
+			std::cout << "You didn't seem to have that spell..." << std::endl;
 			break;
 		}
 	}

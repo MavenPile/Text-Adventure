@@ -574,14 +574,16 @@ String::String(String&& input)
 {
 	m_string = input.m_string;
 
-	input = nullptr;
+	input.m_string = nullptr;
 }
 
-void String::operator = (String&& input)
+String& String::operator = (String&& input)
 {
 	delete[] m_string;
 
 	m_string = input.m_string;
 	
-	input = nullptr;
+	input.m_string = nullptr;
+
+	return *this;
 }

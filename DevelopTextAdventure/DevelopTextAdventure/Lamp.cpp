@@ -30,7 +30,7 @@ void Lamp::Description() const
 
 void Lamp::Use()
 {
-	std::cout << "You flick the switch on the lamp...";
+	std::cout << "You flick the switch on the lamp..." << std::endl;
 	m_isOn = !m_isOn;
 
 	if (m_isOn == true)
@@ -41,7 +41,7 @@ void Lamp::Use()
 
 		m_desc = newDesc;
 
-		String* newRoomDesc = new String("There are etchings on the wall of a key in a dog, and a door...");
+		String* newRoomDesc = new String("The lamp illuminates an etching of a key within what looks like a dog...");
 
 		m_myRoom->ChangeDesc(*newRoomDesc);
 	}
