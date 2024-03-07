@@ -1,9 +1,6 @@
 #pragma once
 #include "Item.h"
 
-class String;
-class Room;
-
 class Dog : public Item
 {
 public:

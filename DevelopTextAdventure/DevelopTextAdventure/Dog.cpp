@@ -60,8 +60,8 @@ void Dog::Use()
 
 		m_desc = newDesc;
 
-		String* newRoomDesc = new String("What looks like a dog smiles at you from the centre of the room...");
+		String newRoomDesc("What looks like a dog smiles at you from the centre of the room...");
 
-		m_myRoom->ChangeDesc(*newRoomDesc);
+		m_myRoom->ChangeDesc(newRoomDesc);
 	}
 }

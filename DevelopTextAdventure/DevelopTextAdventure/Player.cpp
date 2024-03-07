@@ -8,9 +8,7 @@
 
 Player::Player()
 {
-    //m_posX, m_posY = 0;
-
-    //hasKey = false;
+    CreateSpellList();
 }
 
 Player::Player(Game* myGame)
@@ -18,8 +16,6 @@ Player::Player(Game* myGame)
     m_myGame = myGame;
 
     CreateSpellList();
-
-    m_health = 100;
 }
 
 Player::~Player()
@@ -30,7 +26,9 @@ void Player::CreateSpellList()
 {
     String fireName("Fire");
 
-    Spell fire(10, this, fireName);
+    String onFire("You attempted to cast Fire... You engulf the room with an all consuming flame, disintegrating the skeleton... and yourself...");
+
+    Spell fire(this, fireName, onFire);
 
     m_spells.push_back(fire);
 
@@ -39,7 +37,9 @@ void Player::CreateSpellList()
 
     String iceName("Ice");
 
-    Spell ice(10, this, iceName);
+    String onIce("You attempted to cast Ice... The walls grow white and frosty as the temperature drops far below zero, the skeleton can no longer move... And neither can you, you both shatter into pieces...");
+
+    Spell ice(this, iceName, onIce);
 
     m_spells.push_back(ice);
 
@@ -48,7 +48,9 @@ void Player::CreateSpellList()
 
     String thunderName("Thunder");
 
-    Spell thunder(10, this, thunderName);
+    String onThunder("You attempted to cast Thunder... Large stormclouds start to collect in the room, and begin bellowing lightning all over... Bones have a natural resistance to thunder, but flesh doesn't... You die from electrocution...");
+
+    Spell thunder(this, thunderName, onThunder);
     
     m_spells.push_back(thunder);
 
@@ -67,6 +69,24 @@ bool Player::FindSpell(const char* findSpell)
     }
     
     return false;
+}
+
+void Player::CastSpell(const char c)
+{
+    switch (c)
+    {
+    case 'f':
+        m_spells[0].Cast();
+        break;
+    case 'i':
+        m_spells[1].Cast();
+        break;
+    case 't':
+        m_spells[2].Cast();
+        break;
+    default:
+        break;
+    }
 }
 
 bool Player::m_BinarySearchName(const String& spell, int startIndex, int endIndex)
@@ -92,11 +112,6 @@ bool Player::m_BinarySearchName(const String& spell, int startIndex, int endInde
     }
 
     return false;
-}
-
-void Player::LoseHealth(int dmg)
-{
-    m_health -= dmg;
 }
 
 void Player::LoseGame()

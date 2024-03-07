@@ -7,9 +7,9 @@ class Spell
 {
 private:	//	private vars
 
-	int m_damage;
-
 	Player* m_player;
+
+	String* m_onCast;
 
 public:	//	public vars
 
@@ -19,12 +19,10 @@ public:	//	public methods
 	
 	Spell();
 
-	Spell(int dmg, Player* player, String name);
+	Spell(Player* player, String name, String onCast);
 
 	~Spell();
 	
 	void Cast();
-
-	bool Compare(Spell a, Spell b);
 };
 

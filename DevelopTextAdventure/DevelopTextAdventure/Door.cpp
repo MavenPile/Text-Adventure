@@ -31,7 +31,7 @@ void Door::Use()
 	{
 		std::cout << "You insert the key into the door..." << std::endl;
 
-		m_myGame->GameWin();
+		m_myGame->WinGame();
 	}
 	else
 	{

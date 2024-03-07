@@ -1,8 +1,6 @@
 #pragma once
 #include "Item.h"
 
-class String;
-
 class Door : public Item
 {
 private:

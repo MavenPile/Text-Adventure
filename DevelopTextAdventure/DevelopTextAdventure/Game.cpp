@@ -8,6 +8,7 @@
 #include "Door.h"
 #include "Cat.h"
 #include "Dog.h"
+#include "Book.h"
 
 Game::Game()
 {
@@ -25,9 +26,11 @@ Game::Game()
 
 	m_keyGen = false;
 
-	gameWin = false;
+	m_gameWin = false;
 
-	gameLose = false;
+	m_gameLose = false;
+
+	m_playing = true;
 }
 
 Game::~Game()
@@ -92,7 +95,7 @@ void Game::PrintMap()
 
 void Game::Run()
 {
-	while (gameWin == false || gameLose == false)
+	while (m_playing)
 	{
 		PrintMap();	//	prints the map
 		
@@ -113,9 +116,9 @@ void Game::Run()
 				std::cout << "move <north, south, east, west: move to an adjacent room..." << std::endl;
 				std::cout << "use <item>: use an item in the current room..." << std::endl;
 				std::cout << "inspect <item/enemy>: see the description of an item or enemy..." << std::endl;
-				std::cout << "cast <spell>: cast a spell on something in a room..." << std::endl;
 				std::cout << "attack <enemy>: to attack an enemy in the room..." << std::endl;
 				std::cout << "find <spellname>: to see if you have a spell by that name..." << std::endl;
+				std::cout << "cast <spell>: cast a spell on an enemy in a room..." << std::endl;
 				std::cout << std::endl;
 			}
 			break;
@@ -173,6 +176,10 @@ void Game::Run()
 				{
 					m_TryUse('l');
 				}
+				else if (m_command->Find("book") != -1)
+				{
+					m_TryUse('b');
+				}
 				else
 				{
 					std::cout << "There was nothing like that to use..." << std::endl;
@@ -206,6 +213,10 @@ void Game::Run()
 				{
 					m_TryInspect('s');
 				}
+				else if (m_command->Find("book") != -1)
+				{
+					m_TryInspect('b');
+				}
 				else
 				{
 					std::cout << "There was nothing like that to inspect..." << std::endl;
@@ -229,7 +240,28 @@ void Game::Run()
 				}
 				else
 				{
-					std::cout << "You didn't have such a spell to cast..." << std::endl;
+					std::cout << "Your attempts resulted in no power coming forth..." << std::endl;
+				}
+			}
+			break;
+		case 'f':	//	find
+			if (m_command->Find("find") != -1)
+			{
+				if (m_command->Find("fire") != -1)
+				{
+					m_TryFind('f');
+				}
+				else if (m_command->Find("ice") != -1)
+				{
+					m_TryFind('i');
+				}
+				else if (m_command->Find("thunder") != -1)
+				{
+					m_TryFind('t');
+				}
+				else
+				{
+					std::cout << "You feel nothing noteworthy..." << std::endl;
 				}
 			}
 			break;
@@ -243,7 +275,7 @@ void Game::Run()
 				}
 				else if (m_command->Find("endgame") != -1)
 				{
-					GameWin();
+					WinGame();
 					std::cout << "How'd you do that?" << std::endl;
 				}
 				else if (m_command->Find("findspell") != -1)
@@ -256,7 +288,7 @@ void Game::Run()
 						}
 						else
 						{
-							std::cout << "You don't have a spell by that name..." << std::endl;
+							std::cout << "You feel nothing noteworthy..." << std::endl;
 						}
 					}
 					else if (m_command->Find("ice") != -1)
@@ -267,7 +299,7 @@ void Game::Run()
 						}
 						else
 						{
-							std::cout << "You don't have a spell by that name..." << std::endl;
+							std::cout << "You feel nothing noteworthy..." << std::endl;
 						}
 					}
 					else if (m_command->Find("thunder") != -1)
@@ -278,12 +310,12 @@ void Game::Run()
 						}
 						else
 						{
-							std::cout << "You don't have a spell by that name..." << std::endl;
+							std::cout << "You feel nothing noteworthy..." << std::endl;
 						}
 					}
 					else
 					{
-						std::cout << "You don't have a spell by that name..." << std::endl;
+						std::cout << "You feel nothing noteworthy..." << std::endl;
 					}
 				}
 				break;
@@ -296,15 +328,17 @@ void Game::Run()
 		system("pause");
 	}
 
-	if (gameWin == true)
+	if (m_gameWin == true)
 	{
 		std::cout << "Congratuations, you have exited the... Labyrinth? You Win!" << std::endl;
 
 		system("pause");
 	}
-	else if (gameLose == true)
+	else if (m_gameLose == true)
 	{
-		std::cout << "You managed to find a way to die, in a completely harmless labyrinth... You Lose!" << std::endl;
+		std::cout << "Congratulations, you managed to die in a completely harmless... Labyrinth? You Lose!" << std::endl;
+	
+		system("pause");
 	}
 }
 
@@ -327,19 +361,21 @@ void Game::GetKey()
 	m_hasKey = true;
 }
 
-void Game::GameWin()
+void Game::WinGame()
 {
-	gameWin = true;
+	m_gameWin = true;
+	m_playing = false;
+}
+
+void Game::LoseGame()
+{
+	m_gameLose = true;
+	m_playing = false;
 }
 
 Player* Game::GetPlayer()
 {
 	return m_player;
-}
-
-void Game::LoseGame()
-{
-	gameLose = true;
 }
 
 void Game::m_TryMove(char c)
@@ -468,6 +504,20 @@ void Game::m_TryUse(char c)
 			}
 			break;
 		}
+		case 'b':
+		{
+			Book* book = dynamic_cast<Book*>(m_gameMap[m_posX][m_posY].item);
+			if (book != nullptr)
+			{
+				book->Use();
+			}
+			else
+			{
+				std::cout << "That didn't seem to be in the room to use..." << std::endl;
+			}
+		}
+		break;
+
 	}
 }
 
@@ -553,62 +603,76 @@ void Game::m_TryInspect(char c)
 			}
 			break;
 		}
+		case 'b':
+		{
+			Book* book = dynamic_cast<Book*>(m_gameMap[m_posX][m_posY].item);
+			if (book != nullptr)
+			{
+				book->Description();
+			}
+			else
+			{
+				std::cout << "That didn't seem to be in the room to inspect..." << std::endl;
+			}
+		}
+		break;
 	}
 
 }
 
-void Game::m_TryCast(char c)
+void Game::m_TryCast(const char c)
 {
 	Skeleton* skeleton = dynamic_cast<Skeleton*>(m_gameMap[m_posX][m_posY].enemy);
 
 	if (skeleton != nullptr)
 	{
-		switch ('c')
+		switch (c)
 		{
 		case 'f':
-			if (m_player->FindSpell("Fire") == true)
-			{
-				std::cout << "You attempted to cast Fire... You engulf the room with an all consuming flame, disintegrating the skeleton... and yourself..." << std::endl;
-
-				LoseGame();
-			}
-			else
-			{
-				std::cout << "You didn't seem to have that spell..." << std::endl;
-			}
+			m_player->CastSpell('f');
 			break;
 		case 'i':
-			if (m_player->FindSpell("Ice") == true)
-			{
-				std::cout << "You attempted to cast Ice... The walls grow white and frosty as the temperature drops far below zero, the skeleton can no longer move... And neither can you, you both shatter into pieces..." << std::endl;
-
-				LoseGame();
-			}
-			else
-			{
-				std::cout << "You didn't seem to have that spell..." << std::endl;
-			}
+			m_player->CastSpell('i');
 			break;
 		case 't':
-			if (m_player->FindSpell("Thunder") == true)
-			{
-				std::cout << "You attempted to cast Thunder... Large stormclouds start to collect in the room, and begin bellowing lightning all over... Skeletons have a natural resistance to thunder, but humans don't... You die from electrocution..." << std::endl;
-
-				LoseGame();
-			}
-			else
-			{
-				std::cout << "You didn't seem to have that spell..." << std::endl;
-			}
+			m_player->CastSpell('t');
 			break;
 		default:
-			std::cout << "You didn't seem to have that spell..." << std::endl;
+			std::cout << "Despite your attempt, you felt no power coming forth..." << std::endl;
 			break;
 		}
 	}
 	else
 	{
-		std::cout << "It didn't seem like there was anything to cast a spell on..." << std::endl;
+		std::cout << "Despite feedback coming from your spirit, you had no target..." << std::endl;
+	}
+}
+
+void Game::m_TryFind(const char c)
+{
+	switch (c)
+	{
+	case 'f':
+		if (m_player->FindSpell("Fire") == true)
+		{
+			std::cout << "You feel the presence of a heat deep within your spirit..." << std::endl;
+		}
+		break;
+	case 'i':
+		if (m_player->FindSpell("Ice") == true)
+		{
+			std::cout << "You feel a biting cold deep within your spirit..." << std::endl;
+		}
+		break;
+	case 't':
+		if (m_player->FindSpell("Thunder") == true)
+		{
+			std::cout << "You feel power coursing deep within your spirit..." << std::endl;
+		}
+		break;
+	default:
+		std::cout << "You feel nothing noteworthy..." << std::endl;
+		break;
 	}
 }
 

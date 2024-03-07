@@ -1,24 +1,25 @@
 #pragma once
 #include "Item.h"
 
-class Lamp : public Item
+class Book : public Item
 {
 private:
 
-	bool m_isOn;
+	bool m_isOpen;
 
 	String* m_desc;
 
 public:
 
-	Lamp();
+	Book();
 
-	Lamp(Room* myRoom);
+	Book(Room* myRoom);
 
-	~Lamp();
-
+	~Book();
+	
 	void Description() const override;
 
 	void Use() override;
+
 };
 

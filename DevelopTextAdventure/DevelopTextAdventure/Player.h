@@ -15,8 +15,6 @@ private:
 
 	std::vector<String> m_spellNames;
 
-	int m_health;
-
 	bool m_BinarySearchName(const String& spell, int start, int end);
 
 public:
@@ -31,7 +29,7 @@ public:
 
 	bool FindSpell(const char* findSpell);
 
-	void LoseHealth(int dmg);
+	void CastSpell(const char c);
 
 	void LoseGame();
 };

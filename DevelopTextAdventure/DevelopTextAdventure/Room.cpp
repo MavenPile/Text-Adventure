@@ -6,6 +6,7 @@
 #include "Cat.h"
 #include "Door.h"
 #include "Cake.h"
+#include "Book.h"
 #include "Skeleton.h"
 #include <iostream>
 #include <stdlib.h>
@@ -40,13 +41,13 @@ void Room::Generate(Game* myGame, int row, int col)
     {
         srand(row + col);
 
-        int randVar = rand() % 8;
+        int randVar = rand() % 9;
 
         //int randVar = ((row * 7) * (col * 2)) % 4;
 
         switch (randVar)
         {
-        case 0:
+        case 0: //  skeleton
             m_desc = new String("There is a skeleton in the room, it seems to want to attack you...");
             enemy = new Skeleton(myGame->GetPlayer());
             break;
@@ -62,18 +63,14 @@ void Room::Generate(Game* myGame, int row, int col)
             m_desc = new String("The room is dark. But, there is a lamp...");
             item = new Lamp(this);
             break;
-        case 4: //  empty
+        case 4: //  book
+            m_desc = new String("There's a lectern with a book in this room...");
+            item = new Book(this);
             break;
         default:    //  empty
             break;
         }
     }
-    
-    
-    //if (keyGen == ) //  if true, room generates with key
-    //{
-
-    //}
 }
 
 void Room::Description()
@@ -81,7 +78,7 @@ void Room::Description()
     m_desc->WriteToConsole();
 }
 
-void Room::ChangeDesc(String& inputDesc)
+void Room::ChangeDesc(String inputDesc)
 {
     String* newDesc = new String(inputDesc);
     

@@ -81,6 +81,9 @@
     <ClCompile Include="String.cpp">
       <Filter>Source Files\GameStuff</Filter>
     </ClCompile>
+    <ClCompile Include="Book.cpp">
+      <Filter>Source Files\Items</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Item.h">
@@ -121,6 +124,9 @@
     </ClInclude>
     <ClInclude Include="String.h">
       <Filter>Header Files\GameStuff</Filter>
+    </ClInclude>
+    <ClInclude Include="Book.h">
+      <Filter>Header Files\Items</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

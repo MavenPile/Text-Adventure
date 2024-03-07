@@ -1,36 +1,29 @@
 #include "Spell.h"
 #include "String.h"
+#include "Player.h"
 
 Spell::Spell()
 {
-	m_damage = 0;
 	m_player = nullptr;
 	m_name = nullptr;
+	m_onCast = nullptr;
 }
 
-Spell::Spell(int dmg, Player* player, String name)
+Spell::Spell(Player* player, String name, String onCast)
 {
-	m_damage = dmg;
 	m_player = player;
-	//m_name = &name;
 	m_name = new String(name);
+	m_onCast = new String(onCast);
 }
 
 Spell::~Spell()
 {
 	//delete m_name;
+	//delete m_onCast;
 }
 
 void Spell::Cast()
 {
-
-}
-
-bool Spell::Compare(Spell a, Spell b)
-{
-	if (a.m_damage > b.m_damage)
-	{
-		return true;
-	}
-	return false;
+	m_onCast->WriteToConsole();
+	m_player->LoseGame();
 }

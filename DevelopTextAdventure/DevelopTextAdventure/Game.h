@@ -22,9 +22,11 @@ private:	//	Private Variables
 
 	int m_posX, m_posY;	//	position of the player
 
-	bool gameWin;	//	game loop game state check
+	bool m_gameWin;	//	game loop game state check
 
-	bool gameLose;
+	bool m_gameLose;
+
+	bool m_playing;
 
 private:	//	Private Methods
 
@@ -34,7 +36,9 @@ private:	//	Private Methods
 
 	void m_TryInspect(char c);
 
-	void m_TryCast(char c);
+	void m_TryCast(const char c);
+
+	void m_TryFind(const char c);
 
 	void m_TryAttack();
 
@@ -56,10 +60,10 @@ public:	//	Public Methods
 
 	void GetKey();	//	gives the player the key
 
-	void GameWin();
-
-	Player* GetPlayer();
+	void WinGame();
 
 	void LoseGame();
+
+	Player* GetPlayer();
 };
 

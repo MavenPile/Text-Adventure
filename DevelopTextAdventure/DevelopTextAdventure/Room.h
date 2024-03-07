@@ -27,7 +27,7 @@ public:	//	Methods
 
 	void Description();
 
-	void ChangeDesc(String& inputDesc);
+	void ChangeDesc(String inputDesc);
 
 	void RemoveItem();
 
