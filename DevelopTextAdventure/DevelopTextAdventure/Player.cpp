@@ -31,25 +31,26 @@ void Player::CreateSpellList()
 {
     m_playerSpells = new Spell[3];
 
-    String* eruption = new String("Eruption");
 
-    Spell eruptionSpell(10, this, eruption);
+    String fireboltName("Firebolt");
 
-    m_playerSpells[0] = eruptionSpell;
+    Spell firebolt(10, this, fireboltName);
 
-
-    String* frostbolt = new String("Frostbolt");
-
-    Spell frostboltSpell(10, this, frostbolt);
-
-    m_playerSpells[1] = frostboltSpell;
+    m_playerSpells[0] = firebolt;
 
 
-    String* polymorph = new String("Polymorph");
+    String frostboltName("Frostbolt");
 
-    Spell polymorphSpell(10, this, frostbolt);
+    Spell frostbolt(10, this, frostboltName);
 
-    m_playerSpells[2] = polymorphSpell;
+    m_playerSpells[1] = frostbolt;
+
+
+    String thunderboltName("ThunderBolt");
+
+    Spell thunderbolt(10, this, thunderboltName);
+
+    m_playerSpells[2] = thunderbolt;
 }
 
 bool Player::FindSpell(const String& spell)

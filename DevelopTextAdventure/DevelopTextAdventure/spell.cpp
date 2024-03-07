@@ -1,4 +1,5 @@
 #include "Spell.h"
+#include "String.h"
 
 Spell::Spell()
 {
@@ -7,11 +8,11 @@ Spell::Spell()
 	m_name = nullptr;
 }
 
-Spell::Spell(int dmg, Player* player, String* name)
+Spell::Spell(int dmg, Player* player, String name)
 {
 	m_damage = dmg;
 	m_player = player;
-	m_name = name;
+	m_name = &name;
 }
 
 Spell::~Spell()

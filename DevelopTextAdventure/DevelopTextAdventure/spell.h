@@ -19,7 +19,7 @@ public:	//	public methods
 	
 	Spell();
 
-	Spell(int dmg, Player* player, String* name);
+	Spell(int dmg, Player* player, String name);
 
 	~Spell();
 	
