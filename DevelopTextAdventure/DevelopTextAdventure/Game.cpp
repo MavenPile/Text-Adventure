@@ -243,6 +243,13 @@ void Game::Run()
 					GameWin();
 					std::cout << "How'd you do that?" << std::endl;
 				}
+				else if (m_command->Find("findspell") != -1)
+				{
+					if (m_command->Find("eruption") != -1)
+					{
+						m_player->FindSpell("eruption");
+					}
+				}
 				break;
 			}
 		default:
