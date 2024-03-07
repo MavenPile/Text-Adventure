@@ -98,3 +98,8 @@ void Player::LoseHealth(int dmg)
 {
     m_health -= dmg;
 }
+
+void Player::LoseGame()
+{
+    m_myGame->LoseGame();
+}

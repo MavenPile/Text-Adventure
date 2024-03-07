@@ -26,6 +26,8 @@ Game::Game()
 	m_keyGen = false;
 
 	gameWin = false;
+
+	gameLose = false;
 }
 
 Game::~Game()
@@ -90,7 +92,7 @@ void Game::PrintMap()
 
 void Game::Run()
 {
-	while (gameWin == false)
+	while (gameWin == false || gameLose == false)
 	{
 		PrintMap();	//	prints the map
 		
@@ -113,10 +115,11 @@ void Game::Run()
 				std::cout << "inspect <item/enemy>: see the description of an item or enemy..." << std::endl;
 				std::cout << "cast <spell>: cast a spell on something in a room..." << std::endl;
 				std::cout << "attack <enemy>: to attack an enemy in the room..." << std::endl;
+				std::cout << "find <spellname>: to see if you have a spell by that name..." << std::endl;
 				std::cout << std::endl;
 			}
 			break;
-		case 'a':
+		case 'a':	//	attack
 			if (m_command->Find("attack") != -1)
 			{
 				m_TryAttack();
@@ -212,17 +215,17 @@ void Game::Run()
 		case 'c':	//	cast
 			if (m_command->Find("cast") != -1)
 			{
-				if (m_command->Find("eruption") != -1)
-				{
-					m_TryCast('e');
-				}
-				else if (m_command->Find("frostbolt") != -1)
+				if (m_command->Find("fire") != -1)
 				{
 					m_TryCast('f');
 				}
-				else if (m_command->Find("polymorph") != -1)
+				else if (m_command->Find("ice") != -1)
 				{
-					m_TryCast('p');
+					m_TryCast('i');
+				}
+				else if (m_command->Find("thunder") != -1)
+				{
+					m_TryCast('t');
 				}
 				else
 				{
@@ -247,35 +250,35 @@ void Game::Run()
 				{
 					if (m_command->Find("fire") != -1)
 					{
-						if (m_player->FindSpell("fire") == true)
+						if (m_player->FindSpell("Fire") == true)
 						{
 							std::cout << "You have the spell called Fire..." << std::endl;
 						}
 						else
 						{
-							std::cout << "You do not have the spell Fire..." << std::endl;
+							std::cout << "You don't have a spell by that name..." << std::endl;
 						}
 					}
 					else if (m_command->Find("ice") != -1)
 					{
-						if (m_player->FindSpell("ice") == true)
+						if (m_player->FindSpell("Ice") == true)
 						{
 							std::cout << "You have the spell called Ice..." << std::endl;
 						}
 						else
 						{
-							std::cout << "You do not have the spell Ice..." << std::endl;
+							std::cout << "You don't have a spell by that name..." << std::endl;
 						}
 					}
 					else if (m_command->Find("thunder") != -1)
 					{
-						if (m_player->FindSpell("thunder") == true)
+						if (m_player->FindSpell("Thunder") == true)
 						{
 							std::cout << "You have the spell called Thunder..." << std::endl;
 						}
 						else
 						{
-							std::cout << "You do not have the spell Thunder..." << std::endl;
+							std::cout << "You don't have a spell by that name..." << std::endl;
 						}
 					}
 					else
@@ -293,9 +296,16 @@ void Game::Run()
 		system("pause");
 	}
 
-	std::cout << "Congratuations, you have exited the... Labyrinth? You Win!" << std::endl;
+	if (gameWin == true)
+	{
+		std::cout << "Congratuations, you have exited the... Labyrinth? You Win!" << std::endl;
 
-	system("pause");
+		system("pause");
+	}
+	else if (gameLose == true)
+	{
+		std::cout << "You managed to find a way to die, in a completely harmless labyrinth... You Lose!" << std::endl;
+	}
 }
 
 void Game::KeyGen()
@@ -325,6 +335,11 @@ void Game::GameWin()
 Player* Game::GetPlayer()
 {
 	return m_player;
+}
+
+void Game::LoseGame()
+{
+	gameLose = true;
 }
 
 void Game::m_TryMove(char c)
@@ -551,9 +566,11 @@ void Game::m_TryCast(char c)
 		switch ('c')
 		{
 		case 'f':
-			if (m_player->FindSpell("fire") == true)
+			if (m_player->FindSpell("Fire") == true)
 			{
+				std::cout << "You attempted to cast Fire... You engulf the room with an all consuming flame, disintegrating the skeleton... and yourself..." << std::endl;
 
+				LoseGame();
 			}
 			else
 			{
@@ -561,9 +578,11 @@ void Game::m_TryCast(char c)
 			}
 			break;
 		case 'i':
-			if (m_player->FindSpell("ice") == true)
+			if (m_player->FindSpell("Ice") == true)
 			{
+				std::cout << "You attempted to cast Ice... The walls grow white and frosty as the temperature drops far below zero, the skeleton can no longer move... And neither can you, you both shatter into pieces..." << std::endl;
 
+				LoseGame();
 			}
 			else
 			{
@@ -571,9 +590,11 @@ void Game::m_TryCast(char c)
 			}
 			break;
 		case 't':
-			if (m_player->FindSpell("thunder") == true)
+			if (m_player->FindSpell("Thunder") == true)
 			{
+				std::cout << "You attempted to cast Thunder... Large stormclouds start to collect in the room, and begin bellowing lightning all over... Skeletons have a natural resistance to thunder, but humans don't... You die from electrocution..." << std::endl;
 
+				LoseGame();
 			}
 			else
 			{

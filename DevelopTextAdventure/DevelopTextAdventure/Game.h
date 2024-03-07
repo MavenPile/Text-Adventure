@@ -24,6 +24,8 @@ private:	//	Private Variables
 
 	bool gameWin;	//	game loop game state check
 
+	bool gameLose;
+
 private:	//	Private Methods
 
 	void m_TryMove(char c);
@@ -57,5 +59,7 @@ public:	//	Public Methods
 	void GameWin();
 
 	Player* GetPlayer();
+
+	void LoseGame();
 };
 

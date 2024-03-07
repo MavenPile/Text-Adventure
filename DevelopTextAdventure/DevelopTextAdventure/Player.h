@@ -32,5 +32,7 @@ public:
 	bool FindSpell(const char* findSpell);
 
 	void LoseHealth(int dmg);
+
+	void LoseGame();
 };
 
