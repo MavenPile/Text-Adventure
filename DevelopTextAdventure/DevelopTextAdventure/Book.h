@@ -3,13 +3,13 @@
 
 class Book : public Item
 {
-private:
+private:	//	private vars
 
 	bool m_isOpen;
 
 	String* m_desc;
 
-public:
+public:	//	public methods
 
 	Book();
 
@@ -20,6 +20,5 @@ public:
 	void Description() const override;
 
 	void Use() override;
-
 };
 

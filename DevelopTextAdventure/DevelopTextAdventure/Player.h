@@ -7,7 +7,7 @@ class Spell;
 
 class Player
 {
-private:
+private:	//	private vars
 
 	Game* m_myGame;
 
@@ -15,9 +15,11 @@ private:
 
 	std::vector<String> m_spellNames;
 
+private:	//	private methods
+
 	bool m_BinarySearchName(const String& spell, int start, int end);
 
-public:
+public:	//	public methods
 
 	Player();
 
