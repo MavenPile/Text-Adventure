@@ -52,6 +52,8 @@ public:	//	Public Methods
 
 	void PrintMap();
 
+	void Interpret();
+
 	void Run();
 
 	void KeyGen();	//	prevents more than one key from appearing

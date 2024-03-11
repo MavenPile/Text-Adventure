@@ -285,38 +285,40 @@ bool String::FindAt(int index, const String& findString)
 	return CompareAt(index, findString);
 }
 
-String String::StrAfter(const String& input)
+const char* String::StrAfter(const String& input)
 {
 	if (Find(input) == -1)
 	{
-		return;
+		return NULL;
 	}
 	
-	int index = Find(input) + input.Length();
+	int strBeginIndex = Find(input) + input.Length();	//	Hello, World! = 0 + 5 || cast fire == 0 + 5
 
-	int diff = Length() - index;
+	int newStrLen = Length() - input.Length();	//	Hello, World! - Hello = 13 - 5 = 8 || cast fire - 'cast ' = 9 - 5 = 4
 
-	char* tempStr = new char(diff + 1);
+	char* tempStr = new char(newStrLen + 1);	//	, World! + '/0' = 8 + 1 = 9 || fire + '/0' = 4 + 1 = 5
 
 	char tempChar;
 
-	for (int i = 0; i < diff; i++)
+	for (int i = 0; i <= newStrLen; i++)
 	{
-		tempChar = m_string[i + index];
-
-		tempStr[i] = tempChar;
-
-		if (diff - 1 == i)
+		if (newStrLen >= i)
 		{
-			tempStr[i + 1] = '\0';
+			tempChar = m_string[i + strBeginIndex];
+
+			tempStr[i] = tempChar;
 		}
+		//else if (newStrLen == i)
+		//{
+		//	tempStr[i + 1] = '\0';
+		//}
 	}
 
 	String returnString(tempStr);
 
-	delete[] tempStr;
+	delete tempStr;
 
-	return returnString;
+	return returnString.CStr();
 }
 
 void String::ReplaceAt(int index, const String& originString, const String& replaceString)

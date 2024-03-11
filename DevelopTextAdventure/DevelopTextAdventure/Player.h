@@ -29,7 +29,7 @@ public:	//	public methods
 
 	void CreateSpellList();
 
-	bool FindSpell(const char* findSpell);
+	int FindSpell(const String findSpell);
 
 	void CastSpell(const char c);
 

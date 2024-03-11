@@ -57,18 +57,20 @@ void Player::CreateSpellList()
     m_spellNames.push_back(thunderName);
 }
 
-bool Player::FindSpell(const char* findSpell)
+int Player::FindSpell(const String findSpell)
 {
     std::sort(m_spellNames.begin(), m_spellNames.end());    //  sorts the vector
 
     String find(findSpell);
 
-    if (m_BinarySearch(find, 0, m_spells.size()) != -1)  //  calls binary search, hardcoded length
-    {
-        return true;
-    }
-    
-    return false;
+    return m_BinarySearch(find, 0, m_spells.size() != -1);
+
+    //if (m_BinarySearch(find, 0, m_spells.size()) != -1)  //  calls binary search, hardcoded length
+    //{
+    //    return true;
+    //}
+    //
+    //return false;
 }
 
 void Player::CastSpell(const char c)

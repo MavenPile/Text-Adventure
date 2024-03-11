@@ -24,5 +24,7 @@ public:	//	public methods
 	~Spell();
 	
 	void Cast();
+
+	const char* SpellName();
 };
 

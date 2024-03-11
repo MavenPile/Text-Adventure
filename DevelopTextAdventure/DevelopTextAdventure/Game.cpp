@@ -93,6 +93,145 @@ void Game::PrintMap()
 	std::cout << "---------------" << std::endl;
 }
 
+void Game::Interpret()
+{
+	std::cout << "What action would you like to take? (type \"help\" for commands)" << std::endl;
+
+	m_command->ReadFromConsole();	//	recieves input
+
+	m_command->ToLower();	//	makes input consistent
+
+	if (true == m_command->FindAt(0, "help"))
+	{
+		std::cout << std::endl;
+		std::cout << "move <north, south, east, west: move to an adjacent room..." << std::endl;
+		std::cout << "use <item>: use an item in the current room..." << std::endl;
+		std::cout << "inspect <item/enemy>: see the description of an item or enemy..." << std::endl;
+		std::cout << "attack <enemy>: to attack an enemy in the room..." << std::endl;
+		std::cout << "find <spellname>: to see if you have a spell by that name..." << std::endl;
+		std::cout << "cast <spell>: cast a spell on an enemy in a room..." << std::endl;
+		std::cout << std::endl;
+	}
+	else if (true == m_command->FindAt(0, "cast"))
+	{
+		String after(m_command->StrAfter("cast "));
+
+		if (after.Find("fire") != -1)
+		{
+			m_TryCast('f');
+		}
+		else if (after.Find("ice") != -1)
+		{
+			m_TryCast('i');
+		}
+		else if (after.Find("thunder") != -1)
+		{
+			m_TryCast('t');
+		}
+		else
+		{
+			std::cout << "Your attempts resulted in no power coming forth..." << std::endl;
+		}
+
+		//m_player->FindSpell(after);
+	}
+	else if (true == m_command->FindAt(0, "attack"))
+	{
+		m_TryAttack();
+	}
+	else if (true == m_command->FindAt(0, "move"))
+	{
+		if (m_command->Find("north") != -1)
+		{
+			m_TryMove('n');
+		}
+		else if (m_command->Find("south") != -1)
+		{
+			m_TryMove('s');
+		}
+		else if (m_command->Find("east") != -1)
+		{
+			m_TryMove('e');
+		}
+		else if (m_command->Find("west") != -1)
+		{
+			m_TryMove('w');
+		}
+		else
+		{
+			std::cout << "That isn't a direction to move..." << std::endl;
+		}
+	}
+	else if (true == m_command->FindAt(0, "use"))
+	{
+		if (m_command->Find("cake") != -1)
+		{
+			m_TryUse('c');
+		}
+		else if (m_command->Find("cat") != -1)
+		{
+			m_TryUse('a');
+		}
+		else if (m_command->Find("dog") != -1)
+		{
+			m_TryUse('d');
+		}
+		else if (m_command->Find("door") != -1)
+		{
+			m_TryUse('o');
+		}
+		else if (m_command->Find("lamp") != -1)
+		{
+			m_TryUse('l');
+		}
+		else if (m_command->Find("book") != -1)
+		{
+			m_TryUse('b');
+		}
+		else
+		{
+			std::cout << "There was nothing like that to use..." << std::endl;
+		}
+	}
+	else if (true == m_command->FindAt(0, "inspect"))
+	{
+		if (m_command->Find("cake") != -1)
+		{
+			m_TryInspect('c');
+		}
+		else if (m_command->Find("cat") != -1)
+		{
+			m_TryInspect('a');
+		}
+		else if (m_command->Find("dog") != -1)
+		{
+			m_TryInspect('d');
+		}
+		else if (m_command->Find("door") != -1)
+		{
+			m_TryInspect('o');
+		}
+		else if (m_command->Find("lamp") != -1)
+		{
+			m_TryInspect('l');
+		}
+		else if (m_command->Find("skeleton") != -1)
+		{
+			m_TryInspect('s');
+		}
+		else if (m_command->Find("book") != -1)
+		{
+			m_TryInspect('b');
+		}
+		else
+		{
+			std::cout << "There was nothing like that to inspect..." << std::endl;
+		}
+	}
+
+	system("pause");
+}
+
 void Game::Run()
 {
 	while (m_playing)
@@ -101,231 +240,233 @@ void Game::Run()
 		
 		m_gameMap[m_posX][m_posY].Description();	//	outputs description of room
 
-		std::cout << "What action would you like to take? (type \"help\" for commands)" << std::endl;
+		Interpret();
 
-		m_command->ReadFromConsole();	//	recieves input
+		//std::cout << "What action would you like to take? (type \"help\" for commands)" << std::endl;
 
-		m_command->ToLower();	//	makes input consistent
+		//m_command->ReadFromConsole();	//	recieves input
 
-		switch (m_command->CharacterAt(0))
-		{
-		case 'h':
-			if (m_command->Find("help") != -1)
-			{
-				std::cout << std::endl;
-				std::cout << "move <north, south, east, west: move to an adjacent room..." << std::endl;
-				std::cout << "use <item>: use an item in the current room..." << std::endl;
-				std::cout << "inspect <item/enemy>: see the description of an item or enemy..." << std::endl;
-				std::cout << "attack <enemy>: to attack an enemy in the room..." << std::endl;
-				std::cout << "find <spellname>: to see if you have a spell by that name..." << std::endl;
-				std::cout << "cast <spell>: cast a spell on an enemy in a room..." << std::endl;
-				std::cout << std::endl;
-			}
-			break;
-		case 'a':	//	attack
-			if (m_command->Find("attack") != -1)
-			{
-				m_TryAttack();
-			}
-			break;
-		case 'm':	//	move
-			if (m_command->Find("move") != -1)
-			{
-				if (m_command->Find("north") != -1)
-				{
-					m_TryMove('n');
-				}
-				else if (m_command->Find("south") != -1)
-				{
-					m_TryMove('s');
-				}
-				else if (m_command->Find("east") != -1)
-				{
-					m_TryMove('e');
-				}
-				else if (m_command->Find("west") != -1)
-				{
-					m_TryMove('w');
-				}
-				else
-				{
-					std::cout << "That isn't a direction to move..." << std::endl;
-				}
-			}
-			break;
-		case 'u':	//	use
-			if (m_command->Find("use") != -1)
-			{
-				if (m_command->Find("cake") != -1)
-				{
-					m_TryUse('c');
-				}
-				else if (m_command->Find("cat") != -1)
-				{
-					m_TryUse('a');
-				}
-				else if (m_command->Find("dog") != -1)
-				{
-					m_TryUse('d');
-				}
-				else if (m_command->Find("door") != -1)
-				{
-					m_TryUse('o');
-				}
-				else if (m_command->Find("lamp") != -1)
-				{
-					m_TryUse('l');
-				}
-				else if (m_command->Find("book") != -1)
-				{
-					m_TryUse('b');
-				}
-				else
-				{
-					std::cout << "There was nothing like that to use..." << std::endl;
-				}
-			}
-			break;
-		case 'i':	//	inspect
-			if (m_command->Find("inspect") != -1)
-			{
-				if (m_command->Find("cake") != -1)
-				{
-					m_TryInspect('c');
-				}
-				else if (m_command->Find("cat") != -1)
-				{
-					m_TryInspect('a');
-				}
-				else if (m_command->Find("dog") != -1)
-				{
-					m_TryInspect('d');
-				}
-				else if (m_command->Find("door") != -1)
-				{
-					m_TryInspect('o');
-				}
-				else if (m_command->Find("lamp") != -1)
-				{
-					m_TryInspect('l');
-				}
-				else if (m_command->Find("skeleton") != -1)
-				{
-					m_TryInspect('s');
-				}
-				else if (m_command->Find("book") != -1)
-				{
-					m_TryInspect('b');
-				}
-				else
-				{
-					std::cout << "There was nothing like that to inspect..." << std::endl;
-				}
-			}
-			break;
-		case 'c':	//	cast
-			if (m_command->Find("cast") != -1)
-			{
-				if (m_command->Find("fire") != -1)
-				{
-					m_TryCast('f');
-				}
-				else if (m_command->Find("ice") != -1)
-				{
-					m_TryCast('i');
-				}
-				else if (m_command->Find("thunder") != -1)
-				{
-					m_TryCast('t');
-				}
-				else
-				{
-					std::cout << "Your attempts resulted in no power coming forth..." << std::endl;
-				}
-			}
-			break;
-		case 'f':	//	find
-			if (m_command->Find("find") != -1)
-			{
-				if (m_command->Find("fire") != -1)
-				{
-					m_TryFind('f');
-				}
-				else if (m_command->Find("ice") != -1)
-				{
-					m_TryFind('i');
-				}
-				else if (m_command->Find("thunder") != -1)
-				{
-					m_TryFind('t');
-				}
-				else
-				{
-					std::cout << "You feel nothing noteworthy..." << std::endl;
-				}
-			}
-			break;
-		case 'd':	//	debug
-			if (m_command->Find("debug") != -1)
-			{
-				if (m_command->Find("getkey") != -1)
-				{
-					GetKey();
-					std::cout << "Where'd you get that?" << std::endl;
-				}
-				else if (m_command->Find("endgame") != -1)
-				{
-					WinGame();
-					std::cout << "How'd you do that?" << std::endl;
-				}
-				else if (m_command->Find("findspell") != -1)
-				{
-					if (m_command->Find("fire") != -1)
-					{
-						if (m_player->FindSpell("Fire") == true)
-						{
-							std::cout << "You have the spell called Fire..." << std::endl;
-						}
-						else
-						{
-							std::cout << "You feel nothing noteworthy..." << std::endl;
-						}
-					}
-					else if (m_command->Find("ice") != -1)
-					{
-						if (m_player->FindSpell("Ice") == true)
-						{
-							std::cout << "You have the spell called Ice..." << std::endl;
-						}
-						else
-						{
-							std::cout << "You feel nothing noteworthy..." << std::endl;
-						}
-					}
-					else if (m_command->Find("thunder") != -1)
-					{
-						if (m_player->FindSpell("Thunder") == true)
-						{
-							std::cout << "You have the spell called Thunder..." << std::endl;
-						}
-						else
-						{
-							std::cout << "You feel nothing noteworthy..." << std::endl;
-						}
-					}
-					else
-					{
-						std::cout << "You feel nothing noteworthy..." << std::endl;
-					}
-				}
-				break;
-			}
-		default:
-			std::cout << "Couldn't determine what you wanted to do..." << std::endl;
-			break;
-		}
+		//m_command->ToLower();	//	makes input consistent
 
-		system("pause");
+		//switch (m_command->CharacterAt(0))
+		//{
+		//case 'h':
+		//	if (m_command->Find("help") != -1)
+		//	{
+		//		std::cout << std::endl;
+		//		std::cout << "move <north, south, east, west: move to an adjacent room..." << std::endl;
+		//		std::cout << "use <item>: use an item in the current room..." << std::endl;
+		//		std::cout << "inspect <item/enemy>: see the description of an item or enemy..." << std::endl;
+		//		std::cout << "attack <enemy>: to attack an enemy in the room..." << std::endl;
+		//		std::cout << "find <spellname>: to see if you have a spell by that name..." << std::endl;
+		//		std::cout << "cast <spell>: cast a spell on an enemy in a room..." << std::endl;
+		//		std::cout << std::endl;
+		//	}
+		//	break;
+		//case 'a':	//	attack
+		//	if (m_command->Find("attack") != -1)
+		//	{
+		//		m_TryAttack();
+		//	}
+		//	break;
+		//case 'm':	//	move
+		//	if (m_command->Find("move") != -1)
+		//	{
+		//		if (m_command->Find("north") != -1)
+		//		{
+		//			m_TryMove('n');
+		//		}
+		//		else if (m_command->Find("south") != -1)
+		//		{
+		//			m_TryMove('s');
+		//		}
+		//		else if (m_command->Find("east") != -1)
+		//		{
+		//			m_TryMove('e');
+		//		}
+		//		else if (m_command->Find("west") != -1)
+		//		{
+		//			m_TryMove('w');
+		//		}
+		//		else
+		//		{
+		//			std::cout << "That isn't a direction to move..." << std::endl;
+		//		}
+		//	}
+		//	break;
+		//case 'u':	//	use
+		//	if (m_command->Find("use") != -1)
+		//	{
+		//		if (m_command->Find("cake") != -1)
+		//		{
+		//			m_TryUse('c');
+		//		}
+		//		else if (m_command->Find("cat") != -1)
+		//		{
+		//			m_TryUse('a');
+		//		}
+		//		else if (m_command->Find("dog") != -1)
+		//		{
+		//			m_TryUse('d');
+		//		}
+		//		else if (m_command->Find("door") != -1)
+		//		{
+		//			m_TryUse('o');
+		//		}
+		//		else if (m_command->Find("lamp") != -1)
+		//		{
+		//			m_TryUse('l');
+		//		}
+		//		else if (m_command->Find("book") != -1)
+		//		{
+		//			m_TryUse('b');
+		//		}
+		//		else
+		//		{
+		//			std::cout << "There was nothing like that to use..." << std::endl;
+		//		}
+		//	}
+		//	break;
+		//case 'i':	//	inspect
+		//	if (m_command->Find("inspect") != -1)
+		//	{
+		//		if (m_command->Find("cake") != -1)
+		//		{
+		//			m_TryInspect('c');
+		//		}
+		//		else if (m_command->Find("cat") != -1)
+		//		{
+		//			m_TryInspect('a');
+		//		}
+		//		else if (m_command->Find("dog") != -1)
+		//		{
+		//			m_TryInspect('d');
+		//		}
+		//		else if (m_command->Find("door") != -1)
+		//		{
+		//			m_TryInspect('o');
+		//		}
+		//		else if (m_command->Find("lamp") != -1)
+		//		{
+		//			m_TryInspect('l');
+		//		}
+		//		else if (m_command->Find("skeleton") != -1)
+		//		{
+		//			m_TryInspect('s');
+		//		}
+		//		else if (m_command->Find("book") != -1)
+		//		{
+		//			m_TryInspect('b');
+		//		}
+		//		else
+		//		{
+		//			std::cout << "There was nothing like that to inspect..." << std::endl;
+		//		}
+		//	}
+		//	break;
+		//case 'c':	//	cast
+		//	if (m_command->Find("cast") != -1)
+		//	{
+		//		if (m_command->Find("fire") != -1)
+		//		{
+		//			m_TryCast('f');
+		//		}
+		//		else if (m_command->Find("ice") != -1)
+		//		{
+		//			m_TryCast('i');
+		//		}
+		//		else if (m_command->Find("thunder") != -1)
+		//		{
+		//			m_TryCast('t');
+		//		}
+		//		else
+		//		{
+		//			std::cout << "Your attempts resulted in no power coming forth..." << std::endl;
+		//		}
+		//	}
+		//	break;
+		//case 'f':	//	find
+		//	if (m_command->Find("find") != -1)
+		//	{
+		//		if (m_command->Find("fire") != -1)
+		//		{
+		//			m_TryFind('f');
+		//		}
+		//		else if (m_command->Find("ice") != -1)
+		//		{
+		//			m_TryFind('i');
+		//		}
+		//		else if (m_command->Find("thunder") != -1)
+		//		{
+		//			m_TryFind('t');
+		//		}
+		//		else
+		//		{
+		//			std::cout << "You feel nothing noteworthy..." << std::endl;
+		//		}
+		//	}
+		//	break;
+		//case 'd':	//	debug
+		//	if (m_command->Find("debug") != -1)
+		//	{
+		//		if (m_command->Find("getkey") != -1)
+		//		{
+		//			GetKey();
+		//			std::cout << "Where'd you get that?" << std::endl;
+		//		}
+		//		else if (m_command->Find("endgame") != -1)
+		//		{
+		//			WinGame();
+		//			std::cout << "How'd you do that?" << std::endl;
+		//		}
+		//		else if (m_command->Find("findspell") != -1)
+		//		{
+		//			if (m_command->Find("fire") != -1)
+		//			{
+		//				if (m_player->FindSpell("Fire") == true)
+		//				{
+		//					std::cout << "You have the spell called Fire..." << std::endl;
+		//				}
+		//				else
+		//				{
+		//					std::cout << "You feel nothing noteworthy..." << std::endl;
+		//				}
+		//			}
+		//			else if (m_command->Find("ice") != -1)
+		//			{
+		//				if (m_player->FindSpell("Ice") == true)
+		//				{
+		//					std::cout << "You have the spell called Ice..." << std::endl;
+		//				}
+		//				else
+		//				{
+		//					std::cout << "You feel nothing noteworthy..." << std::endl;
+		//				}
+		//			}
+		//			else if (m_command->Find("thunder") != -1)
+		//			{
+		//				if (m_player->FindSpell("Thunder") == true)
+		//				{
+		//					std::cout << "You have the spell called Thunder..." << std::endl;
+		//				}
+		//				else
+		//				{
+		//					std::cout << "You feel nothing noteworthy..." << std::endl;
+		//				}
+		//			}
+		//			else
+		//			{
+		//				std::cout << "You feel nothing noteworthy..." << std::endl;
+		//			}
+		//		}
+		//		break;
+		//	}
+		//default:
+		//	std::cout << "Couldn't determine what you wanted to do..." << std::endl;
+		//	break;
+		//}
+
+		//system("pause");
 	}
 
 	if (m_gameWin == true)
@@ -395,6 +536,7 @@ void Game::m_TryMove(char c)
 
 		break;
 	case 's':	//	South
+	{
 		if (m_posY == (m_col - 1))
 		{
 			std::cout << "You found no Southern paths..." << std::endl;
@@ -406,6 +548,7 @@ void Game::m_TryMove(char c)
 		std::cout << "You moved South..." << std::endl;
 
 		break;
+	}
 	case 'e':	//	East
 		if (m_posX == (m_row - 1))
 		{
