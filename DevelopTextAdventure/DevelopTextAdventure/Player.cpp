@@ -63,7 +63,7 @@ bool Player::FindSpell(const char* findSpell)
 
     String find(findSpell);
 
-    if (m_BinarySearchName(find, 0, 2) == true)  //  calls binary search, hardcoded length
+    if (m_BinarySearch(find, 0, m_spells.size()) != -1)  //  calls binary search, hardcoded length
     {
         return true;
     }
@@ -89,7 +89,7 @@ void Player::CastSpell(const char c)
     }
 }
 
-bool Player::m_BinarySearchName(const String& spell, int startIndex, int endIndex)
+int Player::m_BinarySearch(const String& spell, int startIndex, int endIndex)
 {
     int pivot;  //  pivot for binary search
 
@@ -97,11 +97,11 @@ bool Player::m_BinarySearchName(const String& spell, int startIndex, int endInde
     {
         pivot = (startIndex + endIndex) / 2;  //  start at centre of search area
 
-        if (m_spellNames[pivot] == spell)   //  if pivot is search target
+        if (m_spells[pivot].SpellName() == spell.CStr())   //  if pivot is search target
         {
-            return true;
+            return pivot;
         }
-        else if (m_spellNames[pivot] > spell)   //  if pivot is greater than search target
+        else if (m_spells[pivot].SpellName() > spell.CStr())   //  if pivot is greater than search target
         {
             endIndex = pivot - 1;
         }
@@ -111,7 +111,7 @@ bool Player::m_BinarySearchName(const String& spell, int startIndex, int endInde
         }
     }
 
-    return false;
+    return -1;
 }
 
 void Player::LoseGame()

@@ -17,7 +17,7 @@ private:	//	private vars
 
 private:	//	private methods
 
-	bool m_BinarySearchName(const String& spell, int start, int end);
+	int m_BinarySearch(const String& spell, int start, int end);
 
 public:	//	public methods
 

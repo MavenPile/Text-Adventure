@@ -50,7 +50,11 @@ public:
 
 	int Find(const String& findString);	//	returns index of findString within m_string, '-1' if not found
 
-	int FindFrom(int index, const String& findString);	//	same as Find(), but begins search from index			
+	int FindFrom(int index, const String& findString);	//	same as Find(), but begins search from index
+
+	bool FindAt(int index, const String& findString);
+
+	String StrAfter(const String& input);	//	returns the string after the appearance of the input
 
 	//int* FindArray(const String& findString);	
 		//	finds all instances of findString, and returns an array of their indexes

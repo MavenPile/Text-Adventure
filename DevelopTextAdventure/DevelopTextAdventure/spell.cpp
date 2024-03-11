@@ -27,3 +27,8 @@ void Spell::Cast()
 	m_onCast->WriteToConsole();
 	m_player->LoseGame();
 }
+
+const char* Spell::SpellName()
+{
+	return m_name->CStr();
+}

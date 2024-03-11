@@ -280,6 +280,45 @@ int String::FindFrom(int index, const String& findString)
 	
 }	//	functionality confirmed! Only finds first occurance of of findString from index
 
+bool String::FindAt(int index, const String& findString)
+{
+	return CompareAt(index, findString);
+}
+
+String String::StrAfter(const String& input)
+{
+	if (Find(input) == -1)
+	{
+		return;
+	}
+	
+	int index = Find(input) + input.Length();
+
+	int diff = Length() - index;
+
+	char* tempStr = new char(diff + 1);
+
+	char tempChar;
+
+	for (int i = 0; i < diff; i++)
+	{
+		tempChar = m_string[i + index];
+
+		tempStr[i] = tempChar;
+
+		if (diff - 1 == i)
+		{
+			tempStr[i + 1] = '\0';
+		}
+	}
+
+	String returnString(tempStr);
+
+	delete[] tempStr;
+
+	return returnString;
+}
+
 void String::ReplaceAt(int index, const String& originString, const String& replaceString)
 {
 	//	a private helper function that replaces a portion of a string with another string
