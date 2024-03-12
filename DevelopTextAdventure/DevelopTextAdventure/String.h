@@ -54,7 +54,7 @@ public:
 
 	bool FindAt(int index, const String& findString);
 
-	const char* StrAfter(const String& input);	//	returns the string after the appearance of the input
+	void StrAfter(String& str, const char* findStr);	//	turns m_string into inputStr after findStr
 
 	//int* FindArray(const String& findString);	
 		//	finds all instances of findString, and returns an array of their indexes

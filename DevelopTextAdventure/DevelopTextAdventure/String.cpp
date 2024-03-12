@@ -285,18 +285,20 @@ bool String::FindAt(int index, const String& findString)
 	return CompareAt(index, findString);
 }
 
-const char* String::StrAfter(const String& input)
+void String::StrAfter(String& inputStr, const char* findStr)
 {
-	if (Find(input) == -1)
+	if (inputStr.Find(findStr) == -1)
 	{
-		return NULL;
+		return;
 	}
 	
-	int strBeginIndex = Find(input) + input.Length();	//	Hello, World! = 0 + 5 || cast fire == 0 + 5
+	int strBeginIndex = Find(findStr) + strlen(findStr);	//	Hello, World! = 0 + 5 || cast fire == 0 + 5
 
-	int newStrLen = Length() - input.Length();	//	Hello, World! - Hello = 13 - 5 = 8 || cast fire - 'cast ' = 9 - 5 = 4
+	int newStrLen = inputStr.Length() - strlen(findStr);	//	Hello, World! - Hello = 13 - 5 = 8 || cast fire - 'cast ' = 9 - 5 = 4
 
-	char* tempStr = new char(newStrLen + 1);	//	, World! + '/0' = 8 + 1 = 9 || fire + '/0' = 4 + 1 = 5
+	delete m_string;
+
+	m_string = new char(newStrLen + 1);	//	, World! + '/0' = 8 + 1 = 9 || fire + '/0' = 4 + 1 = 5
 
 	char tempChar;
 
@@ -304,21 +306,11 @@ const char* String::StrAfter(const String& input)
 	{
 		if (newStrLen >= i)
 		{
-			tempChar = m_string[i + strBeginIndex];
+			tempChar = inputStr.CStr()[i + strBeginIndex];
 
-			tempStr[i] = tempChar;
+			m_string[i] = tempChar;
 		}
-		//else if (newStrLen == i)
-		//{
-		//	tempStr[i + 1] = '\0';
-		//}
 	}
-
-	String returnString(tempStr);
-
-	delete tempStr;
-
-	return returnString.CStr();
 }
 
 void String::ReplaceAt(int index, const String& originString, const String& replaceString)

@@ -112,9 +112,11 @@ void Game::Interpret()
 		std::cout << "cast <spell>: cast a spell on an enemy in a room..." << std::endl;
 		std::cout << std::endl;
 	}
-	else if (true == m_command->FindAt(0, "cast"))
+	else if (true == m_command->FindAt(0, "cast "))
 	{
-		String after(m_command->StrAfter("cast "));
+		String after;
+
+		after.StrAfter(*m_command, "cast ");
 
 		if (after.Find("fire") != -1)
 		{
@@ -139,7 +141,7 @@ void Game::Interpret()
 	{
 		m_TryAttack();
 	}
-	else if (true == m_command->FindAt(0, "move"))
+	else if (true == m_command->FindAt(0, "move "))
 	{
 		if (m_command->Find("north") != -1)
 		{
@@ -162,7 +164,7 @@ void Game::Interpret()
 			std::cout << "That isn't a direction to move..." << std::endl;
 		}
 	}
-	else if (true == m_command->FindAt(0, "use"))
+	else if (true == m_command->FindAt(0, "use "))
 	{
 		if (m_command->Find("cake") != -1)
 		{
@@ -193,7 +195,7 @@ void Game::Interpret()
 			std::cout << "There was nothing like that to use..." << std::endl;
 		}
 	}
-	else if (true == m_command->FindAt(0, "inspect"))
+	else if (true == m_command->FindAt(0, "inspect "))
 	{
 		if (m_command->Find("cake") != -1)
 		{

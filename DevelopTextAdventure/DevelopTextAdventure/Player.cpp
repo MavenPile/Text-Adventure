@@ -73,22 +73,26 @@ int Player::FindSpell(const String findSpell)
     //return false;
 }
 
-void Player::CastSpell(const char c)
+void Player::CastSpell(const String& spell)
 {
-    switch (c)
-    {
-    case 'f':
-        m_spells[0].Cast();
-        break;
-    case 'i':
-        m_spells[1].Cast();
-        break;
-    case 't':
-        m_spells[2].Cast();
-        break;
-    default:
-        break;
-    }
+    //switch (c)
+    //{
+    //case 'f':
+    //    m_spells[0].Cast();
+    //    break;
+    //case 'i':
+    //    m_spells[1].Cast();
+    //    break;
+    //case 't':
+    //    m_spells[2].Cast();
+    //    break;
+    //default:
+    //    break;
+    //}
+
+    int index = FindSpell(spell);
+
+    m_spells[index].Cast();
 }
 
 int Player::m_BinarySearch(const String& spell, int startIndex, int endIndex)
