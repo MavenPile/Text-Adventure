@@ -31,7 +31,7 @@ public:	//	public methods
 
 	int FindSpell(const String findSpell);
 
-	void CastSpell(const char c);
+	void CastSpell(const String& spell);
 
 	void LoseGame();
 };
