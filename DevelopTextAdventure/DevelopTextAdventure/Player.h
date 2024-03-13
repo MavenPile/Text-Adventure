@@ -13,8 +13,6 @@ private:	//	private vars
 
 	std::vector<Spell> m_spells;
 
-	std::vector<String> m_spellNames;
-
 private:	//	private methods
 
 	int m_BinarySearch(const String& spell, int start, int end);
@@ -29,7 +27,7 @@ public:	//	public methods
 
 	void CreateSpellList();
 
-	int FindSpell(const String findSpell);
+	int FindSpell(const String& findSpell);
 
 	void CastSpell(const String& spell);
 

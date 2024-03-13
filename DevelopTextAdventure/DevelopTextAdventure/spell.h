@@ -19,12 +19,22 @@ public:	//	public methods
 	
 	Spell();
 
-	Spell(Player* player, String name, String onCast);
+	Spell(Player* player, const char* name, const char* onCast);
 
 	~Spell();
 	
 	void Cast();
 
-	const char* SpellName();
+	const char* CStr() const;
+
+	//	Move Semantics
+
+	Spell(Spell&& other);
+
+	Spell(const Spell& input);
+
+	Spell& operator = (Spell&& other);
+
+	bool operator < (const Spell& compare);
 };
 

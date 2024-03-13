@@ -36,7 +36,7 @@ private:	//	Private Methods
 
 	void m_TryInspect(char c);
 
-	void m_TryCast(const char c);
+	void m_TryCast(const String& spell);
 
 	void m_TryFind(const char c);
 

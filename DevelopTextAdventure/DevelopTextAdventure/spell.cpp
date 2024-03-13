@@ -9,7 +9,7 @@ Spell::Spell()
 	m_onCast = nullptr;
 }
 
-Spell::Spell(Player* player, String name, String onCast)
+Spell::Spell(Player* player, const char* name, const char* onCast)
 {
 	m_player = player;
 	m_name = new String(name);
@@ -28,7 +28,27 @@ void Spell::Cast()
 	m_player->LoseGame();
 }
 
-const char* Spell::SpellName()
+const char* Spell::CStr() const
 {
 	return m_name->CStr();
+}
+
+Spell::Spell(const Spell& input)
+{
+
+}
+
+Spell::Spell(Spell&& other)
+{
+
+}
+
+Spell& Spell::operator = (Spell&& other)
+{
+
+}
+
+bool Spell::operator < (const Spell& compare)
+{
+
 }

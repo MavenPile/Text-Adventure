@@ -118,22 +118,24 @@ void Game::Interpret()
 
 		after.StrAfter(*m_command, "cast ");
 
-		if (after.Find("fire") != -1)
-		{
-			m_TryCast('f');
-		}
-		else if (after.Find("ice") != -1)
-		{
-			m_TryCast('i');
-		}
-		else if (after.Find("thunder") != -1)
-		{
-			m_TryCast('t');
-		}
-		else
-		{
-			std::cout << "Your attempts resulted in no power coming forth..." << std::endl;
-		}
+		m_TryCast(after);
+
+		//if (after.Find("fire") != -1)
+		//{
+		//	m_TryCast('f');
+		//}
+		//else if (after.Find("ice") != -1)
+		//{
+		//	m_TryCast('i');
+		//}
+		//else if (after.Find("thunder") != -1)
+		//{
+		//	m_TryCast('t');
+		//}
+		//else
+		//{
+		//	std::cout << "Your attempts resulted in no power coming forth..." << std::endl;
+		//}
 
 		//m_player->FindSpell(after);
 	}
@@ -765,32 +767,41 @@ void Game::m_TryInspect(char c)
 
 }
 
-void Game::m_TryCast(const char c)
+void Game::m_TryCast(const String& spell)
 {
 	Skeleton* skeleton = dynamic_cast<Skeleton*>(m_gameMap[m_posX][m_posY].enemy);
 
-	if (skeleton != nullptr)
+	if (skeleton == nullptr && m_player->FindSpell(spell) == true)
 	{
-		switch (c)
-		{
-		case 'f':
-			m_player->CastSpell('f');
-			break;
-		case 'i':
-			m_player->CastSpell('i');
-			break;
-		case 't':
-			m_player->CastSpell('t');
-			break;
-		default:
-			std::cout << "Despite your attempt, you felt no power coming forth..." << std::endl;
-			break;
-		}
+		std::cout << "Despite feedback from your spirit, there were no targets..." << std::endl;
+	
+		return;
 	}
-	else
-	{
-		std::cout << "Despite feedback coming from your spirit, you had no target..." << std::endl;
-	}
+
+	m_player->CastSpell(spell);
+
+	//if (skeleton != nullptr)
+	//{
+	//	switch (c)
+	//	{
+	//	case 'f':
+	//		m_player->CastSpell('f');
+	//		break;
+	//	case 'i':
+	//		m_player->CastSpell('i');
+	//		break;
+	//	case 't':
+	//		m_player->CastSpell('t');
+	//		break;
+	//	default:
+	//		std::cout << "Despite your attempt, you felt no power coming forth..." << std::endl;
+	//		break;
+	//	}
+	//}
+	//else
+	//{
+	//	std::cout << "Despite feedback coming from your spirit, you had no target..." << std::endl;
+	//}
 }
 
 void Game::m_TryFind(const char c)
