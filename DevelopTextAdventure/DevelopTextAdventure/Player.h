@@ -11,7 +11,7 @@ private:	//	private vars
 
 	Game* m_myGame;
 
-	std::vector<Spell> m_spells;
+	std::vector<Spell*> m_spells;
 
 private:	//	private methods
 

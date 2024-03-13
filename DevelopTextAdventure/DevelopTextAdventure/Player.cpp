@@ -20,21 +20,25 @@ Player::Player(Game* myGame)
 
 Player::~Player()
 {    
+    for (int i = 0; i < m_spells.size(); i++)
+    {
+        delete m_spells[i];
+    }
 }
 
 void Player::CreateSpellList()
 {
-    Spell fire(this, "fire", "You attempted to cast Fire... You engulf the room with an all consuming flame, disintegrating the skeleton... and yourself...");
+    Spell* fire = new Spell(this, "fire", "You attempted to cast Fire... You engulf the room with an all consuming flame, disintegrating the skeleton... and yourself...");
 
     m_spells.push_back(fire);
 
 
-    Spell ice(this, "ice", "You attempted to cast Ice... The walls grow white and frosty as the temperature drops far below zero, the skeleton can no longer move... And neither can you, you both shatter into pieces...");
+    Spell* ice = new Spell(this, "ice", "You attempted to cast Ice... The walls grow white and frosty as the temperature drops far below zero, the skeleton can no longer move... And neither can you, you both shatter into pieces...");
 
     m_spells.push_back(ice);
 
 
-    Spell thunder(this, "thunder", "You attempted to cast Thunder... Large stormclouds start to collect in the room, and begin bellowing lightning all over... Bones have a natural resistance to thunder, but flesh doesn't... You die from electrocution...");
+    Spell* thunder = new Spell(this, "thunder", "You attempted to cast Thunder... Large stormclouds start to collect in the room, and begin bellowing lightning all over... Bones have a natural resistance to thunder, but flesh doesn't... You die from electrocution...");
     
     m_spells.push_back(thunder);
 }
@@ -43,7 +47,9 @@ int Player::FindSpell(const String& findSpell)
 {
     std::sort(m_spells.begin(), m_spells.end());    //  sorts the vector
 
-    return m_BinarySearch(findSpell, 0, m_spells.size());
+    int index = m_BinarySearch(findSpell, 0, m_spells.size());
+
+    return index;
 
     //if (m_BinarySearch(find, 0, m_spells.size()) != -1)  //  calls binary search, hardcoded length
     //{
@@ -79,7 +85,7 @@ void Player::CastSpell(const String& spell)
         return;
     }
 
-    m_spells[index].Cast();
+    m_spells[index]->Cast();
 }
 
 int Player::m_BinarySearch(const String& spell, int startIndex, int endIndex)
@@ -90,11 +96,11 @@ int Player::m_BinarySearch(const String& spell, int startIndex, int endIndex)
     {
         pivot = (startIndex + endIndex) / 2;  //  start at centre of search area
 
-        if (m_spells[pivot].CStr() == spell.CStr())   //  if pivot is search target
+        if (m_spells[pivot]->CStr() == spell.CStr())   //  if pivot is search target
         {
             return pivot;
         }
-        else if (m_spells[pivot].CStr() > spell.CStr())   //  if pivot is greater than search target
+        else if (m_spells[pivot]->CStr() > spell.CStr())   //  if pivot is greater than search target
         {
             endIndex = pivot - 1;
         }
