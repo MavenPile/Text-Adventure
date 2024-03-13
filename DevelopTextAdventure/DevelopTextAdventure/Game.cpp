@@ -771,9 +771,9 @@ void Game::m_TryCast(const String& spell)
 {
 	Skeleton* skeleton = dynamic_cast<Skeleton*>(m_gameMap[m_posX][m_posY].enemy);
 
-	if (skeleton == nullptr && m_player->FindSpell(spell) == true)
+	if (skeleton == nullptr)
 	{
-		std::cout << "Despite feedback from your spirit, there were no targets..." << std::endl;
+		std::cout << "There were no targets..." << std::endl;
 	
 		return;
 	}

@@ -21,7 +21,7 @@ public:	//	public methods
 
 	Spell(Player* player, const char* name, const char* onCast);
 
-	~Spell();
+	~Spell();	//	destructor
 	
 	void Cast();
 
@@ -29,12 +29,12 @@ public:	//	public methods
 
 	//	Move Semantics
 
-	Spell(Spell&& other);
+	Spell(const Spell& input);	//	copy constructor
 
-	Spell(const Spell& input);
+	Spell(Spell&& other);	//	move constructor
 
-	Spell& operator = (Spell&& other);
+	Spell& operator = (Spell&& other);	//	copy assignment operator
 
-	bool operator < (const Spell& compare);
+	bool operator < (const Spell& compare);	//	move assignment operator
 };
 

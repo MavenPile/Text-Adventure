@@ -35,20 +35,29 @@ const char* Spell::CStr() const
 
 Spell::Spell(const Spell& input)
 {
-
+	m_name = new String(input.CStr());
 }
 
 Spell::Spell(Spell&& other)
 {
+	m_name = other.m_name;
 
+	other.m_name = nullptr;
 }
 
 Spell& Spell::operator = (Spell&& other)
 {
+	m_name = other.m_name;
 
+	return *this;
 }
 
 bool Spell::operator < (const Spell& compare)
 {
+	if (m_name < compare.m_name)
+	{
+		return true;
+	}
 
+	return false;
 }

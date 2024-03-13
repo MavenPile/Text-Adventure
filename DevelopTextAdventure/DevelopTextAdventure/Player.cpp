@@ -43,7 +43,7 @@ int Player::FindSpell(const String& findSpell)
 {
     std::sort(m_spells.begin(), m_spells.end());    //  sorts the vector
 
-    return m_BinarySearch(findSpell, 0, m_spells.size() != -1);
+    return m_BinarySearch(findSpell, 0, m_spells.size());
 
     //if (m_BinarySearch(find, 0, m_spells.size()) != -1)  //  calls binary search, hardcoded length
     //{
