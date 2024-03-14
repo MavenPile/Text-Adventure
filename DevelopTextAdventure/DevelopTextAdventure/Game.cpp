@@ -114,11 +114,11 @@ void Game::Interpret()
 	}
 	else if (true == m_command->FindAt(0, "cast "))
 	{
-		String after;
+		String temp;
 
-		after.StrAfter(*m_command, "cast ");
+		temp.StrAfter(*m_command, "cast ");
 
-		m_TryCast(after);
+		m_TryCast(temp);
 
 		//if (after.Find("fire") != -1)
 		//{
