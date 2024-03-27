@@ -18,8 +18,8 @@ Spell::Spell(Player* player, const char* name, const char* onCast)
 
 Spell::~Spell()
 {
-	//delete m_name;
-	//delete m_onCast;
+	delete m_name;
+	delete m_onCast;
 }
 
 void Spell::Cast()

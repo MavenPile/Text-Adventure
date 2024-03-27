@@ -287,31 +287,39 @@ bool String::FindAt(int index, const String& findString)
 
 void String::StrAfter(String& inputStr, const char* findStr)
 {
-	if (inputStr.Find(findStr) == -1)
+	if (inputStr.Find(findStr) == -1)	//	check if findStr doesn't exist in inputStr
 	{
-		return;
+		return;	//	function does nothing. There's probably a more elegant solution, but this is what I thought of
 	}
 	
-	int strBeginIndex = Find(findStr) + strlen(findStr);	//	Hello, World! = 0 + 5 || cast fire == 0 + 5
+	//	inputStr = "cast fire", findStr = "cast "
 
-	int newStrLen = inputStr.Length() - strlen(findStr);	//	Hello, World! - Hello = 13 - 5 = 8 || cast fire - 'cast ' = 9 - 5 = 4
+	int findStrLen = strlen(findStr);	//	strlen(findStr) outputs length of 5
 
-	delete m_string;
+	int newStrIndex = inputStr.Find(findStr) + findStrLen;	//	inputStr.Find(findStr) outputs index of 0
+															//	strBeginIndex = 0 + 5 = 5
+															//	the 5th index of inputStr is the "f"
 
-	m_string = new char(newStrLen + 1);	//	, World! + '/0' = 8 + 1 = 9 || fire + '/0' = 4 + 1 = 5
+	int newStrLen = inputStr.Length() - newStrIndex;	//	inputStr.Length() outputs length of 9
+														//	newStrLen = 9 - 5 = 4
+														//	which fits "fire"
 
-	char tempChar;
+	delete m_string;	//	resets this string, to accept new information
 
-	for (int i = 0; i <= newStrLen; i++)
+	m_string = new char(newStrLen + 1);	//	allocated memory of new string becomes 4 + 1 = 5
+										//	which is "fire" plus a null terminator ('\0')
+
+	char tempChar;	//	holder char variable for copying values
+
+	for (int i = 0; i <= newStrLen; i++)	//	loops for length of new string, which is 4
+										//	first iteration of loop is index 0, so it repeats 5 times
+										//	five times is the length of "fire" plus the null terminator
 	{
-		if (newStrLen >= i)
-		{
-			tempChar = inputStr.CStr()[i + strBeginIndex];
+		tempChar = inputStr.CharacterAt(i + newStrIndex);	//	tempChar = i + 5 = "f" for i = 0, then incrementing
 
-			m_string[i] = tempChar;
-		}
+		m_string[i] = tempChar;	//	m_string[i] = "f" for i = 0, then incrementing
 	}
-}
+}	//	my first versions of this didn't work at all, so many errors
 
 void String::ReplaceAt(int index, const String& originString, const String& replaceString)
 {
