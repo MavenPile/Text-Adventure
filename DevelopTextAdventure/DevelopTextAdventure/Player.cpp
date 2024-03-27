@@ -41,11 +41,13 @@ void Player::CreateSpellList()
     Spell* thunder = new Spell(this, "thunder", "You attempted to cast Thunder... Large stormclouds start to collect in the room, and begin bellowing lightning all over... Bones have a natural resistance to thunder, but flesh doesn't... You die from electrocution...");
     
     m_spells.push_back(thunder);
+
+    std::sort(m_spells.begin(), m_spells.end());
 }
 
 int Player::FindSpell(const String& findSpell)
 {
-    std::sort(m_spells.begin(), m_spells.end());    //  sorts the vector
+    //std::sort(m_spells.begin(), m_spells.end());    //  sorts the vector
 
     int index = m_BinarySearch(findSpell, 0, m_spells.size());
 
@@ -90,6 +92,8 @@ void Player::CastSpell(const String& spell)
 
 int Player::m_BinarySearch(const String& spell, int startIndex, int endIndex)
 {
+    //std::sort(m_spells.begin(), m_spells.end());    //  sorts vector
+    
     int pivot;  //  pivot for binary search
 
     while (startIndex <= endIndex)  //  possible search length
