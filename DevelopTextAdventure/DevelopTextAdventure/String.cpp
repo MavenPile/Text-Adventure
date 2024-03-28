@@ -43,6 +43,8 @@ String::String(String& inputStr, const char* findStr)
 	if (inputStr.Find(findStr) == -1)	//	check if findStr doesn't exist in inputStr
 	{
 		m_string = new char[14] {"Hello, World!"};	//	acts like default constructor
+
+		return;
 	}
 
 	//	inputStr = "cast fire", findStr = "cast "
@@ -57,7 +59,7 @@ String::String(String& inputStr, const char* findStr)
 	//	newStrLen = 9 - 5 = 4
 	//	which fits "fire"
 
-	m_string = new char(newStrLen + 1);	//	allocated memory of new string becomes 4 + 1 = 5
+	m_string = new char[newStrLen + 1];	//	allocated memory of new string becomes 4 + 1 = 5
 	//	which is "fire" plus a null terminator ('\0')
 
 	for (int i = 0; i <= newStrLen; i++)	//	loops for length of new string, which is 4
