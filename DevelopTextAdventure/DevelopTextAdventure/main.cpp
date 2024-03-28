@@ -4,16 +4,10 @@
 
 int main()
 {
-	String exampleCommand("cast fire");
 
-	String temp(exampleCommand, "cast ");	//	temp = "fire" with null terminator
-
-	temp.WriteToConsole();	//	outputs "fire"
-
+	Game* myGame = new Game;
 	
-/*	Game* myGame = new Game;
-	
-	myGame->Run();*/	
+	myGame->Run();	
 	
 	return 0;
 }
