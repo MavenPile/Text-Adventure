@@ -97,8 +97,6 @@ void Game::Interpret()
 {
 	std::cout << "What action would you like to take? (type \"help\" for commands)" << std::endl;
 
-	String temp;
-
 	m_command->ReadFromConsole();	//	recieves input
 
 	m_command->ToLower();	//	makes input consistent
@@ -116,9 +114,13 @@ void Game::Interpret()
 	}
 	else if (true == m_command->FindAt(0, "cast "))
 	{
-		temp.StrAfter(*m_command, "cast ");	//	dereferenced string pointer, then function takes a reference to the string
+		
+		
+		//temp.StrAfter(*m_command, "cast ");	//	dereferenced string pointer, then function takes a reference to the string
 			//	temp becomes m_command after "cast " occurs.
 			//	for example, if m_command = "cast fire", then temp = "fire"
+
+		String temp(*m_command, "cast ");
 
 		m_TryCast(temp);
 
@@ -780,7 +782,7 @@ void Game::m_TryCast(const String& spell)
 		return;
 	}
 
-	m_player->CastSpell(spell);
+	m_player->CastSpell(spell.CStr());
 
 	//if (skeleton != nullptr)
 	//{

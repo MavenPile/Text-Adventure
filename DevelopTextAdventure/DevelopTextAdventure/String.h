@@ -28,6 +28,8 @@ public:
 
 	String(const String& input);		//copy constructor
 
+	String(String& inputStr, const char* findStr);	//	constructs a string of str after findStr
+
 	~String();		//the destructor
 
 		//	Member Function Declarations
@@ -53,11 +55,6 @@ public:
 	int FindFrom(int index, const String& findString);	//	same as Find(), but begins search from index
 
 	bool FindAt(int index, const String& findString);
-
-	void StrAfter(String& str, const char* findStr);	//	turns m_string into inputStr after findStr
-
-	//int* FindArray(const String& findString);	
-		//	finds all instances of findString, and returns an array of their indexes
 
 	void Replace(const String& findString, const String& replaceString);
 		//	same as find, but uses ReplaceAt() helper function, and doesn't return anything

@@ -38,6 +38,38 @@ String::String(const String& input)
 
 }	//	copy constructor functionality confirmed
 
+String::String(String& inputStr, const char* findStr)
+{
+	if (inputStr.Find(findStr) == -1)	//	check if findStr doesn't exist in inputStr
+	{
+		m_string = new char[14] {"Hello, World!"};	//	acts like default constructor
+	}
+
+	//	inputStr = "cast fire", findStr = "cast "
+
+	int findStrLen = strlen(findStr);	//	strlen(findStr) outputs length of 5, correct for "cast "
+
+	int newStrIndex = inputStr.Find(findStr) + findStrLen;	//	inputStr.Find(findStr) outputs index of 0
+	//	strBeginIndex = 0 + 5 = 5
+	//	the 5th index of inputStr is the "f"
+
+	int newStrLen = inputStr.Length() - newStrIndex;	//	inputStr.Length() outputs length of 9
+	//	newStrLen = 9 - 5 = 4
+	//	which fits "fire"
+
+	//	delete m_string;	//	resets this string, to accept new information
+
+	m_string = new char(newStrLen + 1);	//	allocated memory of new string becomes 4 + 1 = 5
+	//	which is "fire" plus a null terminator ('\0')
+
+	for (int i = 0; i <= newStrLen; i++)	//	loops for length of new string, which is 4
+		//	first iteration of loop is index 0, so it repeats 5 times
+		//	five times is the length of "fire" plus the null terminator
+	{
+		m_string[i] = inputStr.CharacterAt(i + newStrIndex);	//	m_string[i] = "f" for i = 0, then incrementing
+	}
+}
+
 String::~String()
 {
 	//manually deallocates space so no memory space is kept
@@ -284,42 +316,6 @@ bool String::FindAt(int index, const String& findString)
 {
 	return CompareAt(index, findString);
 }
-
-void String::StrAfter(String& inputStr, const char* findStr)
-{
-	if (inputStr.Find(findStr) == -1)	//	check if findStr doesn't exist in inputStr
-	{
-		return;	//	function does nothing. There's probably a more elegant solution, but this is what I thought of
-	}
-	
-	//	inputStr = "cast fire", findStr = "cast "
-
-	int findStrLen = strlen(findStr);	//	strlen(findStr) outputs length of 5
-
-	int newStrIndex = inputStr.Find(findStr) + findStrLen;	//	inputStr.Find(findStr) outputs index of 0
-															//	strBeginIndex = 0 + 5 = 5
-															//	the 5th index of inputStr is the "f"
-
-	int newStrLen = inputStr.Length() - newStrIndex;	//	inputStr.Length() outputs length of 9
-														//	newStrLen = 9 - 5 = 4
-														//	which fits "fire"
-
-	delete m_string;	//	resets this string, to accept new information
-
-	m_string = new char(newStrLen + 1);	//	allocated memory of new string becomes 4 + 1 = 5
-										//	which is "fire" plus a null terminator ('\0')
-
-	char tempChar;	//	holder char variable for copying values
-
-	for (int i = 0; i <= newStrLen; i++)	//	loops for length of new string, which is 4
-										//	first iteration of loop is index 0, so it repeats 5 times
-										//	five times is the length of "fire" plus the null terminator
-	{
-		tempChar = inputStr.CharacterAt(i + newStrIndex);	//	tempChar = i + 5 = "f" for i = 0, then incrementing
-
-		m_string[i] = tempChar;	//	m_string[i] = "f" for i = 0, then incrementing
-	}
-}	//	my first versions of this didn't work at all, so many errors
 
 void String::ReplaceAt(int index, const String& originString, const String& replaceString)
 {

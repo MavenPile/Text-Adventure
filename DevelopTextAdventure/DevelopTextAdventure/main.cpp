@@ -1,11 +1,21 @@
 #include <iostream>
 #include "Game.h"
+#include "String.h"
 
 int main()
 {
-	Game* myGame = new Game;
+	String exampleCommand("cast fire");
+
+	exampleCommand.ToLower();
+
+	String temp(exampleCommand, "cast ");
+
+	temp.WriteToConsole();
+
 	
-	myGame->Run();	
+/*	Game* myGame = new Game;
+	
+	myGame->Run();*/	
 	
 	return 0;
 }
