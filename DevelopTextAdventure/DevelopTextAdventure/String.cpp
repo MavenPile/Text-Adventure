@@ -57,8 +57,6 @@ String::String(String& inputStr, const char* findStr)
 	//	newStrLen = 9 - 5 = 4
 	//	which fits "fire"
 
-	//	delete m_string;	//	resets this string, to accept new information
-
 	m_string = new char(newStrLen + 1);	//	allocated memory of new string becomes 4 + 1 = 5
 	//	which is "fire" plus a null terminator ('\0')
 

@@ -6,11 +6,9 @@ int main()
 {
 	String exampleCommand("cast fire");
 
-	exampleCommand.ToLower();
+	String temp(exampleCommand, "cast ");	//	temp = "fire" with null terminator
 
-	String temp(exampleCommand, "cast ");
-
-	temp.WriteToConsole();
+	temp.WriteToConsole();	//	outputs "fire"
 
 	
 /*	Game* myGame = new Game;

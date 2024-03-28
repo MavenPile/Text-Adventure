@@ -114,8 +114,6 @@ void Game::Interpret()
 	}
 	else if (true == m_command->FindAt(0, "cast "))
 	{
-		
-		
 		//temp.StrAfter(*m_command, "cast ");	//	dereferenced string pointer, then function takes a reference to the string
 			//	temp becomes m_command after "cast " occurs.
 			//	for example, if m_command = "cast fire", then temp = "fire"
