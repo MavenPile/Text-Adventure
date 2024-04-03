@@ -27,14 +27,18 @@ public:	//	public methods
 
 	const char* CStr() const;
 
+	const char* GetCast() const;
+
+	bool operator == (const Spell& compare);
+
 	//	Move Semantics
 
 	Spell(const Spell& input);	//	copy constructor
 
 	Spell(Spell&& other);	//	move constructor
 
-	Spell& operator = (Spell&& other);	//	copy assignment operator
+	Spell& operator = (Spell&& other);	//	move assignment operator
 
-	bool operator < (const Spell& compare);	//	move assignment operator
+	bool operator < (const Spell& compare);
 };
 

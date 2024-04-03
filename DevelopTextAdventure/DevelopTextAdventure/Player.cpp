@@ -49,7 +49,7 @@ int Player::FindSpell(const String& findSpell)
 {
     //std::sort(m_spells.begin(), m_spells.end());    //  sorts the vector
 
-    int index = m_BinarySearch(findSpell, 0, m_spells.size());
+    int index = m_BinarySearch(findSpell, 0, m_spells.size() - 1);
 
     return index;
 
@@ -92,19 +92,25 @@ void Player::CastSpell(const String& spell)
 
 int Player::m_BinarySearch(const String& spell, int startIndex, int endIndex)
 {
-    //std::sort(m_spells.begin(), m_spells.end());    //  sorts vector
+    std::sort(m_spells.begin(), m_spells.end());    //  sorts vector
     
     int pivot;  //  pivot for binary search
+
+    String pivotPoint;
+
+    String spellStr(spell);
 
     while (startIndex <= endIndex)  //  possible search length
     {
         pivot = (startIndex + endIndex) / 2;  //  start at centre of search area
 
-        if (m_spells[pivot]->CStr() == spell.CStr())   //  if pivot is search target
+        pivotPoint = m_spells[pivot]->CStr();
+
+        if (pivotPoint == spellStr)   //  if pivot is search target
         {
             return pivot;
         }
-        else if (m_spells[pivot]->CStr() > spell.CStr())   //  if pivot is greater than search target
+        else if (pivotPoint > spellStr)   //  if pivot is greater than search target
         {
             endIndex = pivot - 1;
         }
