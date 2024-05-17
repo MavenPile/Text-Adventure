@@ -128,5 +128,8 @@
     <ClInclude Include="Book.h">
       <Filter>Header Files\Items</Filter>
     </ClInclude>
+    <ClInclude Include="Utilities.h">
+      <Filter>Header Files\GameStuff</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

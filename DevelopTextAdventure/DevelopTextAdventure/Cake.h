@@ -21,5 +21,6 @@ public:
 
 	void Use() override;
 
+	int GetCakeRemaining() { return m_cakeRemaining; }
 };
 

@@ -41,8 +41,6 @@ void Player::CreateSpellList()
     Spell* thunder = new Spell(this, "thunder", "You attempted to cast Thunder... Large stormclouds start to collect in the room, and begin bellowing lightning all over... Bones have a natural resistance to thunder, but flesh doesn't... You die from electrocution...");
     
     m_spells.push_back(thunder);
-
-    std::sort(m_spells.begin(), m_spells.end());
 }
 
 int Player::FindSpell(const String& findSpell)

@@ -52,7 +52,7 @@ public:	//	Public Methods
 
 	void PrintMap();
 
-	void Interpret();
+	void Interpret(String& command);
 
 	void Run();
 

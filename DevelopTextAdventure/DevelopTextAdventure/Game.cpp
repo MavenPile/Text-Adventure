@@ -93,15 +93,15 @@ void Game::PrintMap()
 	std::cout << "---------------" << std::endl;
 }
 
-void Game::Interpret()
+void Game::Interpret(String& command)
 {
-	std::cout << "What action would you like to take? (type \"help\" for commands)" << std::endl;
+	//std::cout << "What action would you like to take? (type \"help\" for commands)" << std::endl;
 
-	m_command->ReadFromConsole();	//	recieves input
+	//m_command->ReadFromConsole();	//	recieves input
 
-	m_command->ToLower();	//	makes input consistent
+	//m_command->ToLower();	//	makes input consistent
 
-	if (true == m_command->FindAt(0, "help"))
+	if (command.FindAt(0, "help"))
 	{
 		std::cout << std::endl;
 		std::cout << "move <north, south, east, west: move to an adjacent room..." << std::endl;
@@ -112,13 +112,13 @@ void Game::Interpret()
 		std::cout << "cast <spell>: cast a spell on an enemy in a room..." << std::endl;
 		std::cout << std::endl;
 	}
-	else if (true == m_command->FindAt(0, "cast "))
+	else if (command.FindAt(0, "cast "))
 	{
 		//temp.StrAfter(*m_command, "cast ");	//	dereferenced string pointer, then function takes a reference to the string
 			//	temp becomes m_command after "cast " occurs.
 			//	for example, if m_command = "cast fire", then temp = "fire"
 
-		String temp(*m_command, "cast ");
+		String temp(command, "cast ");
 
 		m_TryCast(temp);
 
@@ -141,25 +141,25 @@ void Game::Interpret()
 
 		//m_player->FindSpell(after);
 	}
-	else if (true == m_command->FindAt(0, "attack"))
+	else if (true == command.FindAt(0, "attack"))
 	{
 		m_TryAttack();
 	}
-	else if (true == m_command->FindAt(0, "move "))
+	else if (true == command.FindAt(0, "move "))
 	{
-		if (m_command->Find("north") != -1)
+		if (command.Find("north") != -1)
 		{
 			m_TryMove('n');
 		}
-		else if (m_command->Find("south") != -1)
+		else if (command.Find("south") != -1)
 		{
 			m_TryMove('s');
 		}
-		else if (m_command->Find("east") != -1)
+		else if (command.Find("east") != -1)
 		{
 			m_TryMove('e');
 		}
-		else if (m_command->Find("west") != -1)
+		else if (command.Find("west") != -1)
 		{
 			m_TryMove('w');
 		}
@@ -168,29 +168,29 @@ void Game::Interpret()
 			std::cout << "That isn't a direction to move..." << std::endl;
 		}
 	}
-	else if (true == m_command->FindAt(0, "use "))
+	else if (true == command.FindAt(0, "use "))
 	{
-		if (m_command->Find("cake") != -1)
+		if (command.Find("cake") != -1)
 		{
 			m_TryUse('c');
 		}
-		else if (m_command->Find("cat") != -1)
+		else if (command.Find("cat") != -1)
 		{
 			m_TryUse('a');
 		}
-		else if (m_command->Find("dog") != -1)
+		else if (command.Find("dog") != -1)
 		{
 			m_TryUse('d');
 		}
-		else if (m_command->Find("door") != -1)
+		else if (command.Find("door") != -1)
 		{
 			m_TryUse('o');
 		}
-		else if (m_command->Find("lamp") != -1)
+		else if (command.Find("lamp") != -1)
 		{
 			m_TryUse('l');
 		}
-		else if (m_command->Find("book") != -1)
+		else if (command.Find("book") != -1)
 		{
 			m_TryUse('b');
 		}
@@ -199,33 +199,33 @@ void Game::Interpret()
 			std::cout << "There was nothing like that to use..." << std::endl;
 		}
 	}
-	else if (true == m_command->FindAt(0, "inspect "))
+	else if (true == command.FindAt(0, "inspect "))
 	{
-		if (m_command->Find("cake") != -1)
+		if (command.Find("cake") != -1)
 		{
 			m_TryInspect('c');
 		}
-		else if (m_command->Find("cat") != -1)
+		else if (command.Find("cat") != -1)
 		{
 			m_TryInspect('a');
 		}
-		else if (m_command->Find("dog") != -1)
+		else if (command.Find("dog") != -1)
 		{
 			m_TryInspect('d');
 		}
-		else if (m_command->Find("door") != -1)
+		else if (command.Find("door") != -1)
 		{
 			m_TryInspect('o');
 		}
-		else if (m_command->Find("lamp") != -1)
+		else if (command.Find("lamp") != -1)
 		{
 			m_TryInspect('l');
 		}
-		else if (m_command->Find("skeleton") != -1)
+		else if (command.Find("skeleton") != -1)
 		{
 			m_TryInspect('s');
 		}
-		else if (m_command->Find("book") != -1)
+		else if (command.Find("book") != -1)
 		{
 			m_TryInspect('b');
 		}
@@ -246,7 +246,13 @@ void Game::Run()
 		
 		m_gameMap[m_posX][m_posY].Description();	//	outputs description of room
 
-		Interpret();
+		std::cout << "What action would you like to take? (type \"help\" for commands)" << std::endl;
+
+		m_command->ReadFromConsole();	//	recieves input
+
+		m_command->ToLower();//	makes input consistent
+
+		Interpret(*m_command);
 
 		//std::cout << "What action would you like to take? (type \"help\" for commands)" << std::endl;
 
@@ -771,16 +777,77 @@ void Game::m_TryInspect(char c)
 
 void Game::m_TryCast(const String& spell)
 {
-	Skeleton* isSkeleHere = dynamic_cast<Skeleton*>(m_gameMap[m_posX][m_posY].enemy);
+	Skeleton* ifSkeleton = dynamic_cast<Skeleton*>(m_gameMap[m_posX][m_posY].enemy);
 
-	if (nullptr == isSkeleHere)
+	if (nullptr != ifSkeleton)
 	{
-		std::cout << "There were no targets..." << std::endl;
-	
+		m_player->CastSpell(spell.CStr());
+
 		return;
 	}
 
-	m_player->CastSpell(spell.CStr());
+	Cat* ifCat = dynamic_cast<Cat*>(m_gameMap[m_posX][m_posY].item);
+
+	if (nullptr != ifCat)
+	{
+		std::cout << "You were about to cast a spell on the cat, but saner minds prevailed..." << std::endl;
+
+		return;
+	}
+
+	Dog* ifDog = dynamic_cast<Dog*>(m_gameMap[m_posX][m_posY].item);
+
+	if (nullptr != ifDog)
+	{
+		std::cout << "Maybe casting a spell on the dog is the right move, but you stopped yourself... It's just a dog, right?" << std::endl;
+
+		return;
+	}
+
+	Cake* ifCake = dynamic_cast<Cake*>(m_gameMap[m_posX][m_posY].item);
+
+	if (nullptr != ifCake && ifCake->GetCakeRemaining() > 0)
+	{
+		std::cout << "You don't cast a spell on the cake, it's better to be eaten..." << std::endl;
+
+		return;
+	}
+	else if (nullptr != ifCake && ifCake->GetCakeRemaining() <= 0)
+	{
+		std::cout << "You already destroyed the cake, you don't need to destroy the table as well..." << std::endl;
+
+		return;
+	}
+
+	Book* ifBook = dynamic_cast<Book*>(m_gameMap[m_posX][m_posY].item);
+
+	if (nullptr != ifBook)
+	{
+		std::cout << "You understand that knowledge is valuable and limited in this place, and refrain from casting a spell..." << std::endl;
+
+		return;
+	}
+
+	Lamp* ifLamp = dynamic_cast<Lamp*>(m_gameMap[m_posX][m_posY].item);
+
+	if (nullptr != ifLamp)
+	{
+		std::cout << "Although casting a spell might lighten up the room, there is a lamp here, so you don't cast a spell..." << std::endl;
+
+		return;
+	}
+
+	Door* ifDoor = dynamic_cast<Door*>(m_gameMap[m_posX][m_posY].item);
+
+	if (nullptr != ifDoor)
+	{
+		std::cout << "You feel as if this door is your only way out, but destroying it with a spell may cause you to never leave..." << std::endl;
+
+		return;
+	}
+
+	std::cout << "There were no targets..." << std::endl;
+
 
 	//if (skeleton != nullptr)
 	//{
