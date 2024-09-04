@@ -53,7 +53,7 @@ void Skeleton::TakeDamage(int dmg)
 	}
 	else if (m_armLeft == true)
 	{
-		std::cout << "The skeleton guards you attack with its left arm, losing it..." << std::endl;
+		std::cout << "The skeleton guards with its left arm as you attack. It loses said arm..." << std::endl;
 		m_armLeft = false;
 
 		String* newDesc = new String("The skeleton still stands, with no arms...");
